@@ -1,0 +1,42 @@
+{
+    "frames": {
+        "关闭按钮.png": {
+            "frame": {
+                "h": 114,
+                "idx": 0,
+                "w": 107,
+                "x": 148,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 114,
+                "w": 107
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "选中页签.png": {
+            "frame": {
+                "h": 96,
+                "idx": 0,
+                "w": 147,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 96,
+                "w": 147
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "ranking.png",
+        "prefix": "ranking/"
+    }
+}

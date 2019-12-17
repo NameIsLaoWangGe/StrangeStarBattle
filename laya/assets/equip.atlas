@@ -1,0 +1,399 @@
+{
+    "frames": {
+        "主武器.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 69,
+                "x": 244,
+                "y": 245
+            },
+            "sourceSize": {
+                "h": 26,
+                "w": 69
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "主武器_机炮0.png": {
+            "frame": {
+                "h": 137,
+                "idx": 0,
+                "w": 125,
+                "x": 0,
+                "y": 132
+            },
+            "sourceSize": {
+                "h": 137,
+                "w": 125
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "副武器.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 69,
+                "x": 126,
+                "y": 258
+            },
+            "sourceSize": {
+                "h": 26,
+                "w": 69
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "副武器_机炮0.png": {
+            "frame": {
+                "h": 125,
+                "idx": 0,
+                "w": 103,
+                "x": 244,
+                "y": 119
+            },
+            "sourceSize": {
+                "h": 125,
+                "w": 103
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "副武器_机炮1.png": {
+            "frame": {
+                "h": 118,
+                "idx": 0,
+                "w": 110,
+                "x": 200,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 118,
+                "w": 110
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "副武器_机炮2_未解锁.png": {
+            "frame": {
+                "h": 125,
+                "idx": 0,
+                "w": 117,
+                "x": 126,
+                "y": 132
+            },
+            "sourceSize": {
+                "h": 125,
+                "w": 117
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "升级图标.png": {
+            "frame": {
+                "h": 57,
+                "idx": 0,
+                "w": 59,
+                "x": 348,
+                "y": 176
+            },
+            "sourceSize": {
+                "h": 57,
+                "w": 59
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "按钮.png": {
+            "frame": {
+                "h": 131,
+                "idx": 0,
+                "w": 199,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 131,
+                "w": 199
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "推广游戏1.png": {
+            "frame": {
+                "h": 89,
+                "idx": 0,
+                "w": 89,
+                "x": 311,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 89,
+                "w": 89
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "推广游戏2.png": {
+            "frame": {
+                "h": 89,
+                "idx": 0,
+                "w": 89,
+                "x": 401,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 89,
+                "w": 89
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "更多游戏.png": {
+            "frame": {
+                "h": 85,
+                "idx": 0,
+                "w": 83,
+                "x": 348,
+                "y": 90
+            },
+            "sourceSize": {
+                "h": 85,
+                "w": 83
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "等级框.png": {
+            "frame": {
+                "h": 32,
+                "idx": 0,
+                "w": 79,
+                "x": 348,
+                "y": 234
+            },
+            "sourceSize": {
+                "h": 32,
+                "w": 79
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "设置_图标.png": {
+            "frame": {
+                "h": 97,
+                "idx": 0,
+                "w": 69,
+                "x": 432,
+                "y": 90
+            },
+            "sourceSize": {
+                "h": 97,
+                "w": 69
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_0_数字.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 18,
+                "x": 408,
+                "y": 176
+            },
+            "sourceSize": {
+                "h": 26,
+                "w": 18
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_1_数字.png": {
+            "frame": {
+                "h": 25,
+                "idx": 0,
+                "w": 10,
+                "x": 331,
+                "y": 90
+            },
+            "sourceSize": {
+                "h": 25,
+                "w": 10
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_2_数字.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 18,
+                "x": 196,
+                "y": 258
+            },
+            "sourceSize": {
+                "h": 26,
+                "w": 18
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_3_数字.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 18,
+                "x": 215,
+                "y": 258
+            },
+            "sourceSize": {
+                "h": 26,
+                "w": 18
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_4_数字.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 19,
+                "x": 311,
+                "y": 90
+            },
+            "sourceSize": {
+                "h": 26,
+                "w": 19
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_5_数字.png": {
+            "frame": {
+                "h": 25,
+                "idx": 0,
+                "w": 18,
+                "x": 491,
+                "y": 27
+            },
+            "sourceSize": {
+                "h": 25,
+                "w": 18
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_6_数字.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 18,
+                "x": 314,
+                "y": 245
+            },
+            "sourceSize": {
+                "h": 26,
+                "w": 18
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_7_数字.png": {
+            "frame": {
+                "h": 25,
+                "idx": 0,
+                "w": 18,
+                "x": 491,
+                "y": 53
+            },
+            "sourceSize": {
+                "h": 25,
+                "w": 18
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_8_数字.png": {
+            "frame": {
+                "h": 25,
+                "idx": 0,
+                "w": 18,
+                "x": 408,
+                "y": 203
+            },
+            "sourceSize": {
+                "h": 25,
+                "w": 18
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_9_数字.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 18,
+                "x": 491,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 26,
+                "w": 18
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "equip.png",
+        "prefix": "equip/"
+    }
+}

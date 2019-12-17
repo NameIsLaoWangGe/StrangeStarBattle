@@ -1,0 +1,246 @@
+{
+    "frames": {
+        "下一关关卡底框.png": {
+            "frame": {
+                "h": 204,
+                "idx": 0,
+                "w": 204,
+                "x": 0,
+                "y": 326
+            },
+            "sourceSize": {
+                "h": 204,
+                "w": 204
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "关卡箭头.png": {
+            "frame": {
+                "h": 29,
+                "idx": 0,
+                "w": 26,
+                "x": 205,
+                "y": 326
+            },
+            "sourceSize": {
+                "h": 29,
+                "w": 26
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "剩余表情.png": {
+            "frame": {
+                "h": 20,
+                "idx": 0,
+                "w": 86,
+                "x": 366,
+                "y": 466
+            },
+            "sourceSize": {
+                "h": 20,
+                "w": 86
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "双倍领取.png": {
+            "frame": {
+                "h": 178,
+                "idx": 0,
+                "w": 210,
+                "x": 233,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 178,
+                "w": 210
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "备注.png": {
+            "frame": {
+                "h": 21,
+                "idx": 0,
+                "w": 342,
+                "x": 205,
+                "y": 522
+            },
+            "sourceSize": {
+                "h": 21,
+                "w": 342
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "复活图标.png": {
+            "frame": {
+                "h": 325,
+                "idx": 0,
+                "w": 232,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 325,
+                "w": 232
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "大关卡框.png": {
+            "frame": {
+                "h": 78,
+                "idx": 0,
+                "w": 87,
+                "x": 444,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 78,
+                "w": 87
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "小关卡框.png": {
+            "frame": {
+                "h": 67,
+                "idx": 0,
+                "w": 74,
+                "x": 444,
+                "y": 79
+            },
+            "sourceSize": {
+                "h": 67,
+                "w": 74
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "当前关卡底框.png": {
+            "frame": {
+                "h": 163,
+                "idx": 0,
+                "w": 160,
+                "x": 205,
+                "y": 358
+            },
+            "sourceSize": {
+                "h": 163,
+                "w": 160
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "直接领取.png": {
+            "frame": {
+                "h": 178,
+                "idx": 0,
+                "w": 210,
+                "x": 233,
+                "y": 179
+            },
+            "sourceSize": {
+                "h": 178,
+                "w": 210
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "箭头.png": {
+            "frame": {
+                "h": 75,
+                "idx": 0,
+                "w": 68,
+                "x": 366,
+                "y": 358
+            },
+            "sourceSize": {
+                "h": 75,
+                "w": 68
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "结算奖励.png": {
+            "frame": {
+                "h": 31,
+                "idx": 0,
+                "w": 126,
+                "x": 366,
+                "y": 434
+            },
+            "sourceSize": {
+                "h": 31,
+                "w": 126
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币.png": {
+            "frame": {
+                "h": 30,
+                "idx": 0,
+                "w": 30,
+                "x": 444,
+                "y": 209
+            },
+            "sourceSize": {
+                "h": 30,
+                "w": 30
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币图标.png": {
+            "frame": {
+                "h": 61,
+                "idx": 0,
+                "w": 62,
+                "x": 444,
+                "y": 147
+            },
+            "sourceSize": {
+                "h": 61,
+                "w": 62
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "settlement.png",
+        "prefix": "settlement/"
+    }
+}

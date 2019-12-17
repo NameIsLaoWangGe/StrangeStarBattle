@@ -1,0 +1,161 @@
+{
+    "frames": {
+        "CD遮罩.png": {
+            "frame": {
+                "h": 95,
+                "idx": 0,
+                "w": 95,
+                "x": 183,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 110,
+                "w": 106
+            },
+            "spriteSourceSize": {
+                "x": 7,
+                "y": 11
+            }
+        },
+        "炮弹加速.png": {
+            "frame": {
+                "h": 99,
+                "idx": 0,
+                "w": 99,
+                "x": 183,
+                "y": 96
+            },
+            "sourceSize": {
+                "h": 110,
+                "w": 106
+            },
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 9
+            }
+        },
+        "炮弹加速_掉落.png": {
+            "frame": {
+                "h": 92,
+                "idx": 0,
+                "w": 182,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 99,
+                "w": 182
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "炮弹增强_掉落.png": {
+            "frame": {
+                "h": 92,
+                "idx": 0,
+                "w": 182,
+                "x": 0,
+                "y": 93
+            },
+            "sourceSize": {
+                "h": 99,
+                "w": 182
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "炮弹威力.png": {
+            "frame": {
+                "h": 99,
+                "idx": 0,
+                "w": 99,
+                "x": 183,
+                "y": 196
+            },
+            "sourceSize": {
+                "h": 110,
+                "w": 106
+            },
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 9
+            }
+        },
+        "炮弹弹幕.png": {
+            "frame": {
+                "h": 99,
+                "idx": 0,
+                "w": 99,
+                "x": 283,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 110,
+                "w": 106
+            },
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 9
+            }
+        },
+        "炮弹弹幕_掉落.png": {
+            "frame": {
+                "h": 92,
+                "idx": 0,
+                "w": 182,
+                "x": 0,
+                "y": 186
+            },
+            "sourceSize": {
+                "h": 99,
+                "w": 182
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币_掉落.png": {
+            "frame": {
+                "h": 99,
+                "idx": 0,
+                "w": 182,
+                "x": 0,
+                "y": 279
+            },
+            "sourceSize": {
+                "h": 99,
+                "w": 182
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币状态.png": {
+            "frame": {
+                "h": 99,
+                "idx": 0,
+                "w": 99,
+                "x": 283,
+                "y": 100
+            },
+            "sourceSize": {
+                "h": 110,
+                "w": 106
+            },
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 9
+            }
+        }
+    },
+    "meta": {
+        "image": "buff.png",
+        "prefix": "buff/"
+    }
+}

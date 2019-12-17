@@ -1,0 +1,1351 @@
+{
+    "frames": {
+        "BOSS血条1.png": {
+            "frame": {
+                "h": 47,
+                "idx": 0,
+                "w": 321,
+                "x": 706,
+                "y": 303
+            },
+            "sourceSize": {
+                "h": 47,
+                "w": 321
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "BOSS血条2png.png": {
+            "frame": {
+                "h": 47,
+                "idx": 0,
+                "w": 321,
+                "x": 745,
+                "y": 351
+            },
+            "sourceSize": {
+                "h": 47,
+                "w": 321
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "CD-黑色遮罩.png": {
+            "frame": {
+                "h": 117,
+                "idx": 0,
+                "w": 92,
+                "x": 971,
+                "y": 628
+            },
+            "sourceSize": {
+                "h": 117,
+                "w": 92
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "b1.png": {
+            "frame": {
+                "h": 100,
+                "idx": 0,
+                "w": 100,
+                "x": 662,
+                "y": 919
+            },
+            "sourceSize": {
+                "h": 100,
+                "w": 100
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "hong.png": {
+            "frame": {
+                "h": 107,
+                "idx": 0,
+                "w": 121,
+                "x": 745,
+                "y": 399
+            },
+            "sourceSize": {
+                "h": 113,
+                "w": 131
+            },
+            "spriteSourceSize": {
+                "x": 6,
+                "y": 4
+            }
+        },
+        "下一关卡图标.png": {
+            "frame": {
+                "h": 78,
+                "idx": 0,
+                "w": 87,
+                "x": 979,
+                "y": 836
+            },
+            "sourceSize": {
+                "h": 78,
+                "w": 87
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "主武器_临时.png": {
+            "frame": {
+                "h": 137,
+                "idx": 0,
+                "w": 150,
+                "x": 250,
+                "y": 724
+            },
+            "sourceSize": {
+                "h": 137,
+                "w": 150
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "主武器_临时1.png": {
+            "frame": {
+                "h": 80,
+                "idx": 0,
+                "w": 93,
+                "x": 801,
+                "y": 838
+            },
+            "sourceSize": {
+                "h": 80,
+                "w": 93
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "主武器_临时2.png": {
+            "frame": {
+                "h": 97,
+                "idx": 0,
+                "w": 92,
+                "x": 763,
+                "y": 919
+            },
+            "sourceSize": {
+                "h": 97,
+                "w": 92
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "主武器_临时3.png": {
+            "frame": {
+                "h": 90,
+                "idx": 0,
+                "w": 93,
+                "x": 882,
+                "y": 746
+            },
+            "sourceSize": {
+                "h": 90,
+                "w": 93
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "主武器_临时4.png": {
+            "frame": {
+                "h": 94,
+                "idx": 0,
+                "w": 96,
+                "x": 785,
+                "y": 743
+            },
+            "sourceSize": {
+                "h": 94,
+                "w": 96
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "主角.png": {
+            "frame": {
+                "h": 110,
+                "idx": 0,
+                "w": 120,
+                "x": 974,
+                "y": 399
+            },
+            "sourceSize": {
+                "h": 110,
+                "w": 120
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "体力图标.png": {
+            "frame": {
+                "h": 71,
+                "idx": 0,
+                "w": 48,
+                "x": 943,
+                "y": 992
+            },
+            "sourceSize": {
+                "h": 71,
+                "w": 48
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "体力资源条.png": {
+            "frame": {
+                "h": 53,
+                "idx": 0,
+                "w": 162,
+                "x": 194,
+                "y": 1052
+            },
+            "sourceSize": {
+                "h": 53,
+                "w": 162
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "侧拉按钮.png": {
+            "frame": {
+                "h": 294,
+                "idx": 0,
+                "w": 61,
+                "x": 723,
+                "y": 510
+            },
+            "sourceSize": {
+                "h": 302,
+                "w": 61
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 8
+            }
+        },
+        "侧拉条_推荐游戏_临时1.png": {
+            "frame": {
+                "h": 89,
+                "idx": 0,
+                "w": 89,
+                "x": 976,
+                "y": 746
+            },
+            "sourceSize": {
+                "h": 89,
+                "w": 89
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "侧拉条_推荐游戏_临时2.png": {
+            "frame": {
+                "h": 89,
+                "idx": 0,
+                "w": 89,
+                "x": 763,
+                "y": 1017
+            },
+            "sourceSize": {
+                "h": 89,
+                "w": 89
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "侧拉条_推荐游戏_临时3.png": {
+            "frame": {
+                "h": 89,
+                "idx": 0,
+                "w": 89,
+                "x": 853,
+                "y": 1017
+            },
+            "sourceSize": {
+                "h": 89,
+                "w": 89
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "侧拉条_推荐游戏_更多爆款.png": {
+            "frame": {
+                "h": 85,
+                "idx": 0,
+                "w": 83,
+                "x": 895,
+                "y": 837
+            },
+            "sourceSize": {
+                "h": 85,
+                "w": 83
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "充值图标.png": {
+            "frame": {
+                "h": 53,
+                "idx": 0,
+                "w": 51,
+                "x": 654,
+                "y": 807
+            },
+            "sourceSize": {
+                "h": 53,
+                "w": 51
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "关卡图标.png": {
+            "frame": {
+                "h": 62,
+                "idx": 0,
+                "w": 65,
+                "x": 983,
+                "y": 915
+            },
+            "sourceSize": {
+                "h": 62,
+                "w": 65
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "关卡模式按钮.png": {
+            "frame": {
+                "h": 263,
+                "idx": 0,
+                "w": 428,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 263,
+                "w": 428
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "关卡进度条$bar.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 399,
+                "x": 401,
+                "y": 861
+            },
+            "sourceSize": {
+                "h": 30,
+                "w": 405
+            },
+            "spriteSourceSize": {
+                "x": 3,
+                "y": 2
+            }
+        },
+        "关卡进度条.png": {
+            "frame": {
+                "h": 30,
+                "idx": 0,
+                "w": 405,
+                "x": 375,
+                "y": 888
+            },
+            "sourceSize": {
+                "h": 30,
+                "w": 405
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "分享图标.png": {
+            "frame": {
+                "h": 108,
+                "idx": 0,
+                "w": 98,
+                "x": 287,
+                "y": 930
+            },
+            "sourceSize": {
+                "h": 108,
+                "w": 98
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "分享图标_down.png": {
+            "frame": {
+                "h": 117,
+                "idx": 0,
+                "w": 92,
+                "x": 878,
+                "y": 624
+            },
+            "sourceSize": {
+                "h": 117,
+                "w": 92
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "副武器.png": {
+            "frame": {
+                "h": 72,
+                "idx": 0,
+                "w": 180,
+                "x": 542,
+                "y": 583
+            },
+            "sourceSize": {
+                "h": 148,
+                "w": 187
+            },
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 63
+            }
+        },
+        "副武器1.png": {
+            "frame": {
+                "h": 43,
+                "idx": 0,
+                "w": 228,
+                "x": 386,
+                "y": 1028
+            },
+            "sourceSize": {
+                "h": 43,
+                "w": 228
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "副武器2.png": {
+            "frame": {
+                "h": 72,
+                "idx": 0,
+                "w": 180,
+                "x": 542,
+                "y": 510
+            },
+            "sourceSize": {
+                "h": 148,
+                "w": 187
+            },
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 63
+            }
+        },
+        "副武器子弹.png": {
+            "frame": {
+                "h": 33,
+                "idx": 0,
+                "w": 33,
+                "x": 401,
+                "y": 724
+            },
+            "sourceSize": {
+                "h": 33,
+                "w": 33
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "升级图标.png": {
+            "frame": {
+                "h": 57,
+                "idx": 0,
+                "w": 59,
+                "x": 992,
+                "y": 978
+            },
+            "sourceSize": {
+                "h": 57,
+                "w": 59
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "双管火炮.png": {
+            "frame": {
+                "h": 60,
+                "idx": 0,
+                "w": 69,
+                "x": 1064,
+                "y": 583
+            },
+            "sourceSize": {
+                "h": 77,
+                "w": 77
+            },
+            "spriteSourceSize": {
+                "x": 4,
+                "y": 10
+            }
+        },
+        "右侧副武器按钮.png": {
+            "frame": {
+                "h": 175,
+                "idx": 0,
+                "w": 276,
+                "x": 671,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 176,
+                "w": 276
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 1
+            }
+        },
+        "商店图标.png": {
+            "frame": {
+                "h": 108,
+                "idx": 0,
+                "w": 98,
+                "x": 485,
+                "y": 919
+            },
+            "sourceSize": {
+                "h": 108,
+                "w": 98
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "商店图标_down.png": {
+            "frame": {
+                "h": 117,
+                "idx": 0,
+                "w": 92,
+                "x": 971,
+                "y": 510
+            },
+            "sourceSize": {
+                "h": 117,
+                "w": 92
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "射速.png": {
+            "frame": {
+                "h": 38,
+                "idx": 0,
+                "w": 197,
+                "x": 556,
+                "y": 1072
+            },
+            "sourceSize": {
+                "h": 38,
+                "w": 197
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "射速倍率.png": {
+            "frame": {
+                "h": 113,
+                "idx": 0,
+                "w": 38,
+                "x": 1096,
+                "y": 167
+            },
+            "sourceSize": {
+                "h": 116,
+                "w": 38
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 1
+            }
+        },
+        "左侧主武器按钮.png": {
+            "frame": {
+                "h": 175,
+                "idx": 0,
+                "w": 276,
+                "x": 429,
+                "y": 218
+            },
+            "sourceSize": {
+                "h": 176,
+                "w": 276
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 1
+            }
+        },
+        "弹幕条数.png": {
+            "frame": {
+                "h": 114,
+                "idx": 0,
+                "w": 37,
+                "x": 1095,
+                "y": 392
+            },
+            "sourceSize": {
+                "h": 116,
+                "w": 37
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "当前关卡图标.png": {
+            "frame": {
+                "h": 67,
+                "idx": 0,
+                "w": 74,
+                "x": 856,
+                "y": 923
+            },
+            "sourceSize": {
+                "h": 67,
+                "w": 74
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "怪物1.png": {
+            "frame": {
+                "h": 223,
+                "idx": 0,
+                "w": 224,
+                "x": 0,
+                "y": 528
+            },
+            "sourceSize": {
+                "h": 223,
+                "w": 224
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "怪物2.png": {
+            "frame": {
+                "h": 217,
+                "idx": 0,
+                "w": 241,
+                "x": 429,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 217,
+                "w": 241
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "怪物3.png": {
+            "frame": {
+                "h": 181,
+                "idx": 0,
+                "w": 249,
+                "x": 0,
+                "y": 752
+            },
+            "sourceSize": {
+                "h": 181,
+                "w": 249
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "战机.png": {
+            "frame": {
+                "h": 150,
+                "idx": 0,
+                "w": 163,
+                "x": 542,
+                "y": 656
+            },
+            "sourceSize": {
+                "h": 150,
+                "w": 163
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "按钮.png": {
+            "frame": {
+                "h": 185,
+                "idx": 0,
+                "w": 193,
+                "x": 0,
+                "y": 934
+            },
+            "sourceSize": {
+                "h": 188,
+                "w": 194
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 1
+            }
+        },
+        "排行图标.png": {
+            "frame": {
+                "h": 108,
+                "idx": 0,
+                "w": 98,
+                "x": 386,
+                "y": 919
+            },
+            "sourceSize": {
+                "h": 108,
+                "w": 98
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "排行榜图标.png": {
+            "frame": {
+                "h": 117,
+                "idx": 0,
+                "w": 92,
+                "x": 878,
+                "y": 506
+            },
+            "sourceSize": {
+                "h": 117,
+                "w": 92
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "排行榜图标_down.png": {
+            "frame": {
+                "h": 117,
+                "idx": 0,
+                "w": 92,
+                "x": 194,
+                "y": 934
+            },
+            "sourceSize": {
+                "h": 117,
+                "w": 92
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "无尽模式按钮.png": {
+            "frame": {
+                "h": 263,
+                "idx": 0,
+                "w": 428,
+                "x": 0,
+                "y": 264
+            },
+            "sourceSize": {
+                "h": 263,
+                "w": 428
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "无尽模式按钮_down.png": {
+            "frame": {
+                "h": 115,
+                "idx": 0,
+                "w": 315,
+                "x": 429,
+                "y": 394
+            },
+            "sourceSize": {
+                "h": 115,
+                "w": 315
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "普通子弹.png": {
+            "frame": {
+                "h": 68,
+                "idx": 0,
+                "w": 51,
+                "x": 931,
+                "y": 923
+            },
+            "sourceSize": {
+                "h": 80,
+                "w": 56
+            },
+            "spriteSourceSize": {
+                "x": 2,
+                "y": 3
+            }
+        },
+        "武器切换图标.png": {
+            "frame": {
+                "h": 55,
+                "idx": 0,
+                "w": 34,
+                "x": 706,
+                "y": 805
+            },
+            "sourceSize": {
+                "h": 55,
+                "w": 34
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "武器状态条.png": {
+            "frame": {
+                "h": 284,
+                "idx": 0,
+                "w": 106,
+                "x": 435,
+                "y": 510
+            },
+            "sourceSize": {
+                "h": 284,
+                "w": 106
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "火力.png": {
+            "frame": {
+                "h": 38,
+                "idx": 0,
+                "w": 198,
+                "x": 357,
+                "y": 1072
+            },
+            "sourceSize": {
+                "h": 38,
+                "w": 198
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "火力倍率.png": {
+            "frame": {
+                "h": 98,
+                "idx": 0,
+                "w": 77,
+                "x": 584,
+                "y": 919
+            },
+            "sourceSize": {
+                "h": 128,
+                "w": 82
+            },
+            "spriteSourceSize": {
+                "x": 2,
+                "y": 3
+            }
+        },
+        "炮弹加速.png": {
+            "frame": {
+                "h": 117,
+                "idx": 0,
+                "w": 92,
+                "x": 785,
+                "y": 625
+            },
+            "sourceSize": {
+                "h": 117,
+                "w": 92
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "炮弹增强.png": {
+            "frame": {
+                "h": 117,
+                "idx": 0,
+                "w": 92,
+                "x": 785,
+                "y": 507
+            },
+            "sourceSize": {
+                "h": 117,
+                "w": 92
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "炮弹选择指示箭头.png": {
+            "frame": {
+                "h": 51,
+                "idx": 0,
+                "w": 75,
+                "x": 615,
+                "y": 1020
+            },
+            "sourceSize": {
+                "h": 55,
+                "w": 79
+            },
+            "spriteSourceSize": {
+                "x": 2,
+                "y": 2
+            }
+        },
+        "特殊怪物1.png": {
+            "frame": {
+                "h": 195,
+                "idx": 0,
+                "w": 209,
+                "x": 225,
+                "y": 528
+            },
+            "sourceSize": {
+                "h": 195,
+                "w": 209
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "特殊怪物2.png": {
+            "frame": {
+                "h": 166,
+                "idx": 0,
+                "w": 185,
+                "x": 948,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 200,
+                "w": 200
+            },
+            "spriteSourceSize": {
+                "x": 6,
+                "y": 14
+            }
+        },
+        "红点.png": {
+            "frame": {
+                "h": 33,
+                "idx": 0,
+                "w": 32,
+                "x": 671,
+                "y": 176
+            },
+            "sourceSize": {
+                "h": 33,
+                "w": 32
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "红色子弹.png": {
+            "frame": {
+                "h": 28,
+                "idx": 0,
+                "w": 20,
+                "x": 943,
+                "y": 1064
+            },
+            "sourceSize": {
+                "h": 28,
+                "w": 20
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "菜单图标.png": {
+            "frame": {
+                "h": 63,
+                "idx": 0,
+                "w": 63,
+                "x": 1066,
+                "y": 717
+            },
+            "sourceSize": {
+                "h": 63,
+                "w": 63
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "蓝.png": {
+            "frame": {
+                "h": 67,
+                "idx": 0,
+                "w": 124,
+                "x": 250,
+                "y": 862
+            },
+            "sourceSize": {
+                "h": 113,
+                "w": 131
+            },
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 24
+            }
+        },
+        "蓝色子弹.png": {
+            "frame": {
+                "h": 28,
+                "idx": 0,
+                "w": 20,
+                "x": 706,
+                "y": 351
+            },
+            "sourceSize": {
+                "h": 28,
+                "w": 20
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "血条1.png": {
+            "frame": {
+                "h": 14,
+                "idx": 0,
+                "w": 104,
+                "x": 194,
+                "y": 1106
+            },
+            "sourceSize": {
+                "h": 14,
+                "w": 104
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "血条2.png": {
+            "frame": {
+                "h": 14,
+                "idx": 0,
+                "w": 104,
+                "x": 992,
+                "y": 1036
+            },
+            "sourceSize": {
+                "h": 14,
+                "w": 104
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "装备未解锁.png": {
+            "frame": {
+                "h": 126,
+                "idx": 0,
+                "w": 129,
+                "x": 706,
+                "y": 176
+            },
+            "sourceSize": {
+                "h": 126,
+                "w": 129
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "装备框.png": {
+            "frame": {
+                "h": 126,
+                "idx": 0,
+                "w": 129,
+                "x": 836,
+                "y": 176
+            },
+            "sourceSize": {
+                "h": 126,
+                "w": 129
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "装备框_选中.png": {
+            "frame": {
+                "h": 126,
+                "idx": 0,
+                "w": 129,
+                "x": 966,
+                "y": 167
+            },
+            "sourceSize": {
+                "h": 126,
+                "w": 129
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "设置_图标.png": {
+            "frame": {
+                "h": 97,
+                "idx": 0,
+                "w": 69,
+                "x": 1067,
+                "y": 294
+            },
+            "sourceSize": {
+                "h": 97,
+                "w": 69
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "资源条.png": {
+            "frame": {
+                "h": 53,
+                "idx": 0,
+                "w": 252,
+                "x": 401,
+                "y": 807
+            },
+            "sourceSize": {
+                "h": 53,
+                "w": 252
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "重装武器.png": {
+            "frame": {
+                "h": 72,
+                "idx": 0,
+                "w": 68,
+                "x": 1064,
+                "y": 644
+            },
+            "sourceSize": {
+                "h": 77,
+                "w": 77
+            },
+            "spriteSourceSize": {
+                "x": 4,
+                "y": 4
+            }
+        },
+        "金币加成.png": {
+            "frame": {
+                "h": 43,
+                "idx": 0,
+                "w": 43,
+                "x": 1066,
+                "y": 781
+            },
+            "sourceSize": {
+                "h": 43,
+                "w": 44
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币图标.png": {
+            "frame": {
+                "h": 50,
+                "idx": 0,
+                "w": 54,
+                "x": 691,
+                "y": 1020
+            },
+            "sourceSize": {
+                "h": 50,
+                "w": 54
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "钻石图标.png": {
+            "frame": {
+                "h": 60,
+                "idx": 0,
+                "w": 62,
+                "x": 1049,
+                "y": 915
+            },
+            "sourceSize": {
+                "h": 60,
+                "w": 62
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "防御矩阵.png": {
+            "frame": {
+                "h": 72,
+                "idx": 0,
+                "w": 60,
+                "x": 1064,
+                "y": 510
+            },
+            "sourceSize": {
+                "h": 77,
+                "w": 77
+            },
+            "spriteSourceSize": {
+                "x": 9,
+                "y": 3
+            }
+        },
+        "黄.png": {
+            "frame": {
+                "h": 106,
+                "idx": 0,
+                "w": 106,
+                "x": 867,
+                "y": 399
+            },
+            "sourceSize": {
+                "h": 113,
+                "w": 131
+            },
+            "spriteSourceSize": {
+                "x": 14,
+                "y": 5
+            }
+        },
+        "黄色子弹.png": {
+            "frame": {
+                "h": 28,
+                "idx": 0,
+                "w": 20,
+                "x": 741,
+                "y": 805
+            },
+            "sourceSize": {
+                "h": 28,
+                "w": 20
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "face.png",
+        "prefix": "face/"
+    }
+}
