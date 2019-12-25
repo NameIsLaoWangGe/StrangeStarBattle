@@ -63,7 +63,7 @@ export default class EndlessChooseSkills extends Laya.Script {
         }, []), 0);
 
         //内容延时出现
-        Laya.Tween.to(this.contentSet, { x: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
+        Laya.Tween.to(this.contentSet, { x: 0, alpha: 1 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
         }, []), 0);
 
         this.adaptive();
@@ -101,11 +101,11 @@ export default class EndlessChooseSkills extends Laya.Script {
             return;
         }
         // 导入已经学习过的技能
-        for (let i = this.acquiredSkills.length - 1; i > 0; i--) {
+        for (let i = this.acquiredSkills.length - 1; i >= 0; i--) {
             for (const key in this.indexData) {
                 if (this.indexData.hasOwnProperty(key)) {
                     const element = this.indexData[key];
-                    if (element.id === this.acquiredSkills[i]) {
+                    if (element.id == this.acquiredSkills[i]) {
                         data.push({
                             id: key,
                             icon: element.icon,
@@ -190,7 +190,7 @@ export default class EndlessChooseSkills extends Laya.Script {
     /**继续按钮点击事件,关闭场景*/
     But_ContinueUP(): void {
         //内容先消失
-        Laya.Tween.to(this.contentSet, { x: -800, Y: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
+        Laya.Tween.to(this.contentSet, { x: -800, Y: 0, alpha: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
 
         }, []), 0);
 
@@ -211,7 +211,8 @@ export default class EndlessChooseSkills extends Laya.Script {
 
         //黑色背景延时消失
         Laya.Tween.to(this.background, { alpha: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
-
+            this.self.close();
+            EndlessManage.getInstance().immediatelySettlement();
         }, []), 50);
     }
 

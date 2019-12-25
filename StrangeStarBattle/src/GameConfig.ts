@@ -22,6 +22,7 @@ import SettlementControl from "./script/scene/SettlementControl"
 import ShopControl from "./script/scene/ShopControl"
 import EndlessChooseSkills from "./script/manage/EndlessChooseSkills"
 import EndlessSuspend_explain from "./script/manage/EndlessSuspend_explain"
+import ItemDetailControl from "./script/scene/ItemDetailControl"
 import EndlessSuspend from "./script/manage/EndlessSuspend"
 import GameUI from "./script/GameUI"
 import GameControl from "./script/GameControl"
@@ -83,6 +84,7 @@ export default class GameConfig{
         reg("script/scene/ShopControl.ts",ShopControl);
         reg("script/manage/EndlessChooseSkills.ts",EndlessChooseSkills);
         reg("script/manage/EndlessSuspend_explain.ts",EndlessSuspend_explain);
+        reg("script/scene/ItemDetailControl.ts",ItemDetailControl);
         reg("script/manage/EndlessSuspend.ts",EndlessSuspend);
         reg("script/GameUI.ts",GameUI);
         reg("script/GameControl.ts",GameControl);

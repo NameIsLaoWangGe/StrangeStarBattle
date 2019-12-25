@@ -325,6 +325,8 @@ R 406E2A83 pp.png
 R 4F867ADD pp.sk
 R 7C82E9DE qpbz.png
 R 4602AEB1 qpbz.sk
+R 576F5B1E rumaoyinxue.png
+R 1B14DEC2 rumaoyinxue.sk
 R 41BD9276 shengji.png
 R 8A327DB2 shengji.sk
 R D8C993E1 thunder.png
@@ -333,6 +335,8 @@ R 88BAD189 xg_baozha.png
 R F6D3BC38 xg_baozha.sk
 R 7A90A0F9 xuanfeng.png
 R C5A1D8E2 xuanfeng.sk
+R 4EC21CCA xueliang.png
+R 297317D8 xueliang.sk
 R 6B3D85FD xuhongyinqing.png
 R 62337872 xuhongyinqing.sk
 P 04765C4C zd.png
@@ -381,9 +385,6 @@ R B9ABA2D1 xinxintiao.png
 P F74B699F zhadan.png
 S F0AADFA1 道具箱xiaoguo.png
 D endlessMode
-R 6F01BFFA 1效果图_天降鸿运.jpg
-R C0CBFD3B 1效果图_技能选择.jpg
-R 1FC5B937 1效果图_暂停界面.jpg
 P 39AE9478 btn_cuntinue.png
 P EE32B252 btn_quit.png
 P 8AF9F849 char_alreadyskill.png
@@ -406,6 +407,7 @@ P 5271FBB1 icon_15.png
 P 5F5C9C66 icon_16.png
 P 9E486496 icon_17.png
 P 5271FBB1 icon_18.png
+P 360302DC icon_19.png
 P 77A0741C icon_2.png
 P 68C741B3 icon_3.png
 P D9D7F38B icon_4.png
@@ -740,7 +742,7 @@ P 2779F273 关闭按钮.png
 P D3C07DDB 头像框.png
 P 1F0583E1 头像框_临时.png
 P 0418624B 头像框_当前玩家.png
-P 24423CC1 排行数字.png
+P A5E789D1 排行数字.png
 P 63A1AE69 排行榜小图标.png
 R 7B2D4A53 效果图.png
 P 76B317AB 无尽小图标.png

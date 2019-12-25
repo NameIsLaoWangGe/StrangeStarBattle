@@ -66,6 +66,7 @@ export default class SettlementFailControl extends Laya.Script {
         this.setEndlessShow();
 
         this.setFailBgMusic();
+        Laya.Browser.window.settlement = this.self;
     }
     /**
      * 失败界面的音效和背景音乐设置
@@ -218,15 +219,23 @@ export default class SettlementFailControl extends Laya.Script {
 
     }
     private stopListenerObj: Laya.EventDispatcher;
+    private initiativeSettle: boolean;
     playSK() {
-        Laya.timer.once(10900, this, this.playAni);
+        let countTime = 10900;
+        if (PlayingControl.instance.roleHp > 0) {
+            this.initiativeSettle = true;
+            countTime = 1000;
+        }
+        Laya.timer.once(countTime, this, this.playAni);
         if (PlayingVar.getInstance().gameModel === "endless") {
+            this.initiativeSettle && this.sk_settlement.playbackRate(1000);
             this.sk_settlement.play("wujin_shibaifuhuo", false);
         } else {
             this.sk_settlement.play("shibaifuhuo", false);
         }
 
         this.stopListenerObj = this.sk_settlement.on(Laya.Event.STOPPED, this, this.playStoped);
+        this.initiativeSettle = false;
     }
     /**
      * 监听播放骨骼动画停止
@@ -280,6 +289,9 @@ export default class SettlementFailControl extends Laya.Script {
         ani1.play(0, false);
         this.ani1Playing = ani1.isPlaying;
         console.error("状态~！！！！！！！", ani1.isPlaying);
+        if (PlayingVar.getInstance().gameModel === "endless") {
+            EndlessManage.getInstance().exitEndless();
+        }
     }
     cownDown() {
         // Laya.timer.clearAll(this);

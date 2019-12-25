@@ -46,6 +46,7 @@ export default class Bullet_face extends Laya.Script {
                 this.canMove = true;
             }
         } else {
+            this.self.rotation = this.propertyObj.angle - 90 + 180;
             this.canMove = true;
         }
     }

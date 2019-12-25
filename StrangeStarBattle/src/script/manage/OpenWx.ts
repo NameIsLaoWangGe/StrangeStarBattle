@@ -19,7 +19,7 @@ export default class OpenWx {
     }
     /**
      * 
-     * @param type 1展示 2上传数据
+     * @param type 1展示等级 2上传数据 3展示分数
      * @param data 
      */
     postMsg(type: number, data?: any) {

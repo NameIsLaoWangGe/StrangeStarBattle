@@ -437,6 +437,7 @@ export default class Enemy extends Laya.Script {
             }
             return value + addHurt;
         }
+        return value;
     }
 
     createEnhanceFireEffect() {
@@ -454,6 +455,7 @@ export default class Enemy extends Laya.Script {
         if (this.gameMode === "endless" && skillInstance.isUpgraded(15)) {
             const hp = skillInstance.getSkillNum(15);
             role.instance.setRoleHp(-hp);
+            EndlessParseSkill.getInstance().setSkillEffect(15);
         }
     }
     private rollBackDistance_endless: number;
@@ -1135,7 +1137,9 @@ export default class Enemy extends Laya.Script {
             Laya.Pool.recover(markSine, this.self);
             if (this.gameMode === "endless" && EndlessManage.getInstance().isBossFighting) {
                 //打死了无尽boss
-                EndlessManage.getInstance().endBossFighting();
+                if (PlayingControl.instance.roleHp > 0) {
+                    EndlessManage.getInstance().endBossFighting();
+                }
             }
         } else {
             Laya.Pool.recover(markSine, this.self);

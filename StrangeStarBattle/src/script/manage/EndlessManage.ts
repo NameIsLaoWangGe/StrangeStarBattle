@@ -162,7 +162,7 @@ export default class EndlessManage {
      */
     private readonly CALTIMEINTERVAL = 100;
     getDistance() {
-        if (PlayingControl.instance.isGamePause || PlayingVar.getInstance().gameStatus !== "playing") {
+        if (PlayingVar.getInstance().gameModel === "level" || PlayingControl.instance.isGamePause || PlayingVar.getInstance().gameStatus !== "playing") {
             return;
         }
         if (!this.isBossFighting && Date.now() - this.startTime >= this.CALTIMEINTERVAL) {
@@ -183,7 +183,7 @@ export default class EndlessManage {
      * 计算分数
      */
     getScore(enemyType: number, enmeyLevel: number) {
-        if (PlayingVar.getInstance().gameModel === "level") {
+        if (PlayingVar.getInstance().gameModel === "level" || PlayingVar.getInstance().gameStatus === "settlement") {
             return;
         }
         const scoresJson = { 1: 1, 2: 10, 3: 3 };
@@ -220,10 +220,11 @@ export default class EndlessManage {
     changeScoresProgressBar(needScore: number) {
         PlayingControl.instance.owner["lv_now"].value = this.mainLevel;
         const lv_scores = PlayingControl.instance.owner["lv_scores"] as Laya.Label;
-        lv_scores.text = "" + this.scoreNum + "/" + needScore;
+        const lastLevelNeedScore = this.mainLevel === 1 ? 0 : this.weaponJson[this.mainLevel - 1]["score"];
+        lv_scores.text = "" + (this.scoreNum - lastLevelNeedScore) + "/" + (needScore - lastLevelNeedScore);
         const mark_graphics: Laya.Graphics = PlayingControl.instance.owner["scoreMask"].graphics;
         mark_graphics.clear();
-        let markWidth = 177 * (this.scoreNum / needScore);
+        let markWidth = 177 * ((this.scoreNum - lastLevelNeedScore) / (needScore - lastLevelNeedScore));
         if (this.mainLevel >= 100) {
             PlayingControl.instance.owner["lv_max"].visible = true;
             lv_scores.visible = false;
@@ -270,12 +271,6 @@ export default class EndlessManage {
      * 使用道具
      */
     useItem(e: Laya.Event) {
-        // (e.target["canTouch"] == void 0) && (e.target["canTouch"] = true);
-        // if (!e.target["canTouch"]) {
-        //     return;
-        // }
-        // e.target["canTouch"] = false;
-
         const itemObj = e.target;
         if (itemObj["cool"]) {
             //技能冷却中
@@ -472,7 +467,9 @@ export default class EndlessManage {
             PlayingControl.instance.judgeLoadFinish();
         } else {
             //取消暂停
-            PlayingControl.instance.resumeGame();
+            Laya.timer.once(500, this, () => {
+                PlayingControl.instance.resumeGame();
+            });
         }
         id && EndlessParseSkill.getInstance().addNewSkill(id);
     }
@@ -489,6 +486,12 @@ export default class EndlessManage {
         PlayingControl.instance.pauseGame();
         Laya.Scene.open("test/suspendInterface.scene", false);
 
+    }
+    /**
+     * 立刻结算
+     */
+    immediatelySettlement() {
+        role.instance.setRoleDead();
     }
     /**
      * 检测boss战
@@ -509,11 +512,15 @@ export default class EndlessManage {
         //销毁剩余的敌人
         PlayingControl.instance.EnemySpite.removeChildren();
         this.isBossFighting = false;
-        this.createSelectSkill();
+        Laya.timer.once(700, this, () => {
+            this.createSelectSkill();
+        });
     }
     upgradeOpenSelectSkill() {
         PlayingControl.instance.pauseGame();
-        this.createSelectSkill();
+        Laya.timer.once(700, this, () => {
+            this.createSelectSkill();
+        });
     }
     /**
      * 创建boss
@@ -544,5 +551,12 @@ export default class EndlessManage {
      */
     setCompensateTime() {
         this.startTime = Date.now();
+    }
+    /**
+     * exit endlessmodel
+     */
+    exitEndless() {
+        EndlessParseSkill.getInstance().deleteSkill();
+        EndlessManage._instance = null;
     }
 }

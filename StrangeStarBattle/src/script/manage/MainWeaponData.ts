@@ -30,13 +30,13 @@ export default class MainWeaponData {
             this.game = Laya.Browser.window.game;
         }
         //火力的等级
-        const markFireLevel = fireLevel || (PlayingVar.getInstance().gameModel === "endless" ? EndlessManage.getInstance().mainLevel : this.game.mainWeapon.fireLevel);
+        const markFireLevel = fireLevel || this.game.mainWeapon.fireLevel/*(PlayingVar.getInstance().gameModel === "endless" ? EndlessManage.getInstance().mainLevel : this.game.mainWeapon.fireLevel)*/;
         this.fireData = FixedDataTables.getInstance().getData(DataJsonUrl.weapon, markFireLevel);
         //速度的等级
-        const markspeedLevel = speedLevel || (PlayingVar.getInstance().gameModel === "endless" ? EndlessManage.getInstance().mainLevel : this.game.mainWeapon.speedLevel);
+        const markspeedLevel = speedLevel || this.game.mainWeapon.speedLevel/*(PlayingVar.getInstance().gameModel === "endless" ? EndlessManage.getInstance().mainLevel : this.game.mainWeapon.speedLevel)*/;
         this.speedData = FixedDataTables.getInstance().getData(DataJsonUrl.weapon, markspeedLevel);
         //hp等级
-        const markHpLevel = hpLevel || (PlayingVar.getInstance().gameModel === "endless" ? EndlessManage.getInstance().mainLevel : this.game.mainWeapon.hpLevel);
+        const markHpLevel = hpLevel || this.game.mainWeapon.hpLevel/*(PlayingVar.getInstance().gameModel === "endless" ? EndlessManage.getInstance().mainLevel : this.game.mainWeapon.hpLevel)*/;
         this.hpDate = FixedDataTables.getInstance().getData(DataJsonUrl.weapon, markHpLevel);
 
     }
@@ -83,7 +83,7 @@ export default class MainWeaponData {
         const gameModel: string = PlayingVar.getInstance().gameModel;
         if (gameModel === "endless") {
             const value = 0.01 * EndlessParseSkill.getInstance().getSkillNum(3);
-            this._bulletSpeed = this._bulletSpeed * (1 + value)
+            this._bulletSpeed = this._bulletSpeed * (1 + value);
         }
         return this._bulletSpeed;
     }
@@ -93,11 +93,13 @@ export default class MainWeaponData {
     getShowFire(): number {
         const gameModel: string = PlayingVar.getInstance().gameModel;
         let fireLevel: number;
-        if (gameModel === "endless") {
-            fireLevel = EndlessManage.getInstance().mainLevel;
-        } else {
-            fireLevel = this.game.mainWeapon.fireLevel;
-        }
+        // if (gameModel === "endless") {
+        //     fireLevel = EndlessManage.getInstance().mainLevel;
+        // } else {
+        //     fireLevel = this.game.mainWeapon.fireLevel;
+        // }
+        fireLevel = this.game.mainWeapon.fireLevel;
+
         const fireNum = FixedDataTables.getInstance().getDataByKey(DataJsonUrl.weapon, fireLevel, "fire");
         // const skillEndless = EndlessParseSkill.getInstance();
         // let nowNum: number;
@@ -112,14 +114,14 @@ export default class MainWeaponData {
  * 展示Hp值
  */
     getShowHp(): number {
-        const hpLevel = PlayingVar.getInstance().gameModel !== "endless" ? this.game.mainWeapon.hpLevel : EndlessManage.getInstance().mainLevel;
+        const hpLevel = this.game.mainWeapon.hpLevel/*PlayingVar.getInstance().gameModel !== "endless" ? this.game.mainWeapon.hpLevel : EndlessManage.getInstance().mainLevel*/;
         return FixedDataTables.getInstance().getDataByKey(DataJsonUrl.weapon, hpLevel, "hp");
     }
     /**
      * 展示速度值
      */
     getShowSpeed(): void {
-        const speedLevel = PlayingVar.getInstance().gameModel !== "endless" ? this.game.mainWeapon.speedLevel : EndlessManage.getInstance().mainLevel;
+        const speedLevel = this.game.mainWeapon.speedLevel/*PlayingVar.getInstance().gameModel !== "endless" ? this.game.mainWeapon.speedLevel : EndlessManage.getInstance().mainLevel*/;
         return FixedDataTables.getInstance().getDataByKey(DataJsonUrl.weapon, speedLevel, "speed");
     }
     updateMainWeapon(fireLevel?: number, speedLevel?: number, hpLevel?: number): void {
@@ -129,7 +131,7 @@ export default class MainWeaponData {
      * role 飞机的血量值
      */
     getRoleHp() {
-        const hpLevel = PlayingVar.getInstance().gameModel !== "endless" ? this.game.mainWeapon.hpLevel : EndlessManage.getInstance().mainLevel;
+        const hpLevel = this.game.mainWeapon.hpLevel/*PlayingVar.getInstance().gameModel !== "endless" ? this.game.mainWeapon.hpLevel : EndlessManage.getInstance().mainLevel*/;
         return FixedDataTables.getInstance().getDataByKey(DataJsonUrl.weapon, hpLevel, "hp");
     }
 }

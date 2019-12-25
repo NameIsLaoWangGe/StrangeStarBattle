@@ -8,7 +8,7 @@ import MainWeaponData from "./MainWeaponData";
 import role from "../role/role";
 import SkeletonTempletManage from "./SkeletonTempletManage";
 interface endless_skill {
-    id;
+    i
     name;
     dec;
     icon;
@@ -83,6 +83,7 @@ export default class EndlessParseSkill {
                 const recoverBeta = 0.01 * this.getSkillNum(skillId);
                 const recoverHp = PlayingControl.instance.roleTotal * recoverBeta;
                 role.instance.setRoleHp(-recoverHp);
+                this.setSkillEffect(18);
                 break;
             default:
                 break;
@@ -139,6 +140,7 @@ export default class EndlessParseSkill {
             case 15:
             case 16:
             case 18:
+            case 19:
                 value = Number(value[1]) * skillLevel + Number(value[0]);
                 break;
             case 9:
@@ -199,7 +201,8 @@ export default class EndlessParseSkill {
         }
         if (idArr.length) {
             if (idArr.length > 3) {
-                const tempArr = getRandomArrayElements(idArr, 3);
+                const rateArr = this.getRateArr(idArr);
+                const tempArr = tools.getArrayDifElements(rateArr, 3);
                 return tempArr.map((item) => { return Number(item) });
             } else {
                 return idArr.map((item) => { return Number(item) });
@@ -207,6 +210,19 @@ export default class EndlessParseSkill {
         } else {
             return false;
         }
+    }
+    getRateArr(idArr: Array<string>) {
+        let tempArr = [];
+        let i: number = 0;
+        for (i; i < idArr.length; i++) {
+            const skillId = idArr[i];
+            const rateNum = Number(this.tableConfig[skillId].rate);
+            let j: number = 0;
+            for (j; j < rateNum; j++) {
+                tempArr.push(skillId);
+            }
+        }
+        return tempArr;
     }
     /**
      * 
@@ -298,6 +314,13 @@ export default class EndlessParseSkill {
                     skObj.play(0, false);
                     PlayingControl.instance.effectParent.addChild(skObj);
                     break;
+                case 18:
+                case 15:
+                    skObj.on(Laya.Event.STOPPED, this, this.playFinshCallBack, [skObj, skillId]);
+                    skObj.pos(parent.width / 2, parent.height / 2);
+                    skObj.play(0, false);
+                    parent.addChild(skObj);
+                    break;
                 default:
                     break;
             }
@@ -337,5 +360,8 @@ export default class EndlessParseSkill {
             arr.push(skName);
         }
         return arr;
+    }
+    deleteSkill() {
+        EndlessParseSkill._instance = null;
     }
 }

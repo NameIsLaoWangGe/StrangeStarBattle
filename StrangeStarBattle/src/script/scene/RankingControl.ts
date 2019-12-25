@@ -7,18 +7,37 @@ export default class RankingControl extends ui.test.RankingUI {
     constructor() {
         super();
     }
-
-    onOpened(para: any) {
+    onEnable() {
         this.setListener();
+    }
+    onOpened(para: any) {
         if (Laya.Browser.onMiniGame) {
-            let message = { type: 1, value: 1 };
-            message.type = 1;
-            message.value = null;
-            this.openDataView.postMsg(message);
+            // let message = { type: 1, value: 1 };
+            // message.type = 1;
+            // message.value = null;
+            // this.openDataView.postMsg(message);
+            this.onSelect(1);
         }
     }
     setListener() {
+        this.btn_level.on(Laya.Event.CLICK, this, this.onSelect, [1]);
+        this.btn_endless.on(Laya.Event.CLICK, this, this.onSelect, [2]);
         this.btn_close.on(Laya.Event.CLICK, this, this.closeRank);
+    }
+    onSelect(index: number) {
+        if (index === 1) {
+            this.btn_level.skin = "ranking/选中页签.png";
+            this.btn_endless.skin = "ranking/页签.png";
+        } else {
+            this.btn_level.skin = "ranking/页签.png";
+            this.btn_endless.skin = "ranking/选中页签.png";
+        }
+        if (Laya.Browser.onMiniGame) {
+            let message = { type: 1, value: 1 };
+            message.type = index === 1 ? 1 : 3;
+            message.value = null;
+            this.openDataView.postMsg(message);
+        }
     }
     closeRank(): void {
         this.close();

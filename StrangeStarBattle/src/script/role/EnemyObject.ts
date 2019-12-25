@@ -18,6 +18,7 @@ import bossDragonAction = Data2.bossDragonAction;
 import SkeletonTempletManage from "../manage/SkeletonTempletManage";
 import FireBossBullet1 from "./FireBossBullet1";
 import MediumEnemy_Move from "../MediumEnemy/MediumEnemy_Move";
+import PlayingVar from "../manage/Playing_var";
 export default class BossObject extends EnemyCommon {
     public enmeySprite: Laya.Sprite;
     public readonly bossSK: Skeleton;
@@ -479,6 +480,9 @@ export default class BossObject extends EnemyCommon {
      * boss的移动大部分是吧统一  蝎子怪除外
      */
     onBossUpdate() {
+        if (PlayingVar.getInstance().gameModel === "endless" && PlayingSceneControl.instance.isGamePause) {
+            return;
+        }
         switch (this.nick) {
             case Data2.enemyToPerfab.boss2:
                 this.move_boss2();

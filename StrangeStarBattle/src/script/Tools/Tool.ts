@@ -29,7 +29,31 @@ export module tools {
         }
         return shuffled.slice(min);
     }
-
+    export function getArrayDifElements(arr, count): any {
+        const result = [];
+        let i: number = 0;
+        for (i; i < count; i++) {
+            const temp = getDiffEle(arr.slice(), result, i);
+            result.push(temp);
+        }
+        return result;
+    }
+    export function getDiffEle(arr, result, place) {
+        let indexArr = [];
+        let i: number = 0;
+        for (i; i < arr.length - place; i++) {
+            indexArr.push(i);
+        }
+        const ranIndex = Math.floor(Math.random() * indexArr.length);
+        if (result.indexOf(arr[ranIndex]) === -1) {
+            const backNum = arr[ranIndex];
+            arr[ranIndex] = arr[indexArr.length - 1];
+            return backNum;
+        } else {
+            arr.splice(ranIndex, 1);
+            return getDiffEle(arr, result, place);
+        }
+    }
     export let roleDragCan: boolean = false;
     export function copydata(obj): any {
         const ret = {};
@@ -40,7 +64,7 @@ export module tools {
     }
 
     /**
-     * 数组复制
+     * 数组复制 
      */
     export function fillArray(value, len) {
         var arr = [];
@@ -49,6 +73,7 @@ export module tools {
         }
         return arr;
     }
+
     /**
      * 
      * @param angle 角度

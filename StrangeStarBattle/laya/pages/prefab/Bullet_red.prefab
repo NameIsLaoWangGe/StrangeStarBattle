@@ -2,7 +2,7 @@
     "x":0,
     "type":"Sprite",
     "selectedBox":17,
-    "selecteID":21,
+    "selecteID":22,
     "searchKey":"Sprite,Bullet_red",
     "props":{"y":0,"x":0,"rotation":0,"presetID":1,"preset":"laya/pages/prefab/Bullet_red.prefab","name":"Bullet_red","isPresetRoot":true},
     "nodeParent":-1,

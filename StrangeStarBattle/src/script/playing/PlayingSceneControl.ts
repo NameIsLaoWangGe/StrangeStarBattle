@@ -121,6 +121,8 @@ export default class PlayingControl extends Laya.Script {
     EnemySK: Laya.Prefab;
     /** @prop {name:UpdateItem,tips:"UpdateItem",type:Prefab} */
     UpdateItem: Laya.Prefab;
+    /** @prop {name:ItemDetail,tips:"ItemDetail",type:Prefab} */
+    ItemDetail: Laya.Prefab;
     //private start_btn: LYSprite;
     public roleObj: LYSprite;
     //role有可能处在被受控制的状态
@@ -207,7 +209,7 @@ export default class PlayingControl extends Laya.Script {
         this.game = Laya.Browser.window.game;
         //初始化背包数据(副武器和钻石体力~)
         BagDataControl.getInstance();
-        this.bulletSpeed = (0.15 - (MainWeaponData.getInstance().speed - 9) * 0.0009) * 1000;
+        this.bulletSpeed = (0.15 - (MainWeaponData.getInstance().speed - 9) * 0.00075) * 1000;
         const secondSpeed = SecondWeaponData.getInstance().getSpeed();
         if (secondSpeed) {
             this.bulletSpeedSecond = secondSpeed * 1000/*(0.5 - (SecondWeaponData.getInstance().getSpeed() - 9) * 0.001) * 1000*/;
@@ -310,10 +312,11 @@ export default class PlayingControl extends Laya.Script {
      */
     wxUserDateUpdate() {
         if (Laya.Browser.onMiniGame) {
-            let args = { type: 2, data: Laya.Browser.window.game.nowLevel };
+            let args = { type: 2, data: { level: Laya.Browser.window.game.nowLevel, scores: PlayingVar.getInstance().achieve["killTopNum"] } };
             OpenWx.getInstance().postMsg(args.type, args.data);
         }
     }
+
     /**
      * 初始化role血量
      */
@@ -1254,6 +1257,24 @@ export default class PlayingControl extends Laya.Script {
                 const obj = new BulletMain(BulletType.roleMainBullet, posXy, bulletPic);
             }
         }
+
+        let bulletNumber2 = this.getBevelBullet();
+        let temp = 0;
+        if (bulletNumber2) {
+            bulletNumber2 = bulletNumber2 / 2;
+            while (--bulletNumber2 >= 0) {
+                index++;
+                let index3: number = 0;
+                for (index3; index3 < 2; index3++) {
+                    let posXy = { x: 0, y: standardPos.y };
+                    posXy.x = index3 ? (standardPos.x - 15 * index - (2.5 + 5 * (index - 1))) : (standardPos.x + 15 * index + (2.5 + 6 * (index - 1)));
+                    const b_angle = index3 ? 270 - 15 - 3 * temp : 270 + 15 + 3 * temp;
+                    const obj = new BulletMain(BulletType.roleMainBullet, posXy, bulletPic, b_angle);
+                }
+                temp++;
+            }
+
+        }
         return;
         let i = 0;
 
@@ -1280,6 +1301,18 @@ export default class PlayingControl extends Laya.Script {
             }
             const obj = new BulletMain(BulletType.roleMainBullet, posXy, bulletPic);
         }
+    }
+
+    getBevelBullet(): number {
+        const gameModel = PlayingVar.getInstance().gameModel;
+        if (gameModel === "endless") {
+            const skillInstance = EndlessParseSkill.getInstance();
+            if (skillInstance.isUpgraded(19)) {
+                const value = skillInstance.getSkillNum(19);
+                return value;
+            }
+        }
+        return 0;
     }
     /**
      * 计算弹幕的条数 (加入无尽模式可能的改变~)
@@ -1532,7 +1565,7 @@ export default class PlayingControl extends Laya.Script {
     setSpeedBySpeedBuff(buff: Buff) {
         if (buff.type === 2) {
             if (buff.speedBate) {
-                this.bulletSpeed = (0.15 - (buff.speedBate * MainWeaponData.getInstance().speed - 9) * 0.001) * 1000;
+                this.bulletSpeed = (0.15 - (buff.speedBate * MainWeaponData.getInstance().speed - 9) * 0.00075) * 1000;
             }
             if (buff.buffValue) {
                 this.bSpeedRateByBuff2 = buff.buffValue;
@@ -1545,7 +1578,7 @@ export default class PlayingControl extends Laya.Script {
     setSpeedByEndless(value: any) {
         // this.bulletSpeed
         const temp = (0.15 - (MainWeaponData.getInstance().speed * (1 + value * 0.01) - 9) * 0.00075) * 1000;
-        this.bulletSpeed = temp * value;
+        this.bulletSpeed = temp;
     }
     /**
      * 得到boss的坐标

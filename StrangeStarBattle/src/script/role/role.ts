@@ -157,7 +157,7 @@ export default class role extends Laya.Script {
      */
     setRoleHp(hurtValue: number, from?: string) {
         //设置无敌测试
-        hurtValue = 0;
+        // hurtValue = 0;
         if (hurtValue > 0) {
             if (this.haveSheild) {
                 return;

@@ -480,7 +480,7 @@ export default class Bullet_boss extends Laya.Script {
             this.owner.getComponent(bingtouxiang_bullet).bingTouXiang_Move();//冰头像
         }
         if (this.owner.getComponent(jibaobao_bullet) !== null) {
-            this.owner.getComponent(jibaobao_bullet).jibaobao_Move();//冰头像
+            this.owner.getComponent(jibaobao_bullet).bingTouXiang_Move();//冰头像
         }
         if (this.owner.getComponent(zhangyunvhuang_bullet) !== null) {
             this.owner.getComponent(zhangyunvhuang_bullet).zhangyunvhuang_Move();//冰头像

@@ -24,7 +24,7 @@ export default class bullet extends Laya.Script {
 
     //合集方法
     nanGuaWangZi_Move(): void {
-        if (!PlayingControl.instance.isGamePause) {
+        if (PlayingControl.instance.isGamePause) {
             return;
         }
         // 运动轨迹

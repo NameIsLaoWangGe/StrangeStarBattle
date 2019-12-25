@@ -47,7 +47,7 @@ export default class EquipUpdate extends Laya.Script {
         // this.listMain.repeatY = 1;
         this.listVice = this.owner.getChildAt(2) as Laya.List;
         this.setListenerUpdate();
-        Laya.Browser.window.listMain = this.listMain;
+        // Laya.Browser.window.listMain = this.listMain;
     }
     setListenerUpdate(): void {
         return;
@@ -379,38 +379,6 @@ export default class EquipUpdate extends Laya.Script {
         } else {
             this.updatePanel.y = -872 - 1 - 98;
         }
-        // var data: any = [];
-        // for (var m: number = 0; m < 2; m++) {
-        //     var map: any;
-        //     if (m) {
-        //         //速度|威力
-        //         if (this.tab.selectedIndex) {
-        //             //副武器
-        //             map = { typeUrl: "face/射速.png", consume: SecondWeaponData.getInstance().getspeed_cost() };
-        //             map.level = SecondWeaponData.getInstance().getItemPowerLevel();
-        //             map.value = SecondWeaponData.getInstance().getShowPower();
-        //             map.consumeType = SecondWeaponData.getInstance().getCostType();
-        //         } else {
-        //             console.log(this.game.mainWeapon.speedLevel);
-        //             map = { typeUrl: "face/射速.png", level: this.game.mainWeapon.speedLevel, consume: MainWeaponData.getInstance().speed_gold };
-        //             map.value = MainWeaponData.getInstance().getShowSpeed();
-        //         }
-        //     } else {
-        //         //火力
-        //         if (this.tab.selectedIndex) {
-        //             //副武器
-        //             map = { typeUrl: "face/火力.png", value: SecondWeaponData.getInstance().getItemFireLevel(), consume: SecondWeaponData.getInstance().getFire_cost() };
-        //             map.level = SecondWeaponData.getInstance().getItemFireLevel();
-        //             map.value = SecondWeaponData.getInstance().getShowFire();
-        //             map.consumeType = SecondWeaponData.getInstance().getCostType();
-        //         } else {
-        //             map = { typeUrl: "face/火力.png", level: this.game.mainWeapon.fireLevel, consume: MainWeaponData.getInstance().fire_gold };
-        //             map.value = MainWeaponData.getInstance().getShowFire();
-        //         }
-
-        //     }
-        //     data.push(map);
-        // }
     }
     setItemInfo(type: number, index: number, obj: Laya.Sprite) {
         let sendArgObj = {};
@@ -581,19 +549,23 @@ export default class EquipUpdate extends Laya.Script {
     private onSelectList(index: number): void {
         this._alreadySelected = true;
     }
+    private touchStart: boolean;
     private onMouseList(e: Laya.Event, index: number) {
         //console.log(e.type);
         let lastObj = e.target as Laya.Button;
         switch (e.type) {
             case Laya.Event.MOUSE_DOWN:
-                if (index < 2) {
-                    //lastObj.skin = "equip/装备框_选中.png";
-                }
+                Laya.timer.clear(this, this.createDetail);
+                this.touchStart = true;
+                Laya.timer.once(1100, this, this.createDetail, [index]);
                 break;
             case Laya.Event.MOUSE_UP:
+                Laya.timer.clear(this, this.createDetail);
+                this.cancelDetail();
                 break;
             case Laya.Event.MOUSE_OUT:
-                //lastObj.skin = "equip/装备框.png";
+                Laya.timer.clear(this, this.createDetail);
+                this.cancelDetail();
                 break;
             case Laya.Event.CLICK:
                 // console.error("点击item", e);
@@ -603,8 +575,29 @@ export default class EquipUpdate extends Laya.Script {
             default:
                 break;
         }
-
-
+    }
+    private detailObj: Laya.Image
+    createDetail(index: number) {
+        if (this.touchStart) {
+            const cell: Laya.Box = this.listVice.getCell(index);
+            const detail = PlayingControl.instance.ItemDetail;
+            const detailObj: Laya.Image = Laya.Pool.getItemByCreateFun("ItemDetail", detail.create, detail);
+            const secondId = cell.dataSource.id;
+            const configs = FixedDataTables.getInstance().getData(data2.DataType.secondaryWeapon, secondId);
+            detailObj["detailDec"] = configs.name;
+            detailObj["detailIcon"] = "shop/" + configs.pic + "_shop.png";
+            detailObj["detailName"] = configs.name;
+            detailObj.pos(Laya.stage.width / 2, Laya.stage.height * 0.57);
+            Laya.stage.addChild(detailObj);
+            this.detailObj = detailObj;
+        }
+    }
+    cancelDetail() {
+        if (this.detailObj) {
+            this.detailObj.removeSelf();
+            this.detailObj = null;
+            this.touchStart = false;
+        }
     }
     public static instance(): EquipUpdate {
         return EquipUpdate._instance;

@@ -227,6 +227,7 @@ export module ui.test {
     REG("ui.test.popDialogUI",popDialogUI);
     export class RankingUI extends View {
 		public btn_close:Laya.Button;
+		public rankTab:Laya.Tab;
 		public btn_level:Laya.Button;
 		public btn_endless:Laya.Button;
 		public openDataView:laya.ui.WXOpenDataViewer;
@@ -308,7 +309,7 @@ export module ui.test {
 		public m_list:Laya.List;
 		public But_Quit:Laya.Button;
 		public But_Continue:Laya.Button;
-		public explain:Laya.Image;
+		public explain:any;
         constructor(){ super()}
         createChildren():void {
             super.createChildren();

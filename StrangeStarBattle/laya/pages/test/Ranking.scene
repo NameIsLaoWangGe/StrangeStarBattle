@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":25,
-    "selecteID":12,
+    "selectedBox":6,
+    "selecteID":25,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"script/scene/RankingControl.ts","height":1334},
     "nodeParent":-1,
@@ -131,10 +131,10 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "searchKey":"Tab",
-                    "props":{"y":483,"x":46},
+                    "searchKey":"Tab,rankTab,rankTab",
+                    "props":{"y":483,"x":46,"var":"rankTab","name":"rankTab"},
                     "nodeParent":6,
-                    "label":"Tab",
+                    "label":"rankTab",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -145,17 +145,16 @@
                             "x":45,
                             "type":"Button",
                             "searchKey":"Button,btn_level",
-                            "props":{"var":"btn_level","stateNum":"1","skin":"ranking/页签.png"},
+                            "props":{"var":"btn_level","stateNum":"1","skin":"ranking/选中页签.png"},
                             "nodeParent":25,
                             "label":"btn_level",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":12,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Sprite",
                                     "searchKey":"Sprite",
                                     "props":{"y":20.5,"x":134,"texture":"ranking/关卡模式.png"},
@@ -169,7 +168,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Sprite",
                                     "searchKey":"Sprite",
                                     "props":{"y":6,"x":37,"texture":"ranking/关卡小图标.png"},
