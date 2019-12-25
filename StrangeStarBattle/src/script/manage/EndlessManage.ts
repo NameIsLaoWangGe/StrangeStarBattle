@@ -546,6 +546,7 @@ export default class EndlessManage {
             }
         }
     }
+    
     /**
      * 时间补偿
      */

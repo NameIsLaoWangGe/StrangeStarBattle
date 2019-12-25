@@ -584,7 +584,7 @@ export default class EquipUpdate extends Laya.Script {
             const detailObj: Laya.Image = Laya.Pool.getItemByCreateFun("ItemDetail", detail.create, detail);
             const secondId = cell.dataSource.id;
             const configs = FixedDataTables.getInstance().getData(data2.DataType.secondaryWeapon, secondId);
-            detailObj["detailDec"] = configs.name;
+            detailObj["detailDec"] = configs.dec;
             detailObj["detailIcon"] = "shop/" + configs.pic + "_shop.png";
             detailObj["detailName"] = configs.name;
             detailObj.pos(Laya.stage.width / 2, Laya.stage.height * 0.57);

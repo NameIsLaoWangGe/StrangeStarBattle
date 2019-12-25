@@ -1134,6 +1134,12 @@ export default class Enemy extends Laya.Script {
             this.self.getChildByName("Boss_hp").destroy(true);
         }
         if (this.propertyObj && this.propertyObj.e_type && this.propertyObj.e_type === 2) {
+            //螃蟹怪 的警告
+            const focusRoleObj = PlayingControl.instance.roleObj.getChildByName("focusRole");
+            if (focusRoleObj) {
+                focusRoleObj.removeSelf();
+                Laya.Pool.recover("focusRole", focusRoleObj);
+            }
             Laya.Pool.recover(markSine, this.self);
             if (this.gameMode === "endless" && EndlessManage.getInstance().isBossFighting) {
                 //打死了无尽boss

@@ -1477,6 +1477,7 @@ export default class BossObject extends EnemyCommon {
                         //创建警告
                         if (!this.warnSK) {
                             this.warnSK = Laya.Pool.getItemByCreateFun("focusRole", this.focusRole, this);
+                            this.warnSK.name = "focusRole";
                             PlayingSceneControl.instance.roleObj.addChild(this.warnSK);
                             this.skillWarnTime_boss3 = Date.now();
                         }

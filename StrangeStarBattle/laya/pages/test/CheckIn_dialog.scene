@@ -1,8 +1,7 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":4,
-    "selecteID":32,
+    "selectedBox":2,
     "searchKey":"Dialog",
     "props":{"y":515,"x":357,"width":750,"sceneColor":"#000000","isShowEffect":false,"isModal":true,"height":1334,"autoDestroyAtClosed":true,"anchorY":0.5,"anchorX":0.5},
     "nodeParent":-1,
@@ -123,7 +122,7 @@
             "source":"src/script/scene/CheckInControl.ts",
             "searchKey":"Script,CheckInControl",
             "removeAble":true,
-            "props":{"y":2,"x":0,"checkItem":"@Prefab:prefab/CheckIn_item.prefab"},
+            "props":{"y":2,"x":0,"getDiamond":"@Prefab:prefab/getDiamond.prefab","checkItem":"@Prefab:prefab/CheckIn_item.prefab"},
             "nodeParent":2,
             "label":"CheckInControl",
             "isDirectory":false,

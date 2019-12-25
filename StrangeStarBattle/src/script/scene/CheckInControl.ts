@@ -26,6 +26,8 @@ export default class CheckInControl extends Laya.Script {
 
     /** @prop {name:checkItem, tips:"prefab", type:Prefab}*/
     public checkItem: Prefab;
+    /** @prop {name:getDiamond, tips:"prefab", type:Prefab}*/
+    public getDiamond: Prefab;
     constructor() { super(); }
     private self: Laya.Dialog;
     private oneRewardBtn: Button;
@@ -123,9 +125,11 @@ export default class CheckInControl extends Laya.Script {
                     const bagCommon = JSON.parse(data.bagCommon);
                     checkInData.already = true;
                     checkInData.day = signIn.signTimes;
+
+                    const getNum = bagCommon[102].num - BagDataControl.getInstance().getBagDataById("102").num;
                     BagDataControl.getInstance().updateBagCommon({ bagCommon: bagCommon });
                     const posArr: Array<Laya.Point> = this.getXYStart();
-                    new GoldFly(posArr[0], posArr[1], null, this.self, this.moveFinish, e, this);
+                    new GoldFly(posArr[0], posArr[1], null, this.self, this.moveFinish, e, this, getNum);
                 }
 
                 console.error(data);
