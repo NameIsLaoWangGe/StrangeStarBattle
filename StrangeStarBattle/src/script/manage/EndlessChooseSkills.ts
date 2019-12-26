@@ -52,7 +52,7 @@ export default class EndlessChooseSkills extends Laya.Script {
         }, []), 0);
 
         //内容延时出现
-        Laya.Tween.to(this.contentSet, { x: 0 ,alpha:1}, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
+        Laya.Tween.to(this.contentSet, { x: 0, alpha: 1 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
 
         }, []), 0);
 
@@ -187,7 +187,7 @@ export default class EndlessChooseSkills extends Laya.Script {
 
         timeLine.on(Laya.Event.COMPLETE, this, function () {
 
-            Laya.Tween.to(this.contentSet, { x: -800, Y: 0 ,alpha:0}, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
+            Laya.Tween.to(this.contentSet, { x: -800, Y: 0, alpha: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
                 Laya.Scene.close('test/skillsToChoose.scene', 'skillsToChoose');
                 EndlessManage.getInstance().selectSkillBack(this.list.array[index]["id"]);
             }, []), 0);

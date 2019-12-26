@@ -27,6 +27,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         // 需要每次初始化属性
         this.initProperty();
         this.creatBossAni();
+        this.self.name = 'jibaobao';
     }
     //初始化属性
     initProperty(): void {
@@ -176,8 +177,8 @@ export default class Boss_jinsenangua extends Laya.Script {
         bullet_Attack.vars_.propertyObj = Tool.copydata(bulletObj);
         bullet_Attack.vars_.propertyObj.bossBulletType = Data2.bossBulletType.common;
         //发射子弹的boss的nick,名称，目前这个子弹出来就会被消除。
-        bullet_Attack.vars_.propertyObj.fromNick = this.owner["vars_"].propertyObj.nick;
-
+        // bullet_Attack.vars_.propertyObj.fromNick = this.owner["vars_"].propertyObj.nick;
+        bullet_Attack.vars_.propertyObj.fromNick = this.self.name;
         this.bullteParent.addChild(bullet_Attack);
         return bullet_Attack;
     }

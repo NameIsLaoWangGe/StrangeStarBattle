@@ -25,7 +25,9 @@ export default class Boss_jinsenangua extends Laya.Script {
     onEnable(): void {
         this.attack_01Time = Date.now();
         this.self = this.owner as Laya.Sprite;
+        this.self.name = "maoWangHou";
         this.creatBossAni();
+
     }
 
     //创建boss
@@ -134,6 +136,7 @@ export default class Boss_jinsenangua extends Laya.Script {
             bullet.vars_ = {};
         }
         bullet.vars_.propertyObj = Tool.copydata(bulletObj);
+        bullet.vars_.propertyObj.fromNick = this.self.name;
         this.bullteParent.addChild(bullet);
         return bullet;
     }

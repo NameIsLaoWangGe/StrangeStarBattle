@@ -294,7 +294,8 @@ export default class Boss_jinsenangua extends Laya.Script {
         }
         bullet_Attack.vars_.propertyObj = Tool.copydata(bulletObj);
         bullet_Attack.vars_.propertyObj.bossBulletType = Data2.bossBulletType.common;
-        bullet_Attack.vars_.propertyObj.fromNick = this.owner["vars_"].propertyObj.nick;
+        // bullet_Attack.vars_.propertyObj.fromNick = this.owner["vars_"].propertyObj.nick;
+        bullet_Attack.vars_.propertyObj.fromNick = 'MediumEnemy_Move';
         this.bullteParent.addChild(bullet_Attack);
         return bullet_Attack;
     }

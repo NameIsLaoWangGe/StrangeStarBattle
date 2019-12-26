@@ -14,6 +14,7 @@ export default class bullet extends Laya.Script {
         this.self = this.owner as Laya.Sprite;
         this.bossName = "maoWangHou";
         this.initProperty();//初始化,每次进入重新初始化
+        this.self["maoWangHou_bullet"] = this;
     }
     // 初始化各种属性
     initProperty(): void {

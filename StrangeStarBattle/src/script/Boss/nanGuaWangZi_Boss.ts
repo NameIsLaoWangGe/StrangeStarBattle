@@ -37,6 +37,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         this.firstAttack = true;
         this.firstAttack_Interval = 500//第一次的时间间隔
         this.attackCounter = 0;//攻击次数计数器；
+        this.self.name ="nanguawangzi";
     }
 
 
@@ -147,6 +148,7 @@ export default class Boss_jinsenangua extends Laya.Script {
             bullet_Attack.vars_ = {};
         }
         bullet_Attack.vars_.propertyObj = Tool.copydata(bulletObj);
+        bullet_Attack.vars_.propertyObj.fromNick = this.self.name;
         this.bullteParent.addChild(bullet_Attack);
         bullet_Attack.pos(350, 350);
         return bullet_Attack;

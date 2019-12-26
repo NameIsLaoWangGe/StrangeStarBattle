@@ -460,34 +460,37 @@ export default class Bullet_boss extends Laya.Script {
 
     // 其余boss综合测试
     bossSet(): void {
-
-        if (this.owner.getComponent(nanGuaWangZi_bullet) !== null) {
-            this.owner.getComponent(nanGuaWangZi_bullet).nanGuaWangZi_Move();//南瓜王子
-        }
-        if (this.owner.getComponent(maoWangHou_bullet) !== null) {
-            this.owner.getComponent(maoWangHou_bullet).maoWangHou_Move();//猫王后
-        }
-        if (this.owner.getComponent(daShuRen_bullet) !== null) {
-            this.owner.getComponent(daShuRen_bullet).daShuRen_Move();//大树人
-        }
-        if (this.owner.getComponent(shitoujuren_bullet) !== null) {
-            this.owner.getComponent(shitoujuren_bullet).shiTouJuRen_Move();//石头巨人
-        }
-        if (this.owner.getComponent(bingqilinzuhe_bullet) !== null) {
-            this.owner.getComponent(bingqilinzuhe_bullet).bingQiLinZuHe_Move();//冰淇淋组合
-        }
-        if (this.owner.getComponent(bingtouxiang_bullet) !== null) {
-            this.owner.getComponent(bingtouxiang_bullet).bingTouXiang_Move();//冰头像
-        }
-        if (this.owner.getComponent(jibaobao_bullet) !== null) {
-            this.owner.getComponent(jibaobao_bullet).bingTouXiang_Move();//冰头像
-        }
-        if (this.owner.getComponent(zhangyunvhuang_bullet) !== null) {
-            this.owner.getComponent(zhangyunvhuang_bullet).zhangyunvhuang_Move();//冰头像
-        }
-
-        if (this.owner.getComponent(MediumEnemy_bullet) !== null) {
-            this.owner.getComponent(MediumEnemy_bullet).bullet_Move();//所有中级小怪子弹
+        let fromNick = this.owner['vars_'].propertyObj.fromNick;
+        switch (fromNick) {
+            case "nanguawangzi":
+                this.owner["nanGuaWangZi_bullet"].nanGuaWangZi_Move();
+                break;
+            case "maoWangHou":
+                this.owner["maoWangHou_bullet"].maoWangHou_Move();
+                break;
+            case "dashuren":
+                this.owner["daShuRen_bullet"].daShuRen_Move();
+                break;
+            case "shitoujuren":
+                this.owner["shitoujuren_bullet"].shiTouJuRen_Move();
+                break;
+            case "bingqilinzuhe":
+                this.owner["bingqilinzuhe_bullet"].bingQiLinZuHe_Move();
+                break;
+            case "bingtouxiang":
+                this.owner["bingtouxiang_bullet"].bingTouXiang_Move();
+                break;
+            case "jibaobao":
+                this.owner["jibaobao_bullet"].jibaobao_Move();
+                break;
+            case "zhangyunvhuang":
+                this.owner["zhangyunvhuang_bullet"].zhangyunvhuang_Move();
+                break;
+            case "MediumEnemy_Move":
+                this.owner["MediumEnemy_bullet"].bullet_Move();
+                break;
+            default:
+                break;
         }
     }
     /**

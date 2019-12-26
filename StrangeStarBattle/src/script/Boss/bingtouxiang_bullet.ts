@@ -26,6 +26,7 @@ export default class bullet extends Laya.Script {
     constructor() { super(); }
     onEnable(): void {
         this.self = this.owner as Laya.Sprite;
+        this.self['bingtouxiang_bullet'] = this;
         this.initProperty();//初始化,每次进入重新初始化
     }
 
@@ -61,8 +62,8 @@ export default class bullet extends Laya.Script {
 
     //合集方法
     bingTouXiang_Move(): void {
-        
-        if (this.moveOnOff&&!PlayingControl.instance.isGamePause) {
+
+        if (this.moveOnOff && !PlayingControl.instance.isGamePause) {
             if (this.specialName === 'attack_01_01_Special') {
                 //普通攻击1-1
                 this.attack_01_01_Special();

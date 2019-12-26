@@ -52,6 +52,7 @@ export default class Boss_jinsenangua extends Laya.Script {
 
         //skill子弹类型3
         this.skill_01_Delayed_03 = 0;//延时帧数
+        this.self.name = 'bingqilinzuhe';
 
     }
 
@@ -172,7 +173,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         bullet_Attack.vars_.propertyObj = Tool.copydata(bulletObj);
         bullet_Attack.vars_.propertyObj.bossBulletType = Data2.bossBulletType.common;
 
-        bullet_Attack.vars_.propertyObj.fromNick = this.owner["vars_"].propertyObj.nick;
+        bullet_Attack.vars_.propertyObj.fromNick = this.self.name;
 
         this.bullteParent.addChild(bullet_Attack);
         return bullet_Attack;

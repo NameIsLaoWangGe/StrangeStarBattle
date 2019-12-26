@@ -43,7 +43,7 @@ export default class Boss_jinsenangua extends Laya.Script {
 
         this.boosCurrentX = null;//boss当前x
         this.boosCurrentY = null;//boss当前y
-
+        this.self.name = 'zhangyunvhuang';
 
         //普攻1子弹类型1
         this.attack_01_Delayed_01 = 0;//延时帧数
@@ -186,7 +186,9 @@ export default class Boss_jinsenangua extends Laya.Script {
         bullet_Attack.vars_.propertyObj = Tool.copydata(bulletObj);
         bullet_Attack.vars_.propertyObj.bossBulletType = Data2.bossBulletType.common;
         //发射子弹的boss的nick,名称，目前这个子弹出来就会被消除。
-        bullet_Attack.vars_.propertyObj.fromNick = this.owner["vars_"].propertyObj.nick;
+        // bullet_Attack.vars_.propertyObj.fromNick = this.owner["vars_"].propertyObj.nick;
+        bullet_Attack.vars_.propertyObj.fromNick = this.self.name;
+
         this.bullteParent.addChild(bullet_Attack);
         return bullet_Attack;
     }

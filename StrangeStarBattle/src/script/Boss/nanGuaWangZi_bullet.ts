@@ -10,6 +10,7 @@ export default class bullet extends Laya.Script {
     constructor() { super(); }
     onEnable(): void {
         this.self = this.owner as Laya.Sprite;
+        this.self["nanGuaWangZi_bullet"] = this;
         this.initProperty();//初始化,每次进入重新初始化
     }
     // 初始化各种属性

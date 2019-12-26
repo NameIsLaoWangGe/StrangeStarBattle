@@ -37,6 +37,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         this.firstAttack_Interval = 500//第一次的时间间隔
         this.attackCounter = 0;//攻击次数计数器；
         this.attack_NowTime = Date.now();
+        this.self.name = 'shitoujuren';
     }
 
     //创建boss
@@ -154,7 +155,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         bullet_Attack.vars_.propertyObj = Tool.copydata(bulletObj);
 
         bullet_Attack.vars_.propertyObj.bossBulletType = Data2.bossBulletType.common;
-
+        bullet_Attack.vars_.propertyObj.fromNick = this.self.name;
         this.bullteParent.addChild(bullet_Attack);
         return bullet_Attack;
     }
@@ -254,6 +255,7 @@ export default class Boss_jinsenangua extends Laya.Script {
             this.skeleton.play('stand', true);
             this.moveOnOff = true;
         })
+        // 延时用于匹配动作
         this.skill_01_Bullet_01();
     }
 

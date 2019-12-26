@@ -41,6 +41,7 @@ export default class bullet extends Laya.Script {
     constructor() { super(); }
     onEnable(): void {
         this.self = this.owner as Laya.Sprite;
+        this.self['MediumEnemy_bullet'] = this;
         this.initProperty();
     }
 

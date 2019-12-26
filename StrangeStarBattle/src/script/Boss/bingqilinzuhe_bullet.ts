@@ -19,6 +19,7 @@ export default class bullet extends Laya.Script {
     onEnable(): void {
         this.self = this.owner as Laya.Sprite;
         this.selfFirstPoint = new Laya.Point(this.self.x, this.self.y);
+        this.self['bingqilinzuhe_bullet'] = this;
         this.initProperty();//初始化,每次进入重新初始化
     }
     // 初始化各种属性
@@ -42,7 +43,7 @@ export default class bullet extends Laya.Script {
 
     //合集方法
     bingQiLinZuHe_Move(): void {
-        
+
         if (this.moveOnOff && !PlayingControl.instance.isGamePause) {
             // 运动轨迹
             switch (this.self.name) {

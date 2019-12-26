@@ -18,6 +18,7 @@ export default class bullet extends Laya.Script {
     onEnable(): void {
         this.self = this.owner as Laya.Sprite;
         this.initProperty();//初始化,每次进入重新初始化
+        this.self['shitoujuren_bullet'] =this;
 
     }
     // 初始化各种属性
