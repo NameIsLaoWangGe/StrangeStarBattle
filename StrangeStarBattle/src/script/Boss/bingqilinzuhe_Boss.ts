@@ -53,6 +53,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         //skill子弹类型3
         this.skill_01_Delayed_03 = 0;//延时帧数
         this.self.name = 'bingqilinzuhe';
+        this.self['bingqilinzuhe_Boss'] = this;
 
     }
 

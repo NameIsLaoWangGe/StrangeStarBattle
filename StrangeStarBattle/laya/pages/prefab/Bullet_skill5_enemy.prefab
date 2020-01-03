@@ -18,7 +18,7 @@
             "x":15,
             "type":"SkeletonPlayer",
             "searchKey":"SkeletonPlayer,sk_name",
-            "props":{"y":-117,"x":14,"url":"dragonbones/pp.sk","presetID":7,"preset":"laya/pages/prefab/Bullet_skill5_enemy.prefab","name":"sk_name"},
+            "props":{"y":-117,"x":14,"url":"dragonbones/xuanfupao.sk","presetID":7,"preset":"laya/pages/prefab/Bullet_skill5_enemy.prefab","name":"sk_name"},
             "nodeParent":17,
             "label":"sk_name",
             "isDirectory":false,

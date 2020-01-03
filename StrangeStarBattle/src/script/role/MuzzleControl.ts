@@ -43,6 +43,7 @@ export default class MuzzleControl extends Laya.Script {
             case "8":
             case "9":
             case "10":
+            case "11":
                 Laya.timer.frameOnce(3, this, () => {
                     this.sk.play(1, false);
                     this.skStatus = 2;
@@ -50,7 +51,7 @@ export default class MuzzleControl extends Laya.Script {
                 break;
             case "5":
                 Laya.timer.frameOnce(3, this, () => {
-                    this.sk.play(1, false);
+                    this.sk.play("fs", false);
                     this.skStatus = 1;
                 });
                 break;
@@ -133,6 +134,7 @@ export default class MuzzleControl extends Laya.Script {
                 }
                 break;
             case "10":
+            case "11":
                 //蘑菇炮
                 if (this.skStatus === 2) {
                     this.sk.play(0, false);

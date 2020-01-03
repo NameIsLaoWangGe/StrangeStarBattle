@@ -41,6 +41,7 @@ import DropBox from "./script/DropBox"
 import GoldDrop from "./script/role/GoldDrop"
 import EndlessBuyItem from "./script/manage/EndlessBuyItem"
 import movementLocus from "./script/role/movementLocus"
+import HpaddEffectControl from "./script/Effect/HpaddEffectControl"
 import toast from "./script/manage/toast"
 /*
 * 游戏初始化配置;
@@ -103,6 +104,7 @@ export default class GameConfig{
         reg("script/role/GoldDrop.ts",GoldDrop);
         reg("script/manage/EndlessBuyItem.ts",EndlessBuyItem);
         reg("script/role/movementLocus.ts",movementLocus);
+        reg("script/Effect/HpaddEffectControl.ts",HpaddEffectControl);
         reg("script/manage/toast.ts",toast);
     }
 }

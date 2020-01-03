@@ -23,6 +23,7 @@ import role from "../role/role";
 import LYpoint = Laya.Point;
 import LYTween = Laya.Tween;
 import LYSkeleton = Laya.Skeleton;
+import LYImage = Laya.Image;
 import { Bullet } from "../Bullet/BulletInterface";
 import BulletType = Bullet.BulletType;
 import OpenWx from "../manage/OpenWx";
@@ -89,6 +90,8 @@ export default class Enemy extends Laya.Script {
         this.self.pos(random(0, Laya.stage.width - this.propertyObj.mark_w - 5), random(-30 - this.propertyObj.mark_h, -5 - this.propertyObj.mark_h));
         this.stopped = false;
         this.secondAttacked = false;
+        this.createShadow();
+
         this.self.visible = true;
 
         this.secondType = Number(SecondWeaponData.getInstance().buffType[0]);
@@ -109,6 +112,7 @@ export default class Enemy extends Laya.Script {
         if (!this.self.visible) {
             return;
         }
+        this.shadow.pos(this.self.x + (this.propertyObj.e_type === 2 ? this.shadowOffset_boss.x : this.shadowOffset.x), this.self.y + (this.propertyObj.e_type === 2 ? this.shadowOffset_boss.y : this.shadowOffset.y));
         if (this.propertyObj.dropHpStatus === DropHpStatus.second8) {
             return;
         }
@@ -127,6 +131,41 @@ export default class Enemy extends Laya.Script {
         this.keepDropHp_endless();
         this.palsy_endless();
         this.slowDown_endless();
+    }
+    /**
+     * 创建阴影
+     */
+    private shadow: LYImage;
+    private shadowOffset = { x: -120, y: 140 };
+    private shadowOffset_boss = { x: -160, y: 240 };
+    createShadow() {
+        const shadowObj = this.self["shadow"];
+        if (shadowObj) {
+            shadowObj.visible = true;
+            this.shadow = shadowObj;
+        } else {
+            const nowShadowObj = Laya.Pool.getItemByCreateFun("enemyShadow", this.getShadowobj, this);
+            nowShadowObj.name = "shadow";
+            const parent = PlayingControl.instance.owner["Clouds"];
+            parent.addChild(nowShadowObj);
+            const pos = { x: 0, y: 0 };
+            if (this.propertyObj.e_type === 2) {
+                pos.x = this.shadowOffset_boss.x;
+                pos.y = this.shadowOffset_boss.y;
+                nowShadowObj.scale(1.5, 1.5);
+            } else {
+                pos.x = this.shadowOffset.x;
+                pos.y = this.shadowOffset.y;
+            }
+            nowShadowObj.pos(this.self.x + pos.x, this.self.y + pos.y);
+            this.shadow = nowShadowObj;
+
+        }
+
+    }
+    getShadowobj() {
+        const img: LYImage = new LYImage("face/enemy_shadow.png");
+        return img;
     }
     judgeWudiStatus() {
         if (Date.now() - this.wuDiStartTime >= this.wuDiInterval) {
@@ -227,6 +266,9 @@ export default class Enemy extends Laya.Script {
                 // const hurtValue_enhance = this.enhanceFire(startHurt);
                 // const hurtValue_endless = this.spike_endless(hurtValue_enhance);
                 const hurtValue_endless = this.changeHurtBySkillInEndless(startHurt);
+                // if (this.propertyObj.e_type === 2) {
+                // debugger
+                //}
                 this.setEnemyHp(hurtValue_endless, propertyObj.buffValue, oneBullet);
                 this.initDropHp_endless();
                 this.intiPalsy_endless();
@@ -341,6 +383,9 @@ export default class Enemy extends Laya.Script {
     private palsyImmunityKeepTime: number;      //免疫持续的时间
     private palsyImmunityStartTime: number;     //免疫开始的时间
     intiPalsy_endless() {
+        if (!this.self.visible) {
+            return;
+        }
         const skillInstance = EndlessParseSkill.getInstance();
         if (this.gameMode === "endless" && skillInstance.isUpgraded(10) && (this.palsyStatus === "无状态" || !this.palsyStatus)) {
             this.palsyStatus = "麻痹中";
@@ -401,6 +446,11 @@ export default class Enemy extends Laya.Script {
             } else {
                 EndlessParseSkill.getInstance().setSkillEffect(12, this.self);
             }
+            if (from === "boss") {
+                this.self.getChildByName(effectName).scale(1.3, 1.3);
+            } else {
+                this.self.getChildByName(effectName).scale(1, 1);
+            }
         }
     }
     /**
@@ -426,7 +476,7 @@ export default class Enemy extends Laya.Script {
                 }
             }
             //爆头
-            if (skillInstance.isUpgraded(14)) {
+            if (skillInstance.isUpgraded(14) && this.propertyObj.e_type !== 2) {
                 const bate = skillInstance.getSkillProbability(14);
                 const randomValue = tools.random(1, 100);
                 if (randomValue <= bate) {
@@ -593,7 +643,7 @@ export default class Enemy extends Laya.Script {
         if (bType === BulletType.roleMainBullet) {
             this.stopped = true;
 
-        } else if (bType === BulletType.roleSecondBullet) {
+        } else if (bType === BulletType.roleSecondBullet && !this.secondAttacked) {
             const randomNum = tools.random(1, 100);
             switch (secondType) {
                 case 1:
@@ -611,6 +661,7 @@ export default class Enemy extends Laya.Script {
                     break;
                 case 3:
                     //冰缓
+                    this.secondWeaponInterval = propertyObj.keepTimeValue;
                     this.setIceSlowEffect(propertyObj);
                     this.secondAttacked = true;
                     break;
@@ -619,6 +670,7 @@ export default class Enemy extends Laya.Script {
                     break;
                 case 5:
                     //漂浮
+                    this.secondWeaponInterval = propertyObj.keepTimeValue;
                     this.setFloatEffect();
                     this.secondAttacked = true;
                     break;
@@ -656,9 +708,9 @@ export default class Enemy extends Laya.Script {
                 default:
                     break;
             }
-
+            this.attackedTime = Date.now();
         }
-        this.attackedTime = Date.now();
+
     }
 
     /**
@@ -770,7 +822,7 @@ export default class Enemy extends Laya.Script {
         let speedXy = { x: this._speedX, y: this.defaultSpeedY };
         const secondTypeToAction = { 6: this.getParalysisSpeed, 3: this.getIceSpeed, 5: this.getFloatSpeed }
         if (this.secondAttacked && secondTypeToAction[this.secondType]) {
-            return secondTypeToAction[this.secondType]();
+            return secondTypeToAction[this.secondType].call(this);
         } else {
             if (this.stopped) {
                 speedXy.y = spy * 0.5;
@@ -789,7 +841,7 @@ export default class Enemy extends Laya.Script {
             }
 
         }
-        if (!PlayingControl.instance.fighting) {
+        if (!PlayingControl.instance.fighting && this.gameMode === "level") {
             speedXy.x = speedXy.x * PlayingControl.instance.gameSlowBate;
             speedXy.y = speedXy.y * PlayingControl.instance.gameSlowBate;
         }
@@ -800,6 +852,9 @@ export default class Enemy extends Laya.Script {
         const spy = this.defaultSpeedY;
         let speedXy = { x: this._speedX, y: this.defaultSpeedY };
         speedXy.y = this.stopped ? -spy * (0.1 + 0.1 * 0.5) : -spy * 0.1;
+        if (this.self.y <= 0) {
+            speedXy.y = 0;
+        }
         if (this._steering === "left") {
             speedXy.x = -0.1 * spx;
         } else {
@@ -1118,6 +1173,7 @@ export default class Enemy extends Laya.Script {
     }
     onDisable(): void {
         this.self.visible = false;
+        this.shadow && (this.shadow.visible = false);
         EndlessParseSkill.getInstance().cancalSkillEffect(9, this.self);
         EndlessParseSkill.getInstance().cancalSkillEffect(10, this.self);
         //取消冰缓
@@ -1202,18 +1258,21 @@ export default class Enemy extends Laya.Script {
     }
     setFloatEffect() {
         if (!this.effectObj) {
-            const prafabName = Data2.muzzlePrefabEnemy[SecondWeaponData.getInstance().buffType[0]];
-            const markPrefab: Laya.Prefab = Laya.loader.getRes("prefab/" + prafabName + ".json");
-            const prefabObj = Laya.Pool.getItemByCreateFun(prafabName, markPrefab.create, markPrefab);
-            this.effectObj = prefabObj;
-            prefabObj.pos(this.propertyObj.mark_w / 2, this.propertyObj.mark_h);
-            this.self.addChild(prefabObj);
+            this.markSk && this.markSk.playbackRate(0.01);
+            this.effectObj = SkeletonTempletManage.getInstance().createSkByTemplet("xuanfupao");
+            this.effectObj.pos(this.propertyObj.mark_w / 2, this.propertyObj.mark_h / 2);
+            this.effectObj.scale(1, 1);
+            this.effectObj.play("pp", true);
+            this.self.addChild(this.effectObj);
+            // toast.noBindScript("触发麻痹效果~q");
         }
     }
     cancelEffect() {
-        this.effectObj && this.effectObj.removeSelf() && (this.effectObj = null);
-        this.markSk && this.markSk.playbackRate(1);
-        this.propertyObj.dropHpStatus = DropHpStatus.ordinary;
+        // if (this.gameMode === "level") {
+            this.effectObj && this.effectObj.removeSelf() && (this.effectObj = null);
+            this.markSk && this.markSk.playbackRate(1);
+            this.propertyObj.dropHpStatus = DropHpStatus.ordinary;
+        // }
     }
     secondBulletHandler(other: Laya.PhysicsComponent, self: any) {
         if (this.self["vars_"] && this.self["vars_"].skillType) {

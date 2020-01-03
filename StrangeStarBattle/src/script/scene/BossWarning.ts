@@ -3,20 +3,19 @@ import MusicEnum from "../Data/MusicEnum"
 import musicToUrl = MusicEnum.musicToUrl;
 import AdaptScene from "../manage/AdaptScene";
 import PlayingControl from "../playing/PlayingSceneControl";
+import Skeleton = Laya.Skeleton;
 export default class BossWarning extends Laya.Script {
+    private isTempletCreate: boolean;
+    private sk: Skeleton;
     constructor() {
         super();
     }
     onEnable(): void {
         const Image = Laya.Image;
         const warningBg = this.owner.getChildAt(0) as Laya.Image;
+        this.sk = this.owner.getChildByName("sk") as Skeleton;
+        this.sk.on(Laya.Event.STOPPED, this, this.finished);
         warningBg.height = Laya.stage.height;
-        const bossEffect = this.owner.getChildByName("boss") as Laya.Image;
-        const enemyEffect = this.owner.getChildByName("enemy") as Laya.Image;
-        const isWaveEffect = PlayingControl.instance.isWaveEffect || false;
-        bossEffect.visible = !isWaveEffect;
-        enemyEffect.visible = isWaveEffect;
-        PlayingControl.instance.isWaveEffect = null;
         Laya.timer.loop(150, this, this.setWarning, [warningBg]);
     }
     private markIndex: number = 0;
@@ -26,9 +25,25 @@ export default class BossWarning extends Laya.Script {
         } else {
             e.visible = true;
         }
-        if (this.markIndex >= 20) {
-            this.owner.removeSelf();
+    }
+    onUpdate() {
+        if (!this.isTempletCreate && this.sk && this.sk.templet) {
+            this.isTempletCreate = true;
+            this.setSkPlaying();
         }
+    }
+    setSkPlaying() {
+        const isWaveEffect: boolean = PlayingControl.instance.isWaveEffect;
+        this.sk.visible = true;
+        if (isWaveEffect) {
+            this.sk.play("xiaoguailx", false);
+        } else {
+            this.sk.play("bosslx", false);
+        }
+        PlayingControl.instance.isWaveEffect = null;
+    }
+    finished() {
+        this.owner.removeSelf();
     }
     onDisable(): void {
         this.owner.destroy();

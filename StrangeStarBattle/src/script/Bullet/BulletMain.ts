@@ -30,7 +30,7 @@ export default class BulletMain extends BulletParent {
         if (buff) {
             this.buffObj = buff;
         }
-        if (fireBuffType!==(void 0)) {
+        if (fireBuffType !== (void 0)) {
             this.fireBuffType = fireBuffType;
         }
         this.playingControlObj = PlayingControl.instance;
@@ -51,15 +51,27 @@ export default class BulletMain extends BulletParent {
                 break;
             case BulletType.roleSecondBullet:
                 this.prefabName = SecondWeaponData.getInstance().bulletPrefab;
-                if (this.secondType !== 3 && this.secondType !== 4 && this.secondType !== 5) {
+                if (this.secondType !== 3 && this.secondType !== 4/* && this.secondType !== 5*/) {
                     this.bulletObj = SkeletonTempletManage.getInstance().createSkByTemplet(this.prefabName);
                     this.w = 50;
                     this.h = 50;
+                    if (this.secondType === 5) {
+                        this.startPos.x += 60;
+                    }
                     this.bulletObj.pos(this.startPos.x, this.startPos.y);
                     this.bulletObj["property"] = this;
                     // this.bulletObj.visible = true;
+                    if (this.secondType === 4) {
+                        this.bulletObj.play("jgp", true);
 
-                    this.bulletObj.play(this.secondType !== 10 ? 0 : 0, true);
+                    } else if (this.secondType === 5) {
+                        this.bulletObj.play("pp", true);
+                        this.bulletObj.scale(0.5, 0.5);
+                    }else if(this.secondType===10){
+                        this.bulletObj.play("mgp", true);
+                    } else {
+                        this.bulletObj.play(0, true);
+                    }
                     this.setBulletOrder();
                     PlayingControl.instance.bulletParent.addChild(this.bulletObj);
                     return;
@@ -75,10 +87,11 @@ export default class BulletMain extends BulletParent {
                 } else if (this.prefabName == "Bullet_skill4") {
                     this.w = 57;
                     this.h = 1081;
-                } else if (this.prefabName === "Bullet_skill5") {
-                    this.w = 257;
-                    this.h = 220;
                 }
+                // else if (this.prefabName === "Bullet_skill5") {
+                //     this.w = 257;
+                //     this.h = 220;
+                // }
                 break;
             case BulletType.bossBullet:
                 break;
@@ -92,7 +105,6 @@ export default class BulletMain extends BulletParent {
             this.w = imgObj.width;
             this.h = imgObj.height;
         }
-
         this.bulletObj.pos(this.startPos.x, this.startPos.y);
         this.bulletObj["property"] = this;
         this.bulletObj.visible = true;

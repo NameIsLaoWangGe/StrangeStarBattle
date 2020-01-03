@@ -2193,7 +2193,7 @@ export default class BossObject extends EnemyCommon {
         pointObj.normalize();
         this.enmeySprite.x -= this.defaultSpeedY * pointObj.x;
         this.enmeySprite.y -= this.defaultSpeedY * pointObj.y;
-        console.error("每次移动~~~this.defaultSpeedY * pointObj.x", this.defaultSpeedY * pointObj.x, "this.defaultSpeedY * pointObj.y", this.defaultSpeedY * pointObj.y);
+        // console.error("每次移动~~~this.defaultSpeedY * pointObj.x", this.defaultSpeedY * pointObj.x, "this.defaultSpeedY * pointObj.y", this.defaultSpeedY * pointObj.y);
         this.judgeFollowSuccess();
     }
     /**

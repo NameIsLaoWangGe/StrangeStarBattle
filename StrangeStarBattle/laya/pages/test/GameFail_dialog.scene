@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":4,
-    "selecteID":43,
+    "selectedBox":3,
+    "selecteID":46,
     "searchKey":"Dialog",
     "props":{"width":750,"sceneColor":null,"height":1334,"autoDestroyAtClosed":false},
     "nodeParent":-1,
-    "maxID":46,
+    "maxID":47,
     "label":"Dialog",
     "isOpen":true,
     "isDirectory":true,
@@ -67,6 +67,20 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":38,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "searchKey":"Button,btn_settlement",
+                    "props":{"y":985,"x":181,"width":400,"var":"btn_settlement","label":"label","height":117},
+                    "nodeParent":3,
+                    "label":"btn_settlement",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":46,
                     "child":[
                         ]
                 },

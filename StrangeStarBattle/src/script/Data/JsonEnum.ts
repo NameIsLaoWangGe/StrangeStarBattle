@@ -101,7 +101,7 @@ module Data {
         "boss_zhangyunvhuang" = "Boss_zhangyunvhuang",
         "bingshuanpao" = "Bullet_skill3",
         "jiguangpao" = "Bullet_skill4",
-        "xuanfupao" = "Bullet_skill5",
+        /*"xuanfupao" = "Bullet_skill5",*/
 
         "bullet_blue" = "Bullet_blue",  //临时的boss子弹
     }
@@ -196,7 +196,7 @@ module Data {
         position;
         layer;
     }
-    
+
     /**
      * buff表的字段
      */

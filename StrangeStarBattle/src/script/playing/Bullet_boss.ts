@@ -564,7 +564,9 @@ export default class Bullet_boss extends Laya.Script {
                 createIndex && (this.self["vars_"].propertyObj["createIndex"] = null);
             }
         }
-
+        if (this.bossType === Data.enemyToPerfab.boss3) {
+            this.backSelfImagAndRotation();
+        }
         Laya.Pool.recover(this.propertyObj.nick, this.self);
         // if (PlayingVar.getInstance().gameStatus === "playing") {
         //     Laya.Pool.recover(this.propertyObj.nick, this.self);

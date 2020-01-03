@@ -9,7 +9,9 @@ export module tools {
      * @param m 第二个随机数不存在的话默认为10
      */
     export function random(n: number, m?: number) {
-        m = m || 10;
+        if (m === void 0) {
+            m = 10;
+        }
         const c: number = m - n + 1;
         return Math.floor(Math.random() * c + n)
     }
@@ -142,6 +144,14 @@ export module tools {
      */
     export function getRad(degree) {
         return degree / 180 * Math.PI;
+    }
+    /**
+     * 根据正切计算角度
+     */
+    export function getAngleByTan(value: number): number {
+        var result = Math.atan(value) / (Math.PI / 180);
+        result = Math.round(result);
+        return result;
     }
     /**
      * 求圆上的点的坐标~

@@ -5,6 +5,9 @@ import Achievementreach from "./Achievementreach";
 import PlayingVar from "../manage/Playing_var";
 import PlayingSceneControl from "../playing/PlayingSceneControl";
 import AchievementButton from "./AchievementButton";
+import Music from "../manage/Music"
+import MusicEnum from "../Data/MusicEnum"
+import musicToUrl = MusicEnum.musicToUrl;
 export default class AchievementControl extends Laya.Script {
     /** @prop {name:closeButton, tips:"关闭按钮", type:node, default:Button}*/
     public closeButton: Laya.Sprite;
@@ -122,6 +125,7 @@ export default class AchievementControl extends Laya.Script {
 
     /**当前选中的tap监听,主要是显示根据类型显示list数量*/
     onSelect_Tap(index: number): void {
+        Music.getInstance().playSound(musicToUrl.button_normal);
         this.listAssignment();
         this.list.refresh();
         this.tapRedDotRrompt();
@@ -342,6 +346,7 @@ export default class AchievementControl extends Laya.Script {
     }
     /**按下缩小*/
     closeButtonDOWN(): void {
+        Music.getInstance().playSound(musicToUrl.button_normal);
         this.closeButton.scale(this.startScale, this.startScale);
     }
     /**移动时缩小*/

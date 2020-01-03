@@ -101,7 +101,8 @@ export default class PlayingControl extends Laya.Script {
     Bullet_skill4_enemy: Laya.Prefab;
     /** @prop {name:Bullet_boss,tips:"Bullet_boss",type:Prefab} */
     Bullet_boss: Laya.Prefab;
-
+    /** @prop {name:HpAddToast,tips:"HpAddToast",type:Prefab} */
+    HpAddToast: Laya.Prefab;
     /** @prop {name:Boss_hp,tips:"Boss_hp",type:Prefab} */
     Boss_hp: Laya.Prefab;
     /** @prop {name:baozha,tips:"baozha",type:Prefab} */
@@ -284,13 +285,7 @@ export default class PlayingControl extends Laya.Script {
         this.parseTemplate();
         //预加载部分可能战斗场景需要用到的资源~
         this.preLoadResInPlaying();
-        // //初始化 role的血量等
-        // this.initRoleHp();
-        // Laya.Browser.window.haveEnemySprite = this.self["haveEnemySprite"];
-        // this.wxUserDateUpdate();
         this.openRanking();
-
-        // this.setLoadingScene();
         Laya.stage.on(Laya.Event.RESIZE, this, this.onResize);
     }
     onResize(arg: any) {
@@ -335,7 +330,7 @@ export default class PlayingControl extends Laya.Script {
     parseTemplate() {
         // SkeletonTempletManage.getInstance().play("buff", "buff", false, null, null);
         const templets = SkeletonTempletManage.getInstance().templets;
-        const templetArr0 = ["buff", "diancipao", "xuhongyinqing", "liuxingpao", "mogupao", "feirenfengbao", "daodanpao", "qpbz", "fanghudun"];
+        const templetArr0 = ["buff", "diancipao", "xuanfupao", "xuhongyinqing", "liuxingpao", "mogupao", "feirenfengbao", "daodanpao", "qpbz", "fanghudun", "jiguangpao", "duye"];
         const templetArr1 = EndlessParseSkill.getInstance().getSkillEffectIds();
         const templetArr = templetArr0.concat(templetArr1);
         let i: number = 0;
@@ -696,9 +691,13 @@ export default class PlayingControl extends Laya.Script {
     */
     setEquipType(type?: any): void {
         //let secondEquipUrl = PlayingVar.getInstance().roleSecondaryEquipType ? "face/副武器2.png" : "face/副武器1.png";
-        const pic: string = Data.FixedDataTables.getInstance().getDataByKey(Data2.DataType.secondaryWeapon, type || this.game.secondWeapon.selected, "pic");
+        const picCongig = Data.FixedDataTables.getInstance().getDataByKey(Data2.DataType.secondaryWeapon, type || this.game.secondWeapon.selected);
+        const pic = picCongig.pic;
         this.leftSecondWeapon.skin = "face/" + pic + ".png";
         this.rightSecondWeapon.skin = "face/" + pic + ".png";
+        const picNameShadow = "face/" + picCongig.splane_shadow + ".png";
+        this.self["shadow_left"].skin = picNameShadow;
+        this.self["shadow_right"].skin = picNameShadow;
         this.secondRoleObj.visible = this.game.secondWeapon.selected ? true : false;
         SecondWeaponData.getInstance().updateWeaponComfig();
         this.setMainWeaponType();
@@ -713,6 +712,7 @@ export default class PlayingControl extends Laya.Script {
             Laya.timer.frameLoop(1, this, this.setPlaneSk, [pic]);
         } else {
             this.setPlaneSk(pic);
+            this.self["shadow_main"].skin = "face/" + pic + "_shadow.png";
         }
         this.mainPlane_pic.visible = false;
         return;
@@ -727,6 +727,7 @@ export default class PlayingControl extends Laya.Script {
             this.mainPlane_pic.visible = false;
         } else {
             this.mainPlane_pic.skin = "face/" + pic + ".png";
+
             this.mainPlane_sk.visible = false;
             this.mainPlane_pic.visible = true;
         }
@@ -888,7 +889,7 @@ export default class PlayingControl extends Laya.Script {
             return;
         }
         this._fighting = true;
-        this.touchUpEffct.setHide();
+        PlayingVar.getInstance().gameModel === "level" && this.touchUpEffct.setHide();
         //增加区域
         if (!this.dragArea) {
             //拖动区域的限制
@@ -909,7 +910,7 @@ export default class PlayingControl extends Laya.Script {
         //射击声音 停止
         if (this._fighting) {
             Music.getInstance().stopOneSound(musicToUrl.bullet_normal);
-            this.touchUpEffct.setShow();
+            // PlayingVar.getInstance().gameModel === "level" && this.touchUpEffct.setShow();
         }
         this._fighting = false;
     }
@@ -927,6 +928,7 @@ export default class PlayingControl extends Laya.Script {
 
     onUpdate() {
         this.updateEnerenergy();
+        this.preCreateCycleObject();
         if (!this.isGamePause && this._fighting) {
             if ((Date.now() - this.lastShotTime) >= (this.bulletSpeed)) {
                 this.lastShotTime = Date.now();
@@ -1034,11 +1036,11 @@ export default class PlayingControl extends Laya.Script {
             this.createWaveEffect();
             return;
         }
-        let judge1: boolean = !nowWaveFinish && (Date.now() - this.lastTimeCreateOne) >= this.timeIntervalByCreate;
-        let judge2: boolean = nowWaveFinish && (Date.now() - this.lastTimeCreateAWave) >= this.timeIntervalByOne;
-        let judge3: boolean = nowWaveFinish && this.lastDestroyAllEnemy;
+        // let judge1: boolean = !nowWaveFinish && (Date.now() - this.lastTimeCreateOne) >= this.timeIntervalByCreate;
+        // let judge2: boolean = nowWaveFinish && (Date.now() - this.lastTimeCreateAWave) >= this.timeIntervalByOne;
+        // let judge3: boolean = nowWaveFinish && this.lastDestroyAllEnemy;
         const canContinueCreate = this.judgeCanContinueCreate(nowWaveFinish);
-        if ((!this.lastTimeCreateOne || canContinueCreate) && this.fighting) {
+        if ((!this.lastTimeCreateOne || (/*false && */canContinueCreate)) && this.fighting) {
             if (!this.lastTimeCreateAWave) {
                 this.lastTimeCreateAWave = Date.now();
             }
@@ -1673,7 +1675,13 @@ export default class PlayingControl extends Laya.Script {
         this.roleObj.stopDrag();
         this.EnemySpite._children.forEach((item) => {
             const sk = (item.getChildByName("EnemySK") as Laya.Skeleton);
-            sk && sk.playbackRate(0.001);
+            if (sk) {
+                sk.playbackRate(0.001);
+            } else {
+                const boss_sk = (item.getChildByName(item.name) as Laya.Skeleton);
+                boss_sk && boss_sk.playbackRate(0.001);
+            }
+
         });
     }
     /**
@@ -1686,7 +1694,12 @@ export default class PlayingControl extends Laya.Script {
         EndlessManage.getInstance().setCompensateTime();
         this.EnemySpite._children.forEach((item) => {
             const sk = (item.getChildByName("EnemySK") as Laya.Skeleton);
-            sk && sk.playbackRate(1);
+            if (sk) {
+                sk.playbackRate(1);
+            } else {
+                const boss_sk = (item.getChildByName(item.name) as Laya.Skeleton);
+                boss_sk && boss_sk.playbackRate(1);
+            }
         });
     }
     /**
@@ -1814,6 +1827,17 @@ export default class PlayingControl extends Laya.Script {
         let bossWarning = warning.create();
         this.isWaveEffect = true;
         Laya.stage.addChild(bossWarning);
+    }
+    /**
+     * 预创建游戏里面频繁需要创建的对象
+     */
+    private needCreateCycleObj: boolean;
+    private readonly CREATE_CYCLE_INTERVAL: number = 100;
+    private createCycleStartTime:number;
+    preCreateCycleObject() {
+        if (!this.needCreateCycleObj) {
+
+        }
     }
     set roleHp(hp: number) {
         this._roleHp = hp >= this.roleTotal ? this.roleTotal : hp;

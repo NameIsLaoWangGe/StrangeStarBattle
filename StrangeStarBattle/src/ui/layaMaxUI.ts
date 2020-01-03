@@ -81,14 +81,18 @@ export module ui.test {
 		public bg_03:Laya.Image;
 		public bg_02:Laya.Image;
 		public bg_01:Laya.Image;
+		public Clouds:Laya.Sprite;
 		public cloud_01:Laya.Image;
 		public cloud_02:Laya.Image;
-		public effectParent:Laya.Sprite;
 		public bulletParent_enemy:Laya.Sprite;
+		public effectParent:Laya.Sprite;
 		public secondWeapon:Laya.Sprite;
 		public leftSecondWeapon:Laya.Image;
+		public shadow_left:Laya.Image;
 		public rightSecondWeapon:Laya.Image;
+		public shadow_right:Laya.Image;
 		public pic_plane:Laya.Image;
+		public shadow_main:Laya.Image;
 		public dropBuffParent:Laya.Sprite;
 		public bulletParentUp_enmey:Laya.Sprite;
 		public goldDrop:Laya.Sprite;
@@ -144,6 +148,7 @@ export module ui.test {
 		public bg_black:Laya.Image;
 		public sprite_0:Laya.Sprite;
 		public btn_revival:Laya.Button;
+		public btn_settlement:Laya.Button;
 		public label_enmeyDec:Laya.Label;
 		public sk_settlement:laya.ani.bone.Skeleton;
 		public sprite_1:Laya.Sprite;

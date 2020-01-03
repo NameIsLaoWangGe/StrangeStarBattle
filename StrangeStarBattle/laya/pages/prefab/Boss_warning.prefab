@@ -6,7 +6,7 @@
     "searchKey":"Sprite",
     "props":{"y":0,"x":0,"presetID":1,"preset":"laya/pages/prefab/Boss_warning.prefab","isPresetRoot":true},
     "nodeParent":-1,
-    "maxID":118,
+    "maxID":119,
     "label":"Sprite(Boss_warning)",
     "isOpen":true,
     "isDirectory":true,
@@ -26,33 +26,20 @@
             "hasChild":false,
             "compId":113,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Image",
-            "searchKey":"Image,boss",
-            "props":{"y":310,"x":0,"skin":"face/BOSS来袭.png","presetID":3,"preset":"laya/pages/prefab/Boss_warning.prefab","name":"boss"},
+            "type":"SkeletonPlayer",
+            "searchKey":"SkeletonPlayer,sk",
+            "props":{"y":772,"x":375,"visible":false,"url":"dragonbones/bosslx.sk","presetID":6,"preset":"laya/pages/prefab/Boss_warning.prefab","name":"sk"},
             "nodeParent":112,
-            "label":"boss",
+            "label":"sk",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":114,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite,enemy",
-            "props":{"y":370,"x":0,"texture":"face/zhuyiguaiwulaixi.png","presetID":5,"preset":"laya/pages/prefab/Boss_warning.prefab","name":"enemy"},
-            "nodeParent":112,
-            "label":"enemy",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":117,
+            "compId":118,
             "child":[
                 ]
         },

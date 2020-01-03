@@ -32,6 +32,7 @@ export default class SettlementFailControl extends Laya.Script {
     private sk_settlement: Laya.Skeleton;
     private self: Laya.Dialog;
     private btn_revival: Laya.Button;
+    private btn_settlement: Laya.Button;
     private game: any;
     private markTime: number;
     onEnable(): void {
@@ -51,7 +52,10 @@ export default class SettlementFailControl extends Laya.Script {
         btn_revival.alpha = 0;
         btn_revival.on(Laya.Event.CLICK, this, this.clickRevival);
         this.btn_revival = btn_revival;
-        // Laya.timer.loop(1000, this, this.cownDown, [countDown], true);
+        this.btn_settlement = this.self["btn_settlement"];
+        this.btn_settlement.alpha = 0;
+        this.directSettle = null;
+        this.btn_settlement.on(Laya.Event.CLICK, this, this.clickDirectSettlement);
         this.setProgressBar();
         this.sk_settlement = self["sk_settlement"];
         this.sk_settlement.y = 579;
@@ -67,6 +71,7 @@ export default class SettlementFailControl extends Laya.Script {
 
         this.setFailBgMusic();
         Laya.Browser.window.settlement = this.self;
+
     }
     /**
      * 失败界面的音效和背景音乐设置
@@ -275,6 +280,17 @@ export default class SettlementFailControl extends Laya.Script {
 
     }
     /**
+     * 直接结算~
+     */
+    private directSettle: boolean;
+    clickDirectSettlement() {
+        Laya.timer.clearAll(this);
+        this.sk_settlement.stop();
+        this.sk_settlement.playbackRate(1000);
+        this.sk_settlement.play(0, false);
+        Laya.timer.once(10, this, this.playAni);
+    }
+    /**
      * 现在骨骼动画停止播放界面animation
      */
     private ani1Playing: boolean;
@@ -285,6 +301,7 @@ export default class SettlementFailControl extends Laya.Script {
             Laya.Tween.to(this.self[item], { x: this.self[item].x, y: 25 }, 400);
         });
         this.btn_revival.offAll();
+        this.btn_settlement.offAll();
         const ani1 = (this.self["ani1"] as Laya.FrameAnimation);
         ani1.play(0, false);
         this.ani1Playing = ani1.isPlaying;
@@ -292,6 +309,7 @@ export default class SettlementFailControl extends Laya.Script {
         if (PlayingVar.getInstance().gameModel === "endless") {
             EndlessManage.getInstance().exitEndless();
         }
+
     }
     cownDown() {
         // Laya.timer.clearAll(this);

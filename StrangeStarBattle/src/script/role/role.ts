@@ -9,6 +9,8 @@ import musicToUrl = MusicEnum.musicToUrl;
 import OpenWx from "../manage/OpenWx";
 import UpBlackEffect from "../Effect/UpBlackEffect";
 import LYsprite = Laya.Sprite;
+import LYSkeleton = Laya.Skeleton;
+import LYTemplet = Laya.Templet;
 import SkeletonTempletManage from "../manage/SkeletonTempletManage";
 import EndlessParseSkill from "../manage/EndlessParseSkill";
 export default class role extends Laya.Script {
@@ -18,6 +20,7 @@ export default class role extends Laya.Script {
     //无敌  
     public noHurt: boolean;
     private markNoHurtStartTime: number;
+    private wuDiEffectObj: Laya.Skeleton;
     constructor() {
         super();
         role.instance = this;
@@ -67,9 +70,7 @@ export default class role extends Laya.Script {
                 this.cancelSheildEffect();
             }
         }
-
         this.updateWuDiSkill();
-
     }
     private isWuDiSkill: boolean;
     private wuDiStartTime: number;
@@ -88,11 +89,13 @@ export default class role extends Laya.Script {
                     if (Date.now() - this.wuDiStartTime >= this.wuDiKeepTime) {
                         this.isWuDiSkill = false;
                         this.wuDiEndTime = Date.now();
+                        this.wuDiEffectObj.visible = false;
                     }
                 } else {
                     if (Date.now() - this.wuDiEndTime >= 10 * 1000) {
                         this.wuDiStartTime = Date.now();
                         this.isWuDiSkill = true;
+                        this.wuDiEffectObj.visible = true;
                     }
                 }
             }
@@ -101,7 +104,23 @@ export default class role extends Laya.Script {
     initWudiSkill() {
         this.wuDiStartTime = Date.now();
         this.isWuDiSkill = true;
+        if (!this.wuDiEffectObj) {
+            this.createWudiEffect();
+        } else {
+            this.wuDiEffectObj.visible = true;
+        }
     }
+    createWudiEffect() {
+        const skObj = Laya.Pool.getItemByCreateFun("", () => {
+            const templet: LYTemplet = SkeletonTempletManage.getInstance().templet["wudi"];
+            const sk = templet.buildArmature(0);
+            return sk;
+        }, this);
+        skObj.pos(this.self.width / 2, this.self.height / 2);
+        skObj.play(0, true);
+        this.self.addChild(skObj);
+    }
+
     updateWuDiKeepTime() {
         const seconds = EndlessParseSkill.getInstance().getSkillNum(5);
         this.wuDiKeepTime = 1000 * seconds;
@@ -167,16 +186,20 @@ export default class role extends Laya.Script {
             }
         }
         if (hurtValue > 0) {
-            const reduceHurt = this.getReduceHurt(from);
-            hurtValue -= reduceHurt;
+            const reduceHurt = this.getReduceHurt(from, hurtValue);
+            if ((hurtValue -= reduceHurt) < 0) {
+                hurtValue = 0
+            }
         }
-        hurtValue < 0 && (hurtValue = 0);
+        hurtValue < 0 && (hurtValue = Math.ceil(hurtValue));
+        hurtValue < 0 && this.addHpEffect(hurtValue);
+        // hurtValue < 0 && (hurtValue = 0);
         const P_instance = PlayingControl.instance;
         P_instance.roleHp -= hurtValue;
         if (P_instance.roleHp <= 0) {
             this.setRoleDead();
         } else {
-            hurtValue > 0 && this.startRoleNoHurt();
+            hurtValue > 0 && from && from === "敌人" && this.startRoleNoHurt();
         }
         let nowHp: number;
         if (P_instance.roleHp <= 0) {
@@ -193,6 +216,13 @@ export default class role extends Laya.Script {
         P_instance.delayHpBar2(markWidth);
         PlayingControl.instance.label_hpNum.text = "" + nowHp + "/" + P_instance.roleTotal;
     }
+    addHpEffect(value: number) {
+        const addPrefab: Laya.Prefab = PlayingControl.instance.HpAddToast;
+        const obj: Laya.FontClip = Laya.Pool.getItemByCreateFun("HpAddToast", addPrefab.create, addPrefab);
+        obj.pos(this.self.x + 69, this.self.y - 3);
+        obj.value = "+" + Math.abs(value);
+        PlayingControl.instance.effectParent.addChild(obj);
+    }
     startRoleNoHurt() {
         this.noHurt = true;
         this.markNoHurtStartTime = Date.now();
@@ -200,20 +230,22 @@ export default class role extends Laya.Script {
     /**
      * 无尽模式减伤技能
      */
-    getReduceHurt(from?: string) {
+    getReduceHurt(from?: string, hurtValue?: number) {
         let reduceNum: number = 0;
         const skillInstance = EndlessParseSkill.getInstance();
         if (PlayingVar.getInstance().gameModel === "endless") {
+            let reducePercent: number = 0;
             if (((from && from === "子弹") || !from) && skillInstance.isUpgraded(6)) {
-                reduceNum += skillInstance.getSkillNum(6);
+                reducePercent += skillInstance.getSkillNum(6);
             }
             if (from && from === "敌人" && skillInstance.isUpgraded(7)) {
-                reduceNum += skillInstance.getSkillNum(7);
+                reducePercent += skillInstance.getSkillNum(7);
             }
             if (skillInstance.isUpgraded(8)) {
-                reduceNum += skillInstance.getSkillNum(8);
+                reducePercent += skillInstance.getSkillNum(8);
             }
-            return reduceNum;
+            reduceNum = reducePercent * 0.01
+            return reduceNum * hurtValue;
         }
         return reduceNum;
     }

@@ -55,10 +55,9 @@ export default class PlayingVar {
             game[item] = this[item];
         });
         //现在的关卡
-        game.nowLevel = 48|| 1;
-        // game.nowLevel = e.barrier.curBarrier || 1;
+        game.nowLevel = e.barrier.curBarrier || 1;
         game.mainWeapon = { fireLevel: e.mainWeapon.fireLvl, speedLevel: e.mainWeapon.shotSpeed, hpLevel: e.mainWeapon.hpLvl };
-        game.secondWeapon = { selected: /*204||*/e.curSecondaryWeaponId };
+        game.secondWeapon = { selected: e.curSecondaryWeaponId };
         //签到相关
         this.checkInData.already = e.signIn.signIn;
         this.checkInData.day = e.signIn.signTimes;

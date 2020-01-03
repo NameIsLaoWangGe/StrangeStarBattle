@@ -2,6 +2,9 @@ import Data2 from "../Data/DataTables";
 import FixedDataTables = Data2.FixedDataTables;
 import Data from "../Data/JsonEnum";
 import PlayingVar from "../manage/Playing_var";
+import Music from "../manage/Music"
+import MusicEnum from "../Data/MusicEnum"
+import musicToUrl = MusicEnum.musicToUrl;
 export default class ButtonTouchEffect extends Laya.Script {
     /**红点提示*/
     private redDot: Laya.Sprite;
@@ -110,6 +113,7 @@ export default class ButtonTouchEffect extends Laya.Script {
     }
     /**按下缩小按钮*/
     DOWN(): void {
+        Music.getInstance().playSound(musicToUrl.button_normal);
         this.self.scale(0.9 * this.startScale, 0.9 * this.startScale);
     }
     /**移动时缩小*/

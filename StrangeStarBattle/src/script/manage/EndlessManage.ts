@@ -39,7 +39,7 @@ export default class EndlessManage {
     public isBossFighting: boolean;
     constructor() {
         this.calUseSpeed = FixedDataTables.getInstance().getDataByKey(Data2.DataType.misc, 12, "value");
-        this.weaponJson = FixedDataTables.getInstance().getData(Data2.DataType.weapon);
+        this.weaponJson = FixedDataTables.getInstance().getData(Data2.DataType.endless_weapon);
     };
     static getInstance(): EndlessManage {
         if (!this._instance) {
@@ -170,7 +170,7 @@ export default class EndlessManage {
             this.distanceNum += distance;
             this.distanceNum = Number(this.distanceNum.toFixed(1));
             this.startTime = Date.now();
-            this.distanceObj.value = "" + this.distanceNum + ".km";
+            this.distanceObj.value = "" + this.distanceNum + "km";
             this.startBossFighting();
         }
         this.setCoolDown();
@@ -184,6 +184,9 @@ export default class EndlessManage {
      */
     getScore(enemyType: number, enmeyLevel: number) {
         if (PlayingVar.getInstance().gameModel === "level" || PlayingVar.getInstance().gameStatus === "settlement") {
+            return;
+        }
+        if (this.isBossFighting && enemyType !== 2) {
             return;
         }
         const scoresJson = { 1: 1, 2: 10, 3: 3 };
@@ -512,7 +515,7 @@ export default class EndlessManage {
         //销毁剩余的敌人
         PlayingControl.instance.EnemySpite.removeChildren();
         this.isBossFighting = false;
-        Laya.timer.once(700, this, () => {
+        Laya.timer.once(1000, this, () => {
             this.createSelectSkill();
         });
     }
@@ -530,7 +533,6 @@ export default class EndlessManage {
         const enemyObj = new EnemyObject(enemyId);
         PlayingControl.instance.EnemySpite.addChild(enemyObj.enmeySprite);
         this.preLoadResInBoss();
-        // this.EnemySpite.addChild(enemyObj.enmeySprite);
     }
     /**
      * 预加载boss战刷出来的小怪
@@ -546,7 +548,7 @@ export default class EndlessManage {
             }
         }
     }
-    
+
     /**
      * 时间补偿
      */

@@ -5,6 +5,9 @@ import PlayingVar from "../manage/Playing_var";
 import PlayingSceneControl from "../playing/PlayingSceneControl";
 import EndlessParseSkill from "./EndlessParseSkill";
 import EndlessManage from "./EndlessManage";
+import Music from "../manage/Music"
+import MusicEnum from "../Data/MusicEnum"
+import musicToUrl = MusicEnum.musicToUrl;
 export default class EndlessChooseSkills extends Laya.Script {
     /**自己*/
     private self: Laya.Dialog;
@@ -161,6 +164,11 @@ export default class EndlessChooseSkills extends Laya.Script {
         // 技能名称
         let name = cell.getChildByName('name') as Laya.Label;
         name.text = this.list.array[index].name;
+        if (name.text.length >= 7) {
+            name.fontSize = 20;
+        }else{
+            name.fontSize = 23;
+        }
         // 动画
         if (this.list.array[index].animation) {
             cell.alpha = 0;
@@ -184,7 +192,7 @@ export default class EndlessChooseSkills extends Laya.Script {
         this.But_Quit.on(Laya.Event.MOUSE_OUT, this, this.closeButtonOUT);
     }
     /**按下缩小*/
-    closeButtonDOWN(): void { }
+    closeButtonDOWN(): void { Music.getInstance().playSound(musicToUrl.button_normal); }
     /**移动时缩小*/
     closeButtonMOVE(): void { }
     /**继续按钮点击事件,关闭场景*/
@@ -204,6 +212,7 @@ export default class EndlessChooseSkills extends Laya.Script {
 
     /**退出按钮点击事件,切换场景*/
     But_QuitUP(): void {
+
         //内容先消失
         Laya.Tween.to(this.contentSet, { x: -800, Y: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
 

@@ -5,6 +5,9 @@ import PlayingVar from "../manage/Playing_var";
 import PlayingSceneControl from "../playing/PlayingSceneControl";
 import EndlessParseSkill from "./EndlessParseSkill";
 import EndlessManage from "./EndlessManage";
+import Music from "../manage/Music"
+import MusicEnum from "../Data/MusicEnum"
+import musicToUrl = MusicEnum.musicToUrl;
 export default class EndlessChooseSkills extends Laya.Script {
     /**自己*/
     private self: Laya.Dialog;
@@ -180,7 +183,8 @@ export default class EndlessChooseSkills extends Laya.Script {
         this.list.refresh();
         // 设置不可选
         this.list.selectEnable = false;
-
+        // 播放音乐
+        Music.getInstance().playSound(musicToUrl.button_normal);
         timeLine.addLabel('press', 0).to(cell, { scaleX: 0.95, scaleY: 0.95 }, 50, Laya.Ease.circInOut, 0)
             .addLabel('upspring', 0).to(cell, { scaleX: 1, scaleY: 1 }, 150, Laya.Ease.circInOut, 0)
         timeLine.play('press', false);

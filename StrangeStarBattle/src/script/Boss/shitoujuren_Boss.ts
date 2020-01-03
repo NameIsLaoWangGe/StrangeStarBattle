@@ -38,6 +38,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         this.attackCounter = 0;//攻击次数计数器；
         this.attack_NowTime = Date.now();
         this.self.name = 'shitoujuren';
+        this.self['shitoujuren_Boss'] = this;
     }
 
     //创建boss

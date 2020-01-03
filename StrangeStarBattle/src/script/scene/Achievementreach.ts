@@ -7,6 +7,9 @@ import HttpModel2 from "../Connect/HttpEnum"
 import HttpModel3 from "../Connect/HttpError"
 import BagDataControl from "../manage/BagDataControl";
 import AchievementControl from "./AchievementControl";
+import Music from "../manage/Music"
+import MusicEnum from "../Data/MusicEnum"
+import musicToUrl = MusicEnum.musicToUrl;
 export default class Achievementreach extends Laya.Script {
     /** @prop {name:getDiamond,tips:"获取钻石数量",type:Prefab}*/
     getDiamond: Laya.Prefab;
@@ -45,6 +48,7 @@ export default class Achievementreach extends Laya.Script {
     }
     /**按下缩小*/
     reachButtonDOWN(): void {
+        Music.getInstance().playSound(musicToUrl.button_normal);
     }
     reachButtonMOVE(): void {
     }

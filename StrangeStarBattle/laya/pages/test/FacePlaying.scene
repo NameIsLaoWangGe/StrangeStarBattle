@@ -1,11 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
+    "selectedBox":201,
+    "selecteID":342,
     "searchKey":"Scene",
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#000000","pivotY":0,"pivotX":0,"height":1334},
     "nodeParent":-1,
-    "maxID":357,
+    "maxID":364,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -73,8 +74,8 @@
         {
             "x":15,
             "type":"Sprite",
-            "searchKey":"Sprite,Clouds",
-            "props":{"y":0,"x":0,"name":"Clouds"},
+            "searchKey":"Sprite,Clouds,Clouds",
+            "props":{"y":0,"x":0,"var":"Clouds","name":"Clouds"},
             "nodeParent":2,
             "label":"Clouds",
             "isOpen":false,
@@ -113,20 +114,6 @@
         {
             "x":15,
             "type":"Sprite",
-            "searchKey":"Sprite,effectParent",
-            "props":{"y":0,"x":0,"var":"effectParent"},
-            "nodeParent":2,
-            "label":"effectParent",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":313,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Sprite",
             "searchKey":"Sprite,bulletParent",
             "props":{"y":0,"x":0,"name":"bulletParent"},
             "nodeParent":2,
@@ -156,8 +143,23 @@
         {
             "x":15,
             "type":"Sprite",
+            "searchKey":"Sprite,effectParent",
+            "props":{"y":0,"x":0,"var":"effectParent"},
+            "nodeParent":2,
+            "label":"effectParent",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":313,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
             "searchKey":"Sprite,secondWeapon",
-            "props":{"y":1066.6666666666667,"x":310,"visible":false,"var":"secondWeapon","height":110,"cacheAs":"none"},
+            "props":{"y":1065.6666666666667,"x":310,"visible":false,"var":"secondWeapon","height":110,"cacheAs":"none"},
             "nodeParent":2,
             "label":"secondWeapon",
             "isOpen":false,
@@ -184,12 +186,26 @@
                             "props":{"y":10,"x":25,"var":"leftSecondWeapon","skin":"face/splane_02.png","scaleY":1,"scaleX":-1,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":6,
                             "label":"leftSecondWeapon",
-                            "isDirectory":false,
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":120,
                             "child":[
-                                ]
+                                {
+                                    "type":"Image",
+                                    "searchKey":"Image,shadow_left,shadow_left",
+                                    "props":{"y":116,"x":37,"var":"shadow_left","skin":"face/splane_03_shadow.png","name":"shadow_left"},
+                                    "nodeParent":120,
+                                    "label":"shadow_left",
+                                    "isOpen":false,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":362,
+                                    "child":[
+                                        ]
+                                }]
                         },
                         {
                             "type":"Image",
@@ -197,12 +213,26 @@
                             "props":{"y":10,"x":210,"var":"rightSecondWeapon","skin":"face/splane_02.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":6,
                             "label":"rightSecondWeapon",
-                            "isDirectory":false,
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":122,
                             "child":[
-                                ]
+                                {
+                                    "type":"Image",
+                                    "searchKey":"Image,shadow_right,shadow_right",
+                                    "props":{"y":115,"x":-91,"var":"shadow_right","skin":"face/splane_03_shadow.png","name":"shadow_right"},
+                                    "nodeParent":122,
+                                    "label":"shadow_right",
+                                    "isOpen":false,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":363,
+                                    "child":[
+                                        ]
+                                }]
                         }],
                     "$HIDDEN":false
                 }],
@@ -215,13 +245,14 @@
             "props":{"y":1045,"x":310,"width":120,"name":"role_name","height":110},
             "nodeParent":2,
             "label":"role_name",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":55,"x":60,"anchorY":0.5,"anchorX":0.5},
@@ -234,6 +265,7 @@
                     "compId":201,
                     "child":[
                         {
+                            "x":45,
                             "type":"SkeletonPlayer",
                             "searchKey":"SkeletonPlayer",
                             "props":{"y":0,"x":2,"url":"dragonbones/plane_03.sk"},
@@ -248,11 +280,13 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,pic_plane",
-                            "props":{"y":0,"x":0,"var":"pic_plane","skin":"face/plane_05.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":0,"x":0,"var":"pic_plane","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":201,
                             "label":"pic_plane",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -260,9 +294,24 @@
                             "child":[
                                 ],
                             "$HIDDEN":true
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "searchKey":"Image,shadow_main,shadow_main",
+                            "props":{"y":80,"x":-113,"var":"shadow_main","skin":"face/plane_03_shadow.png","name":"shadow_main"},
+                            "nodeParent":201,
+                            "label":"shadow_main",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":360,
+                            "child":[
+                                ]
                         }]
                 },
                 {
+                    "x":30,
                     "type":"BoxCollider",
                     "switchAble":true,
                     "searchKey":"BoxCollider",
@@ -278,6 +327,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"RigidBody",
                     "switchAble":true,
                     "searchKey":"RigidBody",
@@ -293,6 +343,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/role/role.ts",
@@ -374,7 +425,7 @@
             "source":"src/script/playing/PlayingSceneControl.ts",
             "searchKey":"Script,PlayingSceneControl",
             "removeAble":true,
-            "props":{"zidan":"@Prefab:prefab/zidan.prefab","y":0,"xg_baozha":"@Prefab:prefab/xg_baozha.prefab","x":0,"warning":"@Prefab:prefab/Boss_warning.prefab","goldDrop":"@Prefab:prefab/DropGold.prefab","enemy_yellow":"@Prefab:prefab/Enemy_yellow.prefab","enemy_special2":"@Prefab:prefab/enemy_special2.prefab","enemy_special1":"@Prefab:prefab/enemy_special1.prefab","enemy_red":"@Prefab:prefab/Enemy_red.prefab","enemy_blue":"@Prefab:prefab/Enemy_blue.prefab","bullet_yellow":"@Prefab:prefab/Bullet_yellow.prefab","bullet_red":"@Prefab:prefab/Bullet_red.prefab","bullet_blue":"@Prefab:prefab/Bullet_blue.prefab","boss_baozha":"@Prefab:prefab/boss_baozha.prefab","baozha":"@Prefab:prefab/baozha.prefab","UpdateItem":"@Prefab:prefab/updateItem_sprite.prefab","ItemDetail":"@Prefab:prefab/ItemDetail.prefab","Enemy_yellow":"@Prefab:prefab/Enemy_yellow.prefab","Enemy_red":"@Prefab:prefab/Enemy_red.prefab","Enemy_blue":"@Prefab:prefab/Enemy_blue.prefab","EnemySK":"@Prefab:prefab/EnemySK.prefab","Bullet_skill5_enemy":"@Prefab:prefab/Bullet_skill5_enemy.prefab","Bullet_skill5":"@Prefab:prefab/Bullet_skill5.prefab","Bullet_skill4_enemy":"@Prefab:prefab/Bullet_skill4_enemy.prefab","Bullet_skill4":"@Prefab:prefab/Bullet_skill4.prefab","Bullet_skill3_enemy":"@Prefab:prefab/Bullet_skill3_enemy.prefab","Bullet_skill3":"@Prefab:prefab/Bullet_skill3.prefab","Bullet_muzzle5":"@Prefab:prefab/Bullet_muzzle5.prefab","Bullet_muzzle4":"@Prefab:prefab/Bullet_muzzle4.prefab","Bullet_muzzle3":"@Prefab:prefab/Bullet_muzzle3.prefab","Bullet_boss":"@Prefab:prefab/Bullet_boss.prefab","BuffProgress":"@Prefab:prefab/BuffProgress.prefab","Buff":"@Prefab:prefab/Buff.prefab","Boss_zhangyunvhuang":"@Prefab:prefab/Boss_zhangyunvhuang.prefab","Boss_shitoujuren":"@Prefab:prefab/Boss_shitoujuren.prefab","Boss_nanguawangzi":"@Prefab:prefab/Boss_nanguawangzi.prefab","Boss_maowanghou":"@Prefab:prefab/Boss_maowanghou.prefab","Boss_jibaobao":"@Prefab:prefab/Boss_jibaobao.prefab","Boss_hp":"@Prefab:prefab/Boss_hp.prefab","Boss_dashuren":"@Prefab:prefab/Boss_dashuren.prefab","Boss_bingtouxiang":"@Prefab:prefab/Boss_bingtouxiang.prefab","Boss_bingqilinzuhe":"@Prefab:prefab/Boss_bingqilinzuhe.prefab","Boss5":"@Prefab:prefab/Boss5.prefab","Boss4":"@Prefab:prefab/Boss4.prefab","Boss3":"@Prefab:prefab/Boss3.prefab","Boss2":"@Prefab:prefab/Boss2.prefab","Boss1":"@Prefab:prefab/Boss1.prefab"},
+            "props":{"zidan":"@Prefab:prefab/zidan.prefab","y":0,"xg_baozha":"@Prefab:prefab/xg_baozha.prefab","x":0,"warning":"@Prefab:prefab/Boss_warning.prefab","goldDrop":"@Prefab:prefab/DropGold.prefab","enemy_yellow":"@Prefab:prefab/Enemy_yellow.prefab","enemy_special2":"@Prefab:prefab/enemy_special2.prefab","enemy_special1":"@Prefab:prefab/enemy_special1.prefab","enemy_red":"@Prefab:prefab/Enemy_red.prefab","enemy_blue":"@Prefab:prefab/Enemy_blue.prefab","bullet_yellow":"@Prefab:prefab/Bullet_yellow.prefab","bullet_red":"@Prefab:prefab/Bullet_red.prefab","bullet_blue":"@Prefab:prefab/Bullet_blue.prefab","boss_baozha":"@Prefab:prefab/boss_baozha.prefab","baozha":"@Prefab:prefab/baozha.prefab","UpdateItem":"@Prefab:prefab/updateItem_sprite.prefab","ItemDetail":"@Prefab:prefab/ItemDetail.prefab","HpAddToast":"@Prefab:prefab/HpAddToast.prefab","Enemy_yellow":"@Prefab:prefab/Enemy_yellow.prefab","Enemy_red":"@Prefab:prefab/Enemy_red.prefab","Enemy_blue":"@Prefab:prefab/Enemy_blue.prefab","EnemySK":"@Prefab:prefab/EnemySK.prefab","Bullet_skill5_enemy":"@Prefab:prefab/Bullet_skill5_enemy.prefab","Bullet_skill5":"@Prefab:prefab/Bullet_skill5.prefab","Bullet_skill4_enemy":"@Prefab:prefab/Bullet_skill4_enemy.prefab","Bullet_skill4":"@Prefab:prefab/Bullet_skill4.prefab","Bullet_skill3_enemy":"@Prefab:prefab/Bullet_skill3_enemy.prefab","Bullet_skill3":"@Prefab:prefab/Bullet_skill3.prefab","Bullet_muzzle5":"@Prefab:prefab/Bullet_muzzle5.prefab","Bullet_muzzle4":"@Prefab:prefab/Bullet_muzzle4.prefab","Bullet_muzzle3":"@Prefab:prefab/Bullet_muzzle3.prefab","Bullet_boss":"@Prefab:prefab/Bullet_boss.prefab","BuffProgress":"@Prefab:prefab/BuffProgress.prefab","Buff":"@Prefab:prefab/Buff.prefab","Boss_zhangyunvhuang":"@Prefab:prefab/Boss_zhangyunvhuang.prefab","Boss_shitoujuren":"@Prefab:prefab/Boss_shitoujuren.prefab","Boss_nanguawangzi":"@Prefab:prefab/Boss_nanguawangzi.prefab","Boss_maowanghou":"@Prefab:prefab/Boss_maowanghou.prefab","Boss_jibaobao":"@Prefab:prefab/Boss_jibaobao.prefab","Boss_hp":"@Prefab:prefab/Boss_hp.prefab","Boss_dashuren":"@Prefab:prefab/Boss_dashuren.prefab","Boss_bingtouxiang":"@Prefab:prefab/Boss_bingtouxiang.prefab","Boss_bingqilinzuhe":"@Prefab:prefab/Boss_bingqilinzuhe.prefab","Boss5":"@Prefab:prefab/Boss5.prefab","Boss4":"@Prefab:prefab/Boss4.prefab","Boss3":"@Prefab:prefab/Boss3.prefab","Boss2":"@Prefab:prefab/Boss2.prefab","Boss1":"@Prefab:prefab/Boss1.prefab"},
             "nodeParent":2,
             "label":"PlayingSceneControl",
             "isDirectory":false,
@@ -899,7 +950,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -1270,7 +1321,7 @@
                             "x":45,
                             "type":"FontClip",
                             "searchKey":"FontClip,label_score,label_score",
-                            "props":{"y":11,"x":533,"width":167,"visible":false,"var":"label_score","value":"12","valign":"middle","text":"999999","spaceX":-4,"skin":"face/标签大.png","sheet":"0123456789km.","scaleY":1.2,"scaleX":1.2,"name":"label_score","height":51,"fontSize":30,"color":"#ffffff","bold":true,"align":"right"},
+                            "props":{"y":11,"x":481,"width":214,"visible":false,"var":"label_score","value":"500","valign":"middle","text":"999999","spaceX":-4,"skin":"face/标签大.png","sheet":"0123456789km.","scaleY":1.2,"scaleX":1.2,"name":"label_score","height":51,"fontSize":30,"color":"#ffffff","bold":true,"align":"right"},
                             "nodeParent":284,
                             "label":"label_score",
                             "isDirectory":false,
@@ -1403,7 +1454,7 @@
                                 {
                                     "type":"FontClip",
                                     "searchKey":"FontClip,lv_now",
-                                    "props":{"y":117.5,"x":-9,"width":100,"var":"lv_now","value":"1","skin":"face/标签小.png","sheet":"0123456789","height":50,"align":"center"},
+                                    "props":{"y":117.5,"x":-11,"width":100,"var":"lv_now","value":"8","spaceX":-2,"skin":"face/标签小.png","sheet":"0123456789","height":50,"align":"center"},
                                     "nodeParent":346,
                                     "label":"lv_now",
                                     "isDirectory":false,
@@ -1450,13 +1501,14 @@
                     "props":{"y":341,"x":717,"width":60,"var":"img_progressPlane","skin":"face/小飞机图标.png","height":51,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":51,
                     "label":"img_progressPlane",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":289,
                     "child":[
                         {
+                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,haveEnemySprite",
                             "props":{"y":1,"x":-58,"var":"haveEnemySprite","texture":"face/敌机数量框.png"},
@@ -1469,6 +1521,7 @@
                             "compId":301,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"FontClip",
                                     "searchKey":"FontClip,haveEnemy",
                                     "props":{"y":5,"x":-76,"width":200,"visible":true,"var":"haveEnemy","value":"01","valign":"middle","text":"剩余敌人:10","skin":"face/怪物数字.png","sheet":"0123456789","height":55,"fontSize":25,"color":"#f8f4f4","align":"center"},

@@ -44,6 +44,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         this.boosCurrentX = null;//boss当前x
         this.boosCurrentY = null;//boss当前y
         this.self.name = 'zhangyunvhuang';
+        this.self['zhangyunvhuang_Boss'] = this;
 
         //普攻1子弹类型1
         this.attack_01_Delayed_01 = 0;//延时帧数

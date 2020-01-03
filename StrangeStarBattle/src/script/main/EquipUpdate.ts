@@ -441,6 +441,11 @@ export default class EquipUpdate extends Laya.Script {
             default:
                 break;
         }
+        if (fc_consumeNum.value.length >= 6) {
+            fc_consumeNum.scale(0.8,0.8);
+        } else {
+            fc_consumeNum.scale(1,1);
+        }
         //升级需要的货币的图标
         consumeIcon.skin = "commonPic/金币图标.png";
         //监听升级按钮

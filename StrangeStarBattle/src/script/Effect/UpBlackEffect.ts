@@ -21,18 +21,18 @@ export default class UpBlackEffect extends LYSprite {
 
         return this._instance;
     }
-    private animationIndex: number;
+    // private animationIndex: number;
     setShow() {
         this.visible = true;
         this.alpha = 1;
-        this.animationIndex = 0;
+        // this.animationIndex = 0;
         this.clearEffect();
     }
-    setAnimation() {
-        this.animationIndex++ % 2 == 0 && (this.visible = !this.visible);
-    }
+    // setAnimation() {
+    //     this.animationIndex++ % 2 == 0 && (this.visible = !this.visible);
+    // }
     setHide() {
-        Laya.Tween.to(this, { alpha: 0 }, 2000);
+        this.alpha && Laya.Tween.to(this, { alpha: 0 }, 2000);
     }
     clearEffect() {
         Laya.timer.clearAll(this);
