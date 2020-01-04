@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":201,
-    "selecteID":342,
+    "selectedBox":174,
+    "selecteID":368,
     "searchKey":"Scene",
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#000000","pivotY":0,"pivotX":0,"height":1334},
     "nodeParent":-1,
-    "maxID":364,
+    "maxID":369,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -78,44 +78,74 @@
             "props":{"y":0,"x":0,"var":"Clouds","name":"Clouds"},
             "nodeParent":2,
             "label":"Clouds",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":172,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,cloud_01,cloud_01",
                     "props":{"var":"cloud_01","skin":"face/云_01.png","name":"cloud_01"},
                     "nodeParent":172,
                     "label":"cloud_01",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":173,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Sprite",
+                            "searchKey":"Sprite",
+                            "props":{"zOrder":0,"y":383,"x":-3,"texture":"face/云_01_影子.png","scaleY":0.5,"scaleX":0.5},
+                            "nodeParent":173,
+                            "label":"Sprite",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":367,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,cloud_02,cloud_02",
-                    "props":{"y":0,"x":372,"var":"cloud_02","skin":"face/云_02.png","name":"cloud_02"},
+                    "props":{"y":1,"x":372,"var":"cloud_02","skin":"face/云_02.png","name":"cloud_02"},
                     "nodeParent":172,
                     "label":"cloud_02",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":174,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Sprite",
+                            "searchKey":"Sprite",
+                            "props":{"y":342,"x":121,"texture":"face/云_02_影子.png","scaleY":0.5,"scaleX":0.5},
+                            "nodeParent":174,
+                            "label":"Sprite",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":368,
+                            "child":[
+                                ]
+                        }]
                 }]
         },
         {
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite,bulletParent",
-            "props":{"y":0,"x":0,"name":"bulletParent"},
+            "props":{"y":1,"x":0,"name":"bulletParent"},
             "nodeParent":2,
             "label":"bulletParent",
             "isOpen":true,
@@ -130,7 +160,7 @@
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite,bulletParent_enemy,bulletParent_enemy",
-            "props":{"y":0,"x":0,"var":"bulletParent_enemy","name":"bulletParent_enemy"},
+            "props":{"y":1,"x":0,"var":"bulletParent_enemy","name":"bulletParent_enemy"},
             "nodeParent":2,
             "label":"bulletParent_enemy",
             "isDirectory":false,
@@ -258,14 +288,13 @@
                     "props":{"y":55,"x":60,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":4,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":201,
                     "child":[
                         {
-                            "x":45,
                             "type":"SkeletonPlayer",
                             "searchKey":"SkeletonPlayer",
                             "props":{"y":0,"x":2,"url":"dragonbones/plane_03.sk"},
@@ -280,7 +309,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,pic_plane",
                             "props":{"y":0,"x":0,"var":"pic_plane","anchorY":0.5,"anchorX":0.5},
@@ -296,7 +324,6 @@
                             "$HIDDEN":true
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,shadow_main,shadow_main",
                             "props":{"y":80,"x":-113,"var":"shadow_main","skin":"face/plane_03_shadow.png","name":"shadow_main"},

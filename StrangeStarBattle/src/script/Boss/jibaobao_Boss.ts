@@ -28,7 +28,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         this.initProperty();
         this.creatBossAni();
         this.self.name = 'jibaobao';
-        this.self['jibaobao_Boss'] = this;
+        this.self.markName = "jibaobao";
     }
     //初始化属性
     initProperty(): void {

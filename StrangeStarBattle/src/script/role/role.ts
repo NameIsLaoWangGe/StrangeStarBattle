@@ -13,6 +13,7 @@ import LYSkeleton = Laya.Skeleton;
 import LYTemplet = Laya.Templet;
 import SkeletonTempletManage from "../manage/SkeletonTempletManage";
 import EndlessParseSkill from "../manage/EndlessParseSkill";
+import toast from "../manage/toast";
 export default class role extends Laya.Script {
     public static instance: role;
     private self: Laya.Sprite;
@@ -44,7 +45,9 @@ export default class role extends Laya.Script {
     }
     private markShowAndHideIndex: number;
     onUpdate() {
-
+        if (PlayingControl.instance.isGamePause) {
+            return;
+        }
         if (this.noHurt) {
             if (Date.now() - this.markNoHurtStartTime <= 3000) {
                 this.markShowAndHideIndex == void 0 && (this.markShowAndHideIndex = 0);
@@ -90,18 +93,21 @@ export default class role extends Laya.Script {
                         this.isWuDiSkill = false;
                         this.wuDiEndTime = Date.now();
                         this.wuDiEffectObj.visible = false;
+                        toast.noBindScript("无敌状态失效~~~~~~~~");
                     }
                 } else {
                     if (Date.now() - this.wuDiEndTime >= 10 * 1000) {
                         this.wuDiStartTime = Date.now();
                         this.isWuDiSkill = true;
                         this.wuDiEffectObj.visible = true;
+                        toast.noBindScript("现在无敌状态~~~~~~~~");
                     }
                 }
             }
         }
     }
     initWudiSkill() {
+        this.updateWuDiKeepTime();
         this.wuDiStartTime = Date.now();
         this.isWuDiSkill = true;
         if (!this.wuDiEffectObj) {
@@ -111,14 +117,15 @@ export default class role extends Laya.Script {
         }
     }
     createWudiEffect() {
-        const skObj = Laya.Pool.getItemByCreateFun("", () => {
-            const templet: LYTemplet = SkeletonTempletManage.getInstance().templet["wudi"];
+        const skObj = Laya.Pool.getItemByCreateFun("wudi", () => {
+            const templet: LYTemplet = SkeletonTempletManage.getInstance().templets["wudi"];
             const sk = templet.buildArmature(0);
             return sk;
         }, this);
         skObj.pos(this.self.width / 2, this.self.height / 2);
         skObj.play(0, true);
         this.self.addChild(skObj);
+        this.wuDiEffectObj = skObj;
     }
 
     updateWuDiKeepTime() {
@@ -219,9 +226,9 @@ export default class role extends Laya.Script {
     addHpEffect(value: number) {
         const addPrefab: Laya.Prefab = PlayingControl.instance.HpAddToast;
         const obj: Laya.FontClip = Laya.Pool.getItemByCreateFun("HpAddToast", addPrefab.create, addPrefab);
-        obj.pos(this.self.x + 69, this.self.y - 3);
+        obj.pos(80 + 30, - 34 + 24);
         obj.value = "+" + Math.abs(value);
-        PlayingControl.instance.effectParent.addChild(obj);
+        this.self.addChild(obj);
     }
     startRoleNoHurt() {
         this.noHurt = true;

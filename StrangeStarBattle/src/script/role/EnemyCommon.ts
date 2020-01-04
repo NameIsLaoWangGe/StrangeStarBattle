@@ -185,9 +185,6 @@ export default class EnemyCommon {
             case DataT.enemyToPerfab.boss_bingqilinzuhe:
                 this.needAddScript = bingqilinzuhe_Boss;
                 break;
-            case DataT.enemyToPerfab.boss_bingqilinzuhe:
-                this.needAddScript = bingqilinzuhe_Boss;
-                break;
             case DataT.enemyToPerfab.boss_bingtouxiang:
                 this.needAddScript = bingtouxiang_Boss;
                 break;

@@ -109,9 +109,9 @@ export default class bullet extends Laya.Script {
                 default:
                     break;
             }
+            this.accelerated += 0.05;
+            this.timer += 0.1;
         }
-        this.accelerated += 0.05;
-        this.timer += 0.1;
     }
 
     /**

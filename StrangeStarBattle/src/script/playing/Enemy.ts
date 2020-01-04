@@ -136,7 +136,7 @@ export default class Enemy extends Laya.Script {
      * 创建阴影
      */
     private shadow: LYImage;
-    private shadowOffset = { x: -120, y: 140 };
+    private shadowOffset = { x: -120 + 90 + 50, y: 140 + 10 };
     private shadowOffset_boss = { x: -160, y: 240 };
     createShadow() {
         const shadowObj = this.self["shadow"];
@@ -156,6 +156,7 @@ export default class Enemy extends Laya.Script {
             } else {
                 pos.x = this.shadowOffset.x;
                 pos.y = this.shadowOffset.y;
+                nowShadowObj.scale(0.5, 0.5);
             }
             nowShadowObj.pos(this.self.x + pos.x, this.self.y + pos.y);
             this.shadow = nowShadowObj;
@@ -1269,9 +1270,9 @@ export default class Enemy extends Laya.Script {
     }
     cancelEffect() {
         // if (this.gameMode === "level") {
-            this.effectObj && this.effectObj.removeSelf() && (this.effectObj = null);
-            this.markSk && this.markSk.playbackRate(1);
-            this.propertyObj.dropHpStatus = DropHpStatus.ordinary;
+        this.effectObj && this.effectObj.removeSelf() && (this.effectObj = null);
+        this.markSk && this.markSk.playbackRate(1);
+        this.propertyObj.dropHpStatus = DropHpStatus.ordinary;
         // }
     }
     secondBulletHandler(other: Laya.PhysicsComponent, self: any) {

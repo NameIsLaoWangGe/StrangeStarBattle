@@ -230,7 +230,7 @@ export default class BossObject extends EnemyCommon {
     private bulletNum = 0;
     bossAtatck(): void {
         if (this.isWFboss) {
-            this.enmeySprite.addComponent(this.needAddScript);
+            !this.enmeySprite["markName"] && this.enmeySprite.addComponent(this.needAddScript);
             return;
         }
         this.bossStatus = "stand";

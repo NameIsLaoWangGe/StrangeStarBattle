@@ -26,8 +26,10 @@ export default class Boss_jinsenangua extends Laya.Script {
         this.attack_01Time = Date.now();
         this.self = this.owner as Laya.Sprite;
         this.self.name = "maoWangHou";
+        this.self.markName = "maoWangHou";
+
         this.creatBossAni();
-        this.self['maoWangHou_Boss'] = this;
+
     }
 
     //创建boss

@@ -24,11 +24,6 @@ export default class GoldFly {
         this.startMove();
     };
     private createFlyImage(): Laya.Sprite {
-        // const goldIcon: Image = new Image();
-        // goldIcon.skin = "commonPic/钻石图标.png";
-        // goldIcon.pos(this.start.x, this.start.y);
-        // this.addParent.addChild(goldIcon);
-        // Laya.Browser.window.markGold = goldIcon;
         const getDiamond: Laya.Prefab = Laya.loader.getRes("prefab/getDiamond.json");
         let aniDiamond: Laya.Sprite = Laya.Pool.getItemByCreateFun("getDiamond", getDiamond.create, getDiamond);
         aniDiamond.alpha = 0;
@@ -42,7 +37,6 @@ export default class GoldFly {
 
     }
     private startMove() {
-        // Laya.Tween.to(this.moveObj, { x: this.end.x, y: this.end.y }, 500, null, Laya.Handler.create(this, this.moveEnd, []), null, false, true);
         const aniDiamond = this.moveObj;
         // 动画表现
         let timeLine = new Laya.TimeLine;

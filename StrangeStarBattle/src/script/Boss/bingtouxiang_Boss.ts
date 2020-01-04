@@ -38,7 +38,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         this.firstAttack_Interval = 2000;//第一次的时间间隔
         this.attackCounter = 0;//攻击次数计数器；
         this.self.name = 'bingtouxiang';
-        this.self['bingtouxiang_Boss'] = this;
+        this.self.markName = 'bingtouxiang';
 
         //普攻1子弹类型1
         this.attack_01_Delayed_01 = 0;//延时帧数

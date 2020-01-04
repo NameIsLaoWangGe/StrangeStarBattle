@@ -40,6 +40,7 @@ export default class CheckInControl extends Laya.Script {
     private itemParent: Laya.Sprite;
     //private通用的弹出特效
     private dialogE: DialogEffect;
+    private canClose: boolean;
     onEnable(): void {
         this.self = this.owner as Laya.Dialog;
         this.initVar();
@@ -48,6 +49,7 @@ export default class CheckInControl extends Laya.Script {
         Laya.Browser.window.dialog = this.self;
         Music.getInstance().playSound(musicToUrl.ui_popup);
         this.dialogE = new DialogEffect(this.self);
+        this.canClose = true;
     }
 
     initVar(): void {
@@ -73,8 +75,11 @@ export default class CheckInControl extends Laya.Script {
     }
     closeDialog() {
         Music.getInstance().playSound(MusicEnum.musicToUrl.button_normal);
-        this.self.close();
-        // this.dialogE = null;
+        if (this.canClose) {
+            this.self.close();
+            this.dialogE = null;
+        }
+
     }
     private numsArr: Array<Array<string>> = [];
     initItems(): void {
@@ -110,6 +115,7 @@ export default class CheckInControl extends Laya.Script {
         if (checkInData.already) {
             toast.noBindScript("已经签到过了", this.self);
         } else {
+            this.canClose = false;
             const args = { uuId: Playing_var.getInstance().uuId, rate: e };
             const httpClassObj = new HttpModel.HttpClass(Laya.Handler.create(this, (data: any) => {
                 if (false && data.ret === -10) {
@@ -156,6 +162,7 @@ export default class CheckInControl extends Laya.Script {
             toast.noBindScript("签到成功!");
             // Laya.Scene.gc();
         }));
+        this.canClose = true;
     }
     getXYStart(): Array<Laya.Point> {
         const day: number = Playing_var.getInstance().checkInData.day;

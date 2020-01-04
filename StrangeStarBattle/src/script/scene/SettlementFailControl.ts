@@ -77,7 +77,7 @@ export default class SettlementFailControl extends Laya.Script {
      * 失败界面的音效和背景音乐设置
      */
     setFailBgMusic() {
-        Music.getInstance().playMusic(musicToUrl.lose_bg);
+        Music.getInstance().playSound(musicToUrl.lose_bg);
         Music.getInstance().playSound(musicToUrl.lose_noise);
     }
     /**

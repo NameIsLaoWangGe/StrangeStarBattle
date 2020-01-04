@@ -78,6 +78,10 @@ export default class EndlessParseSkill {
                 //更新子弹 创建的速度
                 PlayingControl.instance.setSpeedByEndless(this.getSkillNum(skillId));
                 break;
+            case 5:
+                //更新无敌的持续时间
+                role.instance.updateWuDiKeepTime();
+                break;
             case 18:
                 //超强回复
                 const recoverBeta = 0.01 * this.getSkillNum(skillId);

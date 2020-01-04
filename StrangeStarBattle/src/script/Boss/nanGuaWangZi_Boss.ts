@@ -37,8 +37,8 @@ export default class Boss_jinsenangua extends Laya.Script {
         this.firstAttack = true;
         this.firstAttack_Interval = 500//第一次的时间间隔
         this.attackCounter = 0;//攻击次数计数器；
-        this.self.name ="nanguawangzi";
-        this.self['nanGuaWangZi_Boss'] = this;
+        this.self.name = "nanguawangzi";
+        this.self.markName = "nanguawangzi";
     }
 
 

@@ -912,7 +912,7 @@ export default class PlayingControl extends Laya.Script {
             Music.getInstance().stopOneSound(musicToUrl.bullet_normal);
             // PlayingVar.getInstance().gameModel === "level" && this.touchUpEffct.setShow();
         }
-        this._fighting = false;
+        PlayingVar.getInstance().gameModel === "level" && (this._fighting = false);
     }
     onStageClick(e: Laya.Event): void {
         if (PlayingVar.getInstance().gameStatus === "main") {
@@ -1689,7 +1689,7 @@ export default class PlayingControl extends Laya.Script {
      */
     resumeGame() {
         this.isGamePause = false;
-        Laya.timer.resume();
+        // Laya.timer.resume();
         this.pauseInterval = Date.now() - this.startPauseTime;
         EndlessManage.getInstance().setCompensateTime();
         this.EnemySpite._children.forEach((item) => {
@@ -1833,10 +1833,31 @@ export default class PlayingControl extends Laya.Script {
      */
     private needCreateCycleObj: boolean;
     private readonly CREATE_CYCLE_INTERVAL: number = 100;
-    private createCycleStartTime:number;
+    private createCycleStartTime: number;
     preCreateCycleObject() {
         if (!this.needCreateCycleObj) {
 
+            let markSign = "monster";
+            let pools: any[] = Laya.Pool.getPoolBySign(markSign);
+            if (!pools || pools.length < 22) {
+                this.createCycleStartTime === void 0 && (this.createCycleStartTime = Date.now() - this.CREATE_CYCLE_INTERVAL);
+                this.createCycleObject(markSign)
+            } else {
+                markSign = "monsterSK";
+                pools = Laya.Pool.getPoolBySign(markSign);
+                if (!pools || pools.length < 5) {
+                    this.createCycleObject(markSign)
+                }
+            }
+        }
+    }
+    createCycleObject(markSign) {
+        if (Date.now() - this.createCycleStartTime >= this.CREATE_CYCLE_INTERVAL) {
+            this.createCycleStartTime = Date.now();
+            const markPrefab: Laya.Prefab = Laya.loader.getRes("prefab/EnemySK.json");
+            const enemyObj = markPrefab.create();
+            enemyObj.visible = false;
+            Laya.Pool.recover(markSign, enemyObj);
         }
     }
     set roleHp(hp: number) {
