@@ -442,9 +442,9 @@ export default class EquipUpdate extends Laya.Script {
                 break;
         }
         if (fc_consumeNum.value.length >= 6) {
-            fc_consumeNum.scale(0.8,0.8);
+            fc_consumeNum.scale(0.8, 0.8);
         } else {
-            fc_consumeNum.scale(1,1);
+            fc_consumeNum.scale(1, 1);
         }
         //升级需要的货币的图标
         consumeIcon.skin = "commonPic/金币图标.png";
@@ -489,6 +489,9 @@ export default class EquipUpdate extends Laya.Script {
 
                 if (!this.listVice.length) {
                     this.createListVice();
+                } else {
+                    this.dataFillSecondWeapon();
+                    this.listVice.refresh();
                 }
                 // if (!this.game.secondWeapon.selected) {
                 //     this.updatePanel.visible = false;

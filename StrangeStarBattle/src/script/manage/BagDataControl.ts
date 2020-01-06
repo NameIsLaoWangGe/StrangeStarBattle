@@ -39,7 +39,7 @@ export default class BagDataControl {
             //金币 体力数据初始化
             if (data.bagSecondaryWeapon) {
                 for (i in data.bagSecondaryWeapon) {
-                    this.bagList.add(i, { fire: data.bagSecondaryWeapon[i].fireLvl, power: data.bagSecondaryWeapon[i].powerLvl, num: data.bagSecondaryWeapon[i].num });
+                    this.bagList.add(/*"208"||*/i, { fire: data.bagSecondaryWeapon[i].fireLvl, power: data.bagSecondaryWeapon[i].powerLvl, num: data.bagSecondaryWeapon[i].num });
                 }
             }
             this.updateBagCommon(data);

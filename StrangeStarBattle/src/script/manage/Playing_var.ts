@@ -57,7 +57,7 @@ export default class PlayingVar {
         //现在的关卡
         game.nowLevel = e.barrier.curBarrier || 1;
         game.mainWeapon = { fireLevel: e.mainWeapon.fireLvl, speedLevel: e.mainWeapon.shotSpeed, hpLevel: e.mainWeapon.hpLvl };
-        game.secondWeapon = { selected: e.curSecondaryWeaponId };
+        game.secondWeapon = { selected: /*208 || */e.curSecondaryWeaponId };
         //签到相关
         this.checkInData.already = e.signIn.signIn;
         this.checkInData.day = e.signIn.signTimes;

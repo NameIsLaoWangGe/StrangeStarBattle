@@ -1,10 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":10,
-    "selecteID":15,
+    "selectedBox":2,
     "searchKey":"Dialog,skillsToChoose,skillsToChoose",
-    "props":{"width":750,"var":"skillsToChoose","sceneColor":"#000000","name":"skillsToChoose","height":1334},
+    "props":{"width":750,"var":"skillsToChoose","sceneColor":"#000000","name":"skillsToChoose","isShowEffect":false,"isPopupCenter":false,"height":1334},
     "nodeParent":-1,
     "maxID":27,
     "label":"skillsToChoose",

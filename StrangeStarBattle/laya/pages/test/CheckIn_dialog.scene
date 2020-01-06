@@ -1,10 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":4,
-    "selecteID":32,
+    "selectedBox":2,
     "searchKey":"Dialog",
-    "props":{"y":515,"x":357,"width":750,"sceneColor":"#000000","isShowEffect":false,"isModal":true,"height":1334,"autoDestroyAtClosed":true,"anchorY":0.5,"anchorX":0.5},
+    "props":{"y":515,"x":357,"width":750,"sceneColor":"#000000","isShowEffect":false,"isModal":true,"height":1334,"autoDestroyAtClosed":false,"anchorY":0.5,"anchorX":0.5},
     "nodeParent":-1,
     "maxID":66,
     "label":"Dialog",

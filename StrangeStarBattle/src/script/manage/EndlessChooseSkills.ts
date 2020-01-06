@@ -25,9 +25,10 @@ export default class EndlessChooseSkills extends Laya.Script {
     constructor() { super(); }
     onEnable(): void {
         this.numberOfSkills();
+        Laya.timer.pause();
     }
     numberOfSkills(): void {
-        //拿到当前随机到的三个技能id，如果为null则不加载这个场景
+        // 拿到当前随机到的三个技能id，如果为null则不加载这个场景
         this.randomSkills = EndlessParseSkill.getInstance().getRandomUpgradeSkills();
         if (this.randomSkills.length !== 0) {
             this.initScene();
@@ -39,8 +40,10 @@ export default class EndlessChooseSkills extends Laya.Script {
     /**场景初始化*/
     initScene(): void {
         this.self = this.owner as Laya.Dialog;
-        this.self.pos(0, 0);
         this.contentSet = this.owner.getChildByName('contentSet') as Laya.Sprite;
+        this.background = this.owner.getChildByName('background') as Laya.Sprite;
+        this.contentSet.x = -800;
+        this.self.pos(0, 0);
         //列表
         this.list = this.self['m_list'];
         this.list.repeatX = 1;
@@ -49,17 +52,12 @@ export default class EndlessChooseSkills extends Laya.Script {
         //数据表
         this.indexData = FixedDataTables.getInstance().getData(Data.DataType.endless_skill);
 
-        //黑色先背景出现
+        // //黑色先背景出现
         this.background = this.owner.getChildByName('background') as Laya.Sprite;
-        Laya.Tween.to(this.background, { alpha: 0.8 }, 20, Laya.Ease.circIn, Laya.Handler.create(this, function () {
-        }, []), 0);
-
-        //内容延时出现
-        Laya.Tween.to(this.contentSet, { x: 0, alpha: 1 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
-
-        }, []), 0);
+        this.contentSet.x = -800;
 
         this.adaptive();
+        this.interfaceAppear();
     }
 
     /**适配策略*/
@@ -72,6 +70,46 @@ export default class EndlessChooseSkills extends Laya.Script {
         contentSet.y += (Laya.stage.height - 1334) / 2;
     }
 
+    /**出现开关*/
+    private appearSwitch: boolean = true;
+    /**界面出现动画*/
+    interfaceAppear(): void {
+        // 内容移动
+        if (this.contentSet.x >= 0) {
+            this.appearSwitch = false;
+            this.pageTurnSwitch = true;
+            this.pageTurnTime = Date.now();
+        } else {
+            this.contentSet.x += 200;
+        }
+        // 背景容移动
+        if (this.background.alpha >= 0.8) {
+            this.background.alpha += 0.8;
+        } else {
+            this.background.alpha += 0.05;
+        }
+    }
+
+    /**界面消失动画*/
+    interfaceVanish(index): void {
+        // 内容移动
+        if (this.contentSet.x <= -800) {
+            this.contentSet.x = -800;
+            Laya.timer.resume();
+            Laya.Scene.close('test/skillsToChoose.scene', 'skillsToChoose');
+            EndlessManage.getInstance().selectSkillBack(this.list.array[index]["id"]);
+        } else {
+            this.contentSet.x -= 150;
+        }
+
+        // 背景移动
+        if (this.background.alpha <= 0) {
+            this.background.alpha = 0;
+        } else {
+            this.background.alpha -= 0.05;
+        }
+    }
+
     /**成就栏初始化*/
     listInit(): void {
         const scrollObj = this.list._children[1];
@@ -80,7 +118,6 @@ export default class EndlessChooseSkills extends Laya.Script {
         scrollObj.elasticBackTime = 200;//设置橡皮筋回弹时间。单位为毫秒。
         scrollObj.elasticDistance = 50;//设置橡皮筋极限距离。
         this.listArrayMessage();
-        this.listAnimation();
         this.list.selectHandler = new Laya.Handler(this, this.onSelect_List);
         this.list.renderHandler = new Laya.Handler(this, this.updateItem);
     }
@@ -157,24 +194,37 @@ export default class EndlessChooseSkills extends Laya.Script {
             }
         }
         this.list.array = data;
+        this.pageIndex = this.list.array.length - 1;
     }
 
+    /**翻页动画开关*/
+    private pageTurnSwitch: boolean = false;
+    /**当前索引值*/
+    private pageIndex: number;
+    /**翻页当前时间*/
+    private pageTurnTime: any;
     /**list动画,翻页的时候不可以点击*/
     listAnimation(): void {
-        // 设置不可选
-        this.list.selectEnable = false;
-        // 最后一个置顶
-        this.list.scrollTo(this.list.array.length);
-        // 下翻到最后一个
-        this.list.tweenTo(0, 700, Laya.Handler.create(this, function () {
-            // 设置不可选
+        if (this.pageIndex > 0) {
+            let nowTime = Date.now();
+            if (nowTime - this.pageTurnTime > 40) {
+                this.pageTurnTime = nowTime;
+                this.list.scrollTo(this.pageIndex);
+                this.pageIndex--;
+            }
+        } else {
+            this.list.scrollTo(0);
             this.list.selectEnable = true;
-        }, []));
+            this.pageTurnSwitch = false;
+        }
     }
 
+    /**记录当前触摸的cell*/
+    private presentCell: any = null;
+    /**记录当前触摸的cell索引值*/
+    private presentCellIndex: any = null;
     /**当前触摸的box监听，第一次触摸到任何一个都会关闭场景*/
     onSelect_List(index: number): void {
-        console.log("当前选择的索引：" + index);
         // 按钮动画
         let timeLine = new Laya.TimeLine;
         let cell = this.list.getCell(index);
@@ -185,19 +235,30 @@ export default class EndlessChooseSkills extends Laya.Script {
         this.list.selectEnable = false;
         // 播放音乐
         Music.getInstance().playSound(musicToUrl.button_normal);
-        timeLine.addLabel('press', 0).to(cell, { scaleX: 0.95, scaleY: 0.95 }, 50, Laya.Ease.circInOut, 0)
-            .addLabel('upspring', 0).to(cell, { scaleX: 1, scaleY: 1 }, 150, Laya.Ease.circInOut, 0)
-        timeLine.play('press', false);
+        this.presentCell = cell;
+        this.presentCellIndex = index;
+    }
 
-        timeLine.on(Laya.Event.COMPLETE, this, function () {
-
-            Laya.Tween.to(this.contentSet, { x: -800, Y: 0, alpha: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
-                Laya.Scene.close('test/skillsToChoose.scene', 'skillsToChoose');
-                EndlessManage.getInstance().selectSkillBack(this.list.array[index]["id"]);
-            }, []), 0);
-
-            Laya.Tween.to(this.background, { alpha: 0 }, 50, Laya.Ease.circIn, null, 0);
-        });
+    private vanishSwitch: boolean = false;
+    private press: boolean = false;
+    /**cell的点击效果*/
+    cellClickAni(cell, index): void {
+        if (!this.press) {
+            cell.scaleX -= 0.03;
+            cell.scaleY -= 0.03;
+            if (cell.scaleX < 0.9) {
+                this.press = true;
+            }
+        } else {
+            if (cell.scaleX > 1) {
+                cell.scaleX = 1;
+                cell.scaleY = 1;
+                this.vanishSwitch = true;
+            } else {
+                cell.scaleX += 0.05;
+                cell.scaleY += 0.05;
+            }
+        }
     }
 
     /**box信息对应list赋值信息*/
@@ -223,6 +284,25 @@ export default class EndlessChooseSkills extends Laya.Script {
         // 解释
         let describe = cell.getChildByName('describe') as Laya.Label;
         describe.text = this.list.array[index].dec;
+    }
+
+    onUpdate(): void {
+        // 出现控制
+        if (this.appearSwitch) {
+            this.interfaceAppear();
+        }
+        // list翻页动画
+        if (this.pageTurnSwitch) {
+            this.listAnimation();
+        }
+        // 消失控制
+        // 第一步是按钮动画，第二是场景消失动画
+        if (this.presentCell) {
+            this.cellClickAni(this.presentCell, this.presentCellIndex);
+            if (this.vanishSwitch) {
+                this.interfaceVanish(this.presentCellIndex);
+            }
+        }
     }
 
     onDisable(): void {
