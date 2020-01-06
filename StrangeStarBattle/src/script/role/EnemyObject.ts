@@ -66,7 +66,7 @@ export default class BossObject extends EnemyCommon {
     }
     createWarning() {
         const warning: Laya.Prefab = Laya.loader.getRes("prefab/Boss_warning.prefab");
-        let bossWarning = warning.create();
+        const bossWarning = Laya.Pool.getItemByCreateFun("Boss_warning", warning.create, warning);
         Laya.stage.addChild(bossWarning);
         this.setWarningMusic();
         Laya.timer.once(2300, this, () => {

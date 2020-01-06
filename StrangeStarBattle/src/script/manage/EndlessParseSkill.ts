@@ -207,9 +207,9 @@ export default class EndlessParseSkill {
             if (idArr.length > 3) {
                 const rateArr = this.getRateArr(idArr);
                 const tempArr = tools.getArrayDifElements(rateArr, 3);
-                return tempArr.map((item) => { return Number(item) });
+                return [17] || tempArr.map((item) => { return Number(item) });
             } else {
-                return idArr.map((item) => { return Number(item) });
+                return [17] || idArr.map((item) => { return Number(item) });
             }
         } else {
             return false;

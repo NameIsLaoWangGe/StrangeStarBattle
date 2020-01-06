@@ -1525,7 +1525,7 @@ export default class PlayingControl extends Laya.Script {
                     const percentNum: number = (buffLastTime - proppertyObj.countSecond) / buffLastTime;
                     buffProgress.removeSelf();
                     if (this.buffData[i].type === 2) {
-                        this.bulletSpeed = (0.15 - (MainWeaponData.getInstance().speed - 9) * 0.001) * 1000;
+                        this.bulletSpeed = (0.15 - (MainWeaponData.getInstance().speed - 9) * 0.00075) * 1000;
                         this.bSpeedRateByBuff2 = 1;
                     }
                     delete this.buffData[i];
@@ -1824,7 +1824,7 @@ export default class PlayingControl extends Laya.Script {
     public isWaveEffect: boolean;
     createWaveEffect() {
         const warning: Laya.Prefab = Laya.loader.getRes("prefab/Boss_warning.prefab");
-        let bossWarning = warning.create();
+        const bossWarning = Laya.Pool.getItemByCreateFun("Boss_warning", warning.create, warning);
         this.isWaveEffect = true;
         Laya.stage.addChild(bossWarning);
     }

@@ -136,8 +136,8 @@ export default class Enemy extends Laya.Script {
      * 创建阴影
      */
     private shadow: LYImage;
-    private shadowOffset = { x: -120 + 90 + 50, y: 140 + 10 };
-    private shadowOffset_boss = { x: -160, y: 240 };
+    private shadowOffset = { x: -120 + 90 + 50, y: 140 + 10 + 50 };
+    private shadowOffset_boss = { x: -160 + 80, y: 240 };
     createShadow() {
         const shadowObj = this.self["shadow"];
         if (shadowObj) {
@@ -493,7 +493,7 @@ export default class Enemy extends Laya.Script {
 
     createEnhanceFireEffect() {
         const skName: string = EndlessParseSkill.getInstance().getEffectNameById(17);
-        const skObj = PlayingControl.instance.roleObj.getChildByName("skName");
+        const skObj = PlayingControl.instance.roleObj.getChildByName(skName);
         if (!skObj) {
             EndlessParseSkill.getInstance().setSkillEffect(17);
         }

@@ -1,10 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":17,
-    "selecteID":10,
+    "selectedBox":2,
     "searchKey":"Dialog,suspendInterface,suspendInterface",
-    "props":{"width":750,"var":"suspendInterface","sceneColor":"#000000","name":"suspendInterface","height":1334},
+    "props":{"width":750,"var":"suspendInterface","sceneColor":"#000000","name":"suspendInterface","isShowEffect":false,"isPopupCenter":false,"isModal":true,"height":1334},
     "nodeParent":-1,
     "maxID":43,
     "label":"suspendInterface",

@@ -40,10 +40,6 @@ export default class Boss_jinsenangua extends Laya.Script {
     private timer: number;
     /**主角飞机*/
     private role: Laya.Sprite;
-    /**创建子弹的时间线*/
-    private bulletTimer: number;
-    /**当前发动攻击的时间点记录,每次发动攻击时都会等于bulletTimer*/
-    private bulletTimerRecord: number;
 
     onEnable(): void {
         // 需要每次初始化属性
@@ -340,7 +336,6 @@ export default class Boss_jinsenangua extends Laya.Script {
 
     /**zhongji_xiezi，中级蝎子普通攻击1-1*/
     zhongji_xiezi_01_01() {
-        // this.bulletTimer++;
         // 改变子弹父节点的层级，要大于boss
         (this.owner.scene.getChildByName("bulletParent_enemy") as Laya.Sprite).zOrder = 2;
         this.self.parent.zOrder = 1;
@@ -749,7 +744,6 @@ export default class Boss_jinsenangua extends Laya.Script {
     }
 
     onUpdate() {
-        this.bulletTimer++;
         if (this.moveOnOff_Boss && !PlayingSceneControl.instance.isGamePause) {
             this.move();
             //通过时间间隔发动攻击
@@ -762,8 +756,6 @@ export default class Boss_jinsenangua extends Laya.Script {
                 this.attack_NowTime = nowTime;//重置时间
                 this.attack();
             }
-        } else {
-            console.log('暂停了！');
         }
     }
 

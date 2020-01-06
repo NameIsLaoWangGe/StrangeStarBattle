@@ -41,8 +41,8 @@ export default class EndlessChooseSkills extends Laya.Script {
     /**场景初始化*/
     initScene(): void {
         this.self = this.owner as Laya.Dialog;
-        this.self.pos(0, 0);
         this.contentSet = this.owner.getChildByName('contentSet') as Laya.Sprite;
+        this.contentSet.x = 0;
         //列表
         this.list = this.self['m_list'];
         this.list.repeatX = 4;
@@ -60,27 +60,63 @@ export default class EndlessChooseSkills extends Laya.Script {
         this.explain = this.self['explain'];
         this.explain.alpha = 0;
 
-        //黑色先背景出现
+        // //黑色先背景出现
         this.background = this.owner.getChildByName('background') as Laya.Sprite;
-        Laya.Tween.to(this.background, { alpha: 0.8 }, 20, Laya.Ease.circIn, Laya.Handler.create(this, function () {
-        }, []), 0);
+        // Laya.Tween.to(this.background, { alpha: 0.8 }, 20, Laya.Ease.circIn, Laya.Handler.create(this, function () {
+        // }, []), 0);
 
-        //内容延时出现
-        Laya.Tween.to(this.contentSet, { x: 0, alpha: 1 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
-        }, []), 0);
+        // //内容延时出现
+        // Laya.Tween.to(this.contentSet, { x: 0, alpha: 1 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
+        // }, []), 0);
 
         this.adaptive();
         this.closeButtonClick();
+        Laya.timer.pause();
+        this.pauseInterfaceAppear();
     }
 
     /**适配策略*/
     adaptive() {
-        let background = this.owner.getChildByName('background') as Laya.Sprite;
-        let contentSet = this.owner.getChildByName('contentSet') as Laya.Sprite;
-        contentSet.y += 10;
-        background.height = Laya.stage.height;
-        background.width = Laya.stage.width;
-        contentSet.y += (Laya.stage.height - 1334) / 2;
+        this.contentSet.y += 10;
+        this.background.height = Laya.stage.height;
+        this.background.width = Laya.stage.width;
+        this.contentSet.y += (Laya.stage.height - 1334) / 2;
+    }
+
+    /**暂停界面框出现动画*/
+    pauseInterfaceAppear(): void {
+        this.self.pos(0, 0);
+        this.contentSet.x += 10;
+        this.background.alpha += 0.05;
+        if (this.contentSet.x >= 0) {
+            this.contentSet.x = 0;
+        } else {
+            this.pauseInterfaceAppear();
+        }
+        if (this.background.alpha >= 0.8) {
+            this.background.alpha += 0.8;
+        }
+    }
+
+    /**暂停界面框消失动画*/
+    pauseInterfaceVanish(type): void {
+        this.contentSet.x -= 10;
+        this.background.alpha -= 0.05;
+        if (this.contentSet.x <= -800) {
+            this.contentSet.x = -800;
+            this.self.close();
+            Laya.timer.resume();
+            if (type === 'continue') {
+                PlayingSceneControl.instance.resumeGame();
+            } else if (type === 'settle') {
+                EndlessManage.getInstance().immediatelySettlement();
+            }
+        } else {
+            this.pauseInterfaceVanish(type);
+        }
+        if (this.background.alpha <= 0) {
+            this.background.alpha = 0;
+        }
     }
 
     /**成就栏初始化*/
@@ -96,7 +132,6 @@ export default class EndlessChooseSkills extends Laya.Script {
 
     /**把数据表中的数据导入list.array中*/
     listArrayMessage(): void {
-
         let data: Array<object> = [];
         // 没有学习技能则不执行
         if (this.acquiredSkills.length <= 0) {
@@ -166,16 +201,16 @@ export default class EndlessChooseSkills extends Laya.Script {
         name.text = this.list.array[index].name;
         if (name.text.length >= 7) {
             name.fontSize = 20;
-        }else{
+        } else {
             name.fontSize = 23;
         }
         // 动画
-        if (this.list.array[index].animation) {
-            cell.alpha = 0;
-            Laya.Tween.to(cell, { alpha: 1 }, 800, Laya.Ease.sineInOut, Laya.Handler.create(this, function () {
-                this.list.array[index].animation = false;
-            }, []), 0);
-        }
+        // if (this.list.array[index].animation) {
+        //     cell.alpha = 0;
+        //     Laya.Tween.to(cell, { alpha: 1 }, 800, Laya.Ease.sineInOut, Laya.Handler.create(this, function () {
+        //         this.list.array[index].animation = false;
+        //     }, []), 0);
+        // }
     }
 
     /**继续游戏按钮和退出游戏按钮的点击事件*/
@@ -198,26 +233,25 @@ export default class EndlessChooseSkills extends Laya.Script {
     /**继续按钮点击事件,关闭场景*/
     But_ContinueUP(): void {
         //内容先消失
-        Laya.Tween.to(this.contentSet, { x: -800, Y: 0, alpha: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
+        this.pauseInterfaceVanish('continue');
+        // Laya.Tween.to(this.contentSet, { x: -800, Y: 0, alpha: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
 
-        }, []), 0);
+        // }, []), 0);
 
-        //黑色背景延时消失
-        Laya.Tween.to(this.background, { alpha: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
-            this.self.close();
-            PlayingSceneControl.instance.resumeGame();
-
-        }, []), 50);
+        // //黑色背景延时消失
+        // Laya.Tween.to(this.background, { alpha: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
+        //     this.self.close();
+        //     PlayingSceneControl.instance.resumeGame();
+        // }, []), 50);
     }
 
     /**退出按钮点击事件,切换场景*/
     But_QuitUP(): void {
-
+        // this.pauseInterfaceVanish('settle');
+        Laya.timer.resume();
         //内容先消失
         Laya.Tween.to(this.contentSet, { x: -800, Y: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
-
         }, []), 0);
-
         //黑色背景延时消失
         Laya.Tween.to(this.background, { alpha: 0 }, 100, Laya.Ease.circIn, Laya.Handler.create(this, function () {
             this.self.close();
@@ -225,8 +259,14 @@ export default class EndlessChooseSkills extends Laya.Script {
         }, []), 50);
     }
 
+
+
     /**出屏幕大小还原*/
     closeButtonOUT(): void { }
+
+    onUpdate(): void {
+        // this.pauseInterfaceAppear();
+    }
     onDisable(): void {
     }
 

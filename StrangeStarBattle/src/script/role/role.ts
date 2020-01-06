@@ -221,7 +221,7 @@ export default class role extends Laya.Script {
         const markWidth = 49 + (213 / P_instance.roleTotal) * nowHp;
         mark_graphics.drawRect(0, 0, markWidth, 44, "#ff0000");
         P_instance.delayHpBar2(markWidth);
-        PlayingControl.instance.label_hpNum.text = "" + nowHp + "/" + P_instance.roleTotal;
+        PlayingControl.instance.label_hpNum.text = "" + Math.floor(nowHp) + "/" + P_instance.roleTotal;
     }
     addHpEffect(value: number) {
         const addPrefab: Laya.Prefab = PlayingControl.instance.HpAddToast;

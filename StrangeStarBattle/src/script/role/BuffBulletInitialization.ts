@@ -179,20 +179,6 @@ export default class BuffBulletInitialization {
         for (i = 0; i < bulletNums; i++) {
             const x1: number = this.imgPlane.x + r * Math.cos(anglePlus * i * Math.PI / 180);
             const y1: number = this.imgPlane.y + r * Math.sin(anglePlus * i * Math.PI / 180);
-            // const bullet: Laya.Sprite = PlayingSceneControl.instance.createBulletObj(data.bullet);
-            // bullet["vars_"].propertyObj = { prefabType: Data2.prefabType.bulletRole };
-            // bullet["vars_"].buffValue = data.buffValue;
-            // bullet["vars_"].type = data.type;
-            // bullet["vars_"].propertyObj.hurtValue = Number(MainWeaponData.getInstance().getShowFire());
-            // //展示状态不可碰撞以及造成伤害
-            // bullet["vars_"].markX = x1;
-            // bullet["vars_"].markY = y1;
-            // bullet["vars_"].disAbleRemove = true;
-            // this.roleObj.addChild(bullet);
-            // (bullet.getComponent(Laya.RigidBody) as Laya.RigidBody).setVelocity({ x: 0, y: 0 });
-            // bullet.pos(x1, y1);
-            // Laya.Browser.window.markBullet.push(bullet);
-            //PlayingSceneControl.instance.bulletParent.addChild(bullet);
             const posxy = this.getXiangDuiPos(x1, y1);
             const obj = new BulletMain(Bullet.BulletType.roleMainBullet, posxy, data.bullet, null, data);
             const hurtValue = data.buffValue * Number(MainWeaponData.getInstance().getShowFire());
