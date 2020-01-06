@@ -207,9 +207,9 @@ export default class EndlessParseSkill {
             if (idArr.length > 3) {
                 const rateArr = this.getRateArr(idArr);
                 const tempArr = tools.getArrayDifElements(rateArr, 3);
-                return [17] || tempArr.map((item) => { return Number(item) });
+                return tempArr.map((item) => { return Number(item) });
             } else {
-                return [17] || idArr.map((item) => { return Number(item) });
+                return idArr.map((item) => { return Number(item) });
             }
         } else {
             return false;
@@ -273,7 +273,7 @@ export default class EndlessParseSkill {
                 case 17:
                     //终极防御
                     skObj.play(0, true);
-                    skObj.pos(parent.width / 2, parent.height / 2);
+                    skObj.pos(parent.width / 2, (parent.height / 2) + 70);
                     parent.addChild(skObj);
                     break;
                 case 9:

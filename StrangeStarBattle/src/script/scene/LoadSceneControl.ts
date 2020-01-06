@@ -116,7 +116,7 @@ export default class LoadSceneControl extends Laya.Script {
         if (Laya.Browser.onMiniGame) {
             randonUserId = { code: PlayingVar.getInstance().wecode };
         } else {
-            randonUserId = { weId: "ww1a30add222224"/* + tools.random(1, 100) + tools.random(10, 100)*/ };
+            randonUserId = { weId: "ww1a30add27"/* + tools.random(1, 100) + tools.random(10, 100)*/ };
         }
         // const data: string = "{weId:'1111213jwwwwaaw1'}";
         const data: string = JSON.stringify(randonUserId);

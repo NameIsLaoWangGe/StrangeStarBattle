@@ -1270,7 +1270,10 @@ export default class Enemy extends Laya.Script {
     }
     cancelEffect() {
         // if (this.gameMode === "level") {
-        this.effectObj && this.effectObj.removeSelf() && (this.effectObj = null);
+        if (this.effectObj) {
+            this.effectObj.removeSelf();
+            this.effectObj = null;
+        }
         this.markSk && this.markSk.playbackRate(1);
         this.propertyObj.dropHpStatus = DropHpStatus.ordinary;
         // }

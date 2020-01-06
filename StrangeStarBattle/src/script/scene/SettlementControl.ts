@@ -152,7 +152,7 @@ export default class Settlement extends Laya.Script {
 
         Laya.timer.once(500, this, () => {
             BattleParse.deleteInstance();
-            Laya.Resource.destroyUnusedResources();
+            // Laya.Resource.destroyUnusedResources();
             this.self.close();
             Laya.Scene.open("test/FacePlaying.scene", true);
         });

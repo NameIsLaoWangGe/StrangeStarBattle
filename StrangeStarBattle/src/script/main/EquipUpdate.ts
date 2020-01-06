@@ -46,15 +46,6 @@ export default class EquipUpdate extends Laya.Script {
         // this.listMain = this.owner.getChildAt(1) as Laya.List;
         // this.listMain.repeatY = 1;
         this.listVice = this.owner.getChildAt(2) as Laya.List;
-        this.setListenerUpdate();
-        // Laya.Browser.window.listMain = this.listMain;
-    }
-    setListenerUpdate(): void {
-        return;
-        const boxs: Array<Laya.Box> = this.listMain.cells;
-        for (let i = 0; i < boxs.length; i++) {
-            (boxs[i].getChildByName("btn_update") as Laya.Button).on(Laya.Event.CLICK, this, this.onUpdateBtn, [boxs[i], i]);
-        }
     }
     /**
      * 
@@ -565,7 +556,7 @@ export default class EquipUpdate extends Laya.Script {
             case Laya.Event.MOUSE_DOWN:
                 Laya.timer.clear(this, this.createDetail);
                 this.touchStart = true;
-                Laya.timer.once(1100, this, this.createDetail, [index]);
+                Laya.timer.once(350, this, this.createDetail, [index]);
                 break;
             case Laya.Event.MOUSE_UP:
                 Laya.timer.clear(this, this.createDetail);

@@ -28,7 +28,7 @@ export default class BagDataControl {
     public initBagData(data: userDataRequestBack): void {
         if (!this.bagList) {
             this.bagList = new HashMap();
-
+            Laya.Browser.window.bagList = this.bagList;
             //都是临时的  正式会从服务器取值
             // const key: string = JSON.stringify(202);
             // const value: any = { fire: 1, power: 1, num: 3 };
@@ -102,7 +102,7 @@ export default class BagDataControl {
             for (i; i < data.length; i++) {
                 let id = data[i].id.toString();
                 if (!this.bagList.has(id)) {
-                    this.bagList.add(id, { fire: 1, power: 1, num: 1 })
+                    this.bagList.add(id, { fire: 1, power: 1, num: data[i].num || 1 })
                 } else {
                     const dataOne = this.bagList.get(id);
                     let j;

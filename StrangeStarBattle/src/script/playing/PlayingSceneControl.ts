@@ -211,12 +211,13 @@ export default class PlayingControl extends Laya.Script {
         //初始化背包数据(副武器和钻石体力~)
         BagDataControl.getInstance();
         this.bulletSpeed = (0.15 - (MainWeaponData.getInstance().speed - 9) * 0.00075) * 1000;
-        const secondSpeed = SecondWeaponData.getInstance().getSpeed();
-        if (secondSpeed) {
-            this.bulletSpeedSecond = secondSpeed * 1000/*(0.5 - (SecondWeaponData.getInstance().getSpeed() - 9) * 0.001) * 1000*/;
-        } else {
-            this.bulletSpeedSecond = 0;
-        }
+        // const secondSpeed = SecondWeaponData.getInstance().getSpeed();
+        // if (secondSpeed) {
+        //     this.bulletSpeedSecond = secondSpeed * 1000/*(0.5 - (SecondWeaponData.getInstance().getSpeed() - 9) * 0.001) * 1000*/;
+        // } else {
+        //     this.bulletSpeedSecond = 0;
+        // }
+        this.updateBulletSpeedSecond();
     }
     onAwake() {
         AdaptScene.getInstance().setSceneAdaptHeight();
@@ -290,6 +291,16 @@ export default class PlayingControl extends Laya.Script {
     }
     onResize(arg: any) {
         console.log("onResize----:", arg, "stage.height", Laya.stage.height);
+    }
+    updateBulletSpeedSecond() {
+        const secondSpeed = SecondWeaponData.getInstance().getSpeed();
+        if (secondSpeed) {
+            this.bulletSpeedSecond = secondSpeed * 1000/*(0.5 - (SecondWeaponData.getInstance().getSpeed() - 9) * 0.001) * 1000*/;
+        } else {
+            this.bulletSpeedSecond = 0;
+        }
+
+        console.error("选择:"+Laya.Browser.window.game.secondWeapon.selected+"副武器的速度为:",this.bulletSpeedSecond);
     }
     /**
      * 设置loading界面
@@ -865,6 +876,7 @@ export default class PlayingControl extends Laya.Script {
         PlayingVar.getInstance().gameStatus = "playing";
 
         this.playMusicAndSound(0, musicToUrl.bg_fight);
+        this.updateBulletSpeedSecond();
     }
     onDisable(): void {
         this.buffBulletInit = null;

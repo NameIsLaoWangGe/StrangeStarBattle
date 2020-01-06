@@ -33,8 +33,12 @@ export default class RewardTenControl extends Laya.Script {
 
     initRewardItem(data: any) {
         const equipReward = JSON.parse(data.bagSecondaryWeapon);
+        
         //解析rewardEquip
         const rewardArr = parseRewardEquip(equipReward);
+        if (rewardArr.length !== 10) {
+            debugger;
+        }
         // this.getNowObtainReward();
         const powerReward = JSON.parse(data.bagCommon);
         //之前未创建过

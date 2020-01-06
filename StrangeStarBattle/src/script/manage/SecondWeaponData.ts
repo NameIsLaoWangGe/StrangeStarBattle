@@ -117,12 +117,12 @@ export default class SecondWeaponData {
      * 得到buff的type
      */
     get buffType(): Array<string> {
-        if (!this._buffType) {
+        // if (!this._buffType) {
             const markId: number = this.game.secondWeapon.selected;
             const typeConfig = FixedDataTables.getInstance().getData(DataType.secondaryWeapon, markId).type;
             const typeArray: Array<string> = typeConfig.split("|");
             this._buffType = typeArray;
-        }
+        // }
         return this._buffType;
     }
     /**

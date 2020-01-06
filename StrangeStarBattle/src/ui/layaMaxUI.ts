@@ -111,8 +111,8 @@ export module ui.test {
 		public fc_gold:Laya.FontClip;
 		public btn_exchangeDiamond:Laya.Button;
 		public fc_diamond:Laya.FontClip;
-		public img_mainDiamond:Laya.Sprite;
 		public img_mainGold:Laya.Sprite;
+		public img_mainDiamond:Laya.Sprite;
 		public progressBarEnemyNum:Laya.ProgressBar;
 		public HpLevel:Laya.Sprite;
 		public hpBar2:Laya.Image;

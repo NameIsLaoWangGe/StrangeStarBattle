@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":174,
-    "selecteID":368,
+    "selectedBox":47,
+    "selecteID":179,
     "searchKey":"Scene",
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#000000","pivotY":0,"pivotX":0,"height":1334},
     "nodeParent":-1,
@@ -986,13 +986,14 @@
             "props":{"zOrder":10,"y":5,"x":-5.5,"visible":true,"var":"moneySprite","name":"moneySprite","cacheAs":"bitmap","alpha":1},
             "nodeParent":2,
             "label":"moneySprite",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":47,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_exchangePower",
                     "props":{"zOrder":10,"y":6,"x":27,"var":"btn_exchangePower","stateNum":"1","skin":"face/体力资源条.png","layoutEnabled":true,"labelPadding":"0,50,0,0","labelFont":"main_resources","labelAlign":"right"},
@@ -1034,6 +1035,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_exchangeGold",
                     "props":{"zOrder":10,"y":6,"x":212,"var":"btn_exchangeGold","stateNum":"1","skin":"face/资源条.png","labelFont":"main_resources","labelAlign":"right"},
@@ -1075,6 +1077,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_exchangeDiamond",
                     "props":{"y":6,"x":492,"var":"btn_exchangeDiamond","stateNum":"1","skin":"face/资源条.png","labelFont":"main_resources","labelAlign":"right"},
@@ -1116,22 +1119,10 @@
                         }]
                 },
                 {
-                    "type":"Sprite",
-                    "searchKey":"Sprite,img_mainDiamond",
-                    "props":{"y":4,"x":470,"var":"img_mainDiamond","texture":"commonPic/钻石图标.png"},
-                    "nodeParent":47,
-                    "label":"img_mainDiamond",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":181,
-                    "child":[
-                        ]
-                },
-                {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,img_mainGold",
-                    "props":{"y":5,"x":200,"var":"img_mainGold","texture":"commonPic/金币图标.png"},
+                    "props":{"zOrder":10,"y":5,"x":200,"var":"img_mainGold","texture":"commonPic/金币图标.png"},
                     "nodeParent":47,
                     "label":"img_mainGold",
                     "isDirectory":false,
@@ -1142,9 +1133,24 @@
                         ]
                 },
                 {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,img_mainDiamond",
+                    "props":{"zOrder":10,"y":4,"x":470,"var":"img_mainDiamond","texture":"commonPic/钻石图标.png"},
+                    "nodeParent":47,
+                    "label":"img_mainDiamond",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":181,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite",
-                    "props":{"y":3,"x":16,"texture":"commonPic/体力图标.png"},
+                    "props":{"zOrder":10,"y":3,"x":16,"texture":"commonPic/体力图标.png"},
                     "nodeParent":47,
                     "label":"Sprite",
                     "isDirectory":false,
@@ -1162,14 +1168,13 @@
             "props":{"zOrder":10,"y":-1,"x":0,"visible":false,"name":"playing_layer","alpha":0},
             "nodeParent":2,
             "label":"playing_layer",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":51,
             "child":[
                 {
-                    "x":30,
                     "type":"ProgressBar",
                     "searchKey":"ProgressBar,progressBarEnemyNum",
                     "props":{"y":367,"x":734.5,"var":"progressBarEnemyNum","value":0,"skin":"face/关卡进度条.png","rotation":270},
@@ -1183,7 +1188,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,progressLevel",
                     "props":{"y":-2,"x":0,"name":"progressLevel","cacheAs":"bitmap"},
@@ -1237,20 +1241,18 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,HpLevel,HpLevel",
                     "props":{"y":0,"x":0,"var":"HpLevel","name":"HpLevel"},
                     "nodeParent":51,
                     "label":"HpLevel",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":284,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"skin":"face/HP进度条.png"},
@@ -1264,7 +1266,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,hpBar2",
                             "props":{"y":0,"x":0,"var":"hpBar2","skin":"face/HP进度条填充02.png"},
@@ -1304,7 +1305,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,hpBar",
                             "props":{"var":"hpBar","skin":"face/HP进度条填充.png"},
@@ -1345,7 +1345,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"FontClip",
                             "searchKey":"FontClip,label_score,label_score",
                             "props":{"y":11,"x":481,"width":214,"visible":false,"var":"label_score","value":"500","valign":"middle","text":"999999","spaceX":-4,"skin":"face/标签大.png","sheet":"0123456789km.","scaleY":1.2,"scaleX":1.2,"name":"label_score","height":51,"fontSize":30,"color":"#ffffff","bold":true,"align":"right"},
@@ -1359,7 +1358,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"FontClip",
                             "searchKey":"FontClip,label_distance,label_distance",
                             "props":{"y":158,"x":579,"width":261,"visible":false,"var":"label_distance","value":"123km","valign":"middle","text":"100km","spaceX":-4,"skin":"face/标签大.png","sheet":"0123456789km.","scaleY":0.6,"scaleX":0.6,"name":"label_distance","height":51,"fontSize":27,"color":"#ffffff","bold":false,"align":"right"},
@@ -1373,7 +1371,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,label_hpNum",
                             "props":{"y":0,"x":72.315673828125,"width":150,"var":"label_hpNum","valign":"middle","text":"0/0","strokeColor":"#030303","stroke":2,"height":35,"fontSize":22,"color":"#ffffff","align":"center"},
@@ -1387,7 +1384,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,lvscores_sprite,lvscores_sprite",
                             "props":{"y":0,"x":0,"visible":false,"var":"lvscores_sprite","name":"lvscores_sprite"},
@@ -1506,7 +1502,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,pauseBtn,pauseBtn",
                             "props":{"zOrder":100,"y":60.5,"x":642.5,"visible":false,"var":"pauseBtn","stateNum":"1","skin":"face/暂停.png","name":"pauseBtn"},
@@ -1522,20 +1517,18 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,img_progressPlane",
                     "props":{"y":341,"x":717,"width":60,"var":"img_progressPlane","skin":"face/小飞机图标.png","height":51,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":51,
                     "label":"img_progressPlane",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":289,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,haveEnemySprite",
                             "props":{"y":1,"x":-58,"var":"haveEnemySprite","texture":"face/敌机数量框.png"},
@@ -1548,7 +1541,6 @@
                             "compId":301,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"FontClip",
                                     "searchKey":"FontClip,haveEnemy",
                                     "props":{"y":5,"x":-76,"width":200,"visible":true,"var":"haveEnemy","value":"01","valign":"middle","text":"剩余敌人:10","skin":"face/怪物数字.png","sheet":"0123456789","height":55,"fontSize":25,"color":"#f8f4f4","align":"center"},
@@ -1565,7 +1557,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,progressLeftLabel",
                     "props":{"y":339,"x":664.5,"wordWrap":true,"width":193,"var":"progressLeftLabel","valign":"middle","text":"12","scaleY":0.65,"scaleX":0.65,"overflow":"visible","height":124,"fontSize":25,"font":"customs_pass","drawCallOptimize":true,"align":"center"},
@@ -1580,7 +1571,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,progressRightLabel",
                     "props":{"y":7,"x":664.5,"wordWrap":true,"width":193,"var":"progressRightLabel","valign":"middle","text":"13","scaleY":0.65,"scaleX":0.65,"overflow":"visible","height":124,"fontSize":25,"font":"customs_pass","drawCallOptimize":true,"align":"center"},
