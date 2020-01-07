@@ -320,12 +320,13 @@ export default class Boss_jinsenangua extends Laya.Script {
                 let bulletX = this.self.x + this.self.width * 1 / 3 + 50;
                 let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
                 zhongji_hetun_01_01.pos(bulletX, bulletY);
+
                 //添加运动脚本，并且给予一些属性
-                let MediumEnemy_Bullet = (zhongji_hetun_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                if (!MediumEnemy_Bullet) {
+                if (!zhongji_hetun_01_01['MediumEnemy_bullet']) {
                     zhongji_hetun_01_01.addComponent(MediumEnemy_bullet);
                 }
-                MediumEnemy_Bullet = (zhongji_hetun_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                let MediumEnemy_Bullet = zhongji_hetun_01_01['MediumEnemy_bullet'];
+
                 MediumEnemy_Bullet.line = l;//列
                 MediumEnemy_Bullet.moveOnOff = true;//运动开关
                 MediumEnemy_Bullet.bossName = this.owner.name; //boss名称
@@ -359,17 +360,18 @@ export default class Boss_jinsenangua extends Laya.Script {
                     zhongji_xiezi_01_01.pos(bulletX, bulletY);
 
                     //添加运动脚本，并且给予一些属性
-                    let MediumEnemy_Bullet = (zhongji_xiezi_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                    if (!MediumEnemy_Bullet) {
+                    if (!zhongji_xiezi_01_01['MediumEnemy_bullet']) {
                         zhongji_xiezi_01_01.addComponent(MediumEnemy_bullet);
                     }
-                    MediumEnemy_Bullet = (zhongji_xiezi_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                    let MediumEnemy_Bullet = zhongji_xiezi_01_01['MediumEnemy_bullet'];
 
                     MediumEnemy_Bullet.row = r;//行
                     MediumEnemy_Bullet.line = l;//列
                     MediumEnemy_Bullet.moveOnOff = true;//运动开关
                     MediumEnemy_Bullet.bossName = this.owner.name; //boss名称
                     MediumEnemy_Bullet.firstAngle = r * 45 + l * 15;//初始角度
+                    console.log(zhongji_xiezi_01_01, r + '-' + l, r * 45 + l * 15);
+
                     // 恢复移动
                     if (MediumEnemy_Bullet.row === 7 && MediumEnemy_Bullet.line === 1) {
                         this.moveOnOff_Boss = true;
@@ -410,11 +412,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                         let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
                         zhongji_luobo_01_01.pos(bulletX, bulletY);
                         //添加运动脚本，并且给予一些属性
-                        let MediumEnemy_Bullet = (zhongji_luobo_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                        if (!MediumEnemy_Bullet) {
+                        if (!zhongji_luobo_01_01['MediumEnemy_bullet']) {
                             zhongji_luobo_01_01.addComponent(MediumEnemy_bullet);
                         }
-                        MediumEnemy_Bullet = (zhongji_luobo_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                        let MediumEnemy_Bullet = zhongji_luobo_01_01['MediumEnemy_bullet'];
+
                         MediumEnemy_Bullet.group = g;//行
                         MediumEnemy_Bullet.row = r;//行
                         MediumEnemy_Bullet.line = l;//列
@@ -468,11 +470,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                 }
 
                 //添加运动脚本，并且给予一些属性
-                let MediumEnemy_Bullet = (zhongji_feihou_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                if (!MediumEnemy_Bullet) {
+                if (!zhongji_feihou_01_01['MediumEnemy_bullet']) {
                     zhongji_feihou_01_01.addComponent(MediumEnemy_bullet);
                 }
-                MediumEnemy_Bullet = (zhongji_feihou_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                let MediumEnemy_Bullet = zhongji_feihou_01_01['MediumEnemy_bullet'];
+
                 MediumEnemy_Bullet.line = l;//列
                 MediumEnemy_Bullet.moveOnOff = true;//运动开关
                 MediumEnemy_Bullet.bossName = this.owner.name; //boss名称
@@ -500,12 +502,13 @@ export default class Boss_jinsenangua extends Laya.Script {
                     let bulletX = this.self.x + this.self.width * 1 / 3 + 50;
                     let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
                     zhongji_binghua_01_01.pos(bulletX, bulletY);
+
                     //添加运动脚本，并且给予一些属性
-                    let MediumEnemy_Bullet = (zhongji_binghua_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                    if (!MediumEnemy_Bullet) {
+                    if (!zhongji_binghua_01_01['MediumEnemy_bullet']) {
                         zhongji_binghua_01_01.addComponent(MediumEnemy_bullet);
                     }
-                    MediumEnemy_Bullet = (zhongji_binghua_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                    let MediumEnemy_Bullet = zhongji_binghua_01_01['MediumEnemy_bullet'];
+
                     MediumEnemy_Bullet.row = r;//行
                     MediumEnemy_Bullet.line = l;//列
                     MediumEnemy_Bullet.moveOnOff = true;//运动开关
@@ -543,11 +546,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                         let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
                         zhongji_bingqilin_01_01.pos(bulletX, bulletY);
                         //添加运动脚本，并且给予一些属性
-                        let MediumEnemy_Bullet = (zhongji_bingqilin_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                        if (!MediumEnemy_Bullet) {
+                        if (!zhongji_bingqilin_01_01['MediumEnemy_bullet']) {
                             zhongji_bingqilin_01_01.addComponent(MediumEnemy_bullet);
                         }
-                        MediumEnemy_Bullet = (zhongji_bingqilin_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                        let MediumEnemy_Bullet = zhongji_bingqilin_01_01['MediumEnemy_bullet'];
+
                         MediumEnemy_Bullet.group = g;//组
                         MediumEnemy_Bullet.row = r;//行
                         MediumEnemy_Bullet.line = l;//列
@@ -594,11 +597,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                         let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
                         zhongji_haiyao_01_01.pos(bulletX, bulletY);
                         //添加运动脚本，并且给予一些属性
-                        let MediumEnemy_Bullet = (zhongji_haiyao_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                        if (!MediumEnemy_Bullet) {
+                        if (!zhongji_haiyao_01_01['MediumEnemy_bullet']) {
                             zhongji_haiyao_01_01.addComponent(MediumEnemy_bullet);
                         }
-                        MediumEnemy_Bullet = (zhongji_haiyao_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                        let MediumEnemy_Bullet = zhongji_haiyao_01_01['MediumEnemy_bullet'];
+
                         MediumEnemy_Bullet.group = g;//行
                         MediumEnemy_Bullet.row = r;//行
                         MediumEnemy_Bullet.line = l;//列
@@ -639,13 +642,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                 let bulletX = this.self.x + this.self.width * 1 / 3 + 50;
                 let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
                 zhongji_haisha_01_01.pos(bulletX, bulletY);
-
                 //添加运动脚本，并且给予一些属性
-                let MediumEnemy_Bullet = (zhongji_haisha_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                if (!MediumEnemy_Bullet) {
+                if (!zhongji_haisha_01_01['MediumEnemy_bullet']) {
                     zhongji_haisha_01_01.addComponent(MediumEnemy_bullet);
                 }
-                MediumEnemy_Bullet = (zhongji_haisha_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                let MediumEnemy_Bullet = zhongji_haisha_01_01['MediumEnemy_bullet'];
                 MediumEnemy_Bullet.line = l;//列
                 MediumEnemy_Bullet.moveOnOff = true;//运动开关
                 MediumEnemy_Bullet.firstAngle = l * 20;
@@ -680,11 +681,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                     let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
                     zhongji_huogui_01_01.pos(bulletX + 20, bulletY);
                     //添加运动脚本，并且给予一些属性
-                    let MediumEnemy_Bullet = (zhongji_huogui_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                    if (!MediumEnemy_Bullet) {
+                    if (!zhongji_huogui_01_01['MediumEnemy_bullet']) {
                         zhongji_huogui_01_01.addComponent(MediumEnemy_bullet);
                     }
-                    MediumEnemy_Bullet = (zhongji_huogui_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                    let MediumEnemy_Bullet = zhongji_huogui_01_01['MediumEnemy_bullet'];
+                    
                     MediumEnemy_Bullet.row = r;//行
                     MediumEnemy_Bullet.line = l;//列
                     MediumEnemy_Bullet.firstAngle = Math.floor(Math.random() * 60) + l * 45;
@@ -721,11 +722,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                     let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
                     zhongji_huomogu_01_01.pos(bulletX, bulletY);
                     //添加运动脚本，并且给予一些属性
-                    let MediumEnemy_Bullet = (zhongji_huomogu_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
-                    if (!MediumEnemy_Bullet) {
+                    if (!zhongji_huomogu_01_01['MediumEnemy_bullet']) {
                         zhongji_huomogu_01_01.addComponent(MediumEnemy_bullet);
                     }
-                    MediumEnemy_Bullet = (zhongji_huomogu_01_01 as Laya.Sprite).getComponent(MediumEnemy_bullet);
+                    let MediumEnemy_Bullet = zhongji_huomogu_01_01['MediumEnemy_bullet'];
+                    
                     MediumEnemy_Bullet.row = r;//行
                     MediumEnemy_Bullet.line = l;//列
                     if (l >= 0 && l < 5) {
