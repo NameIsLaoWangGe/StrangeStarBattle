@@ -1,5 +1,5 @@
 D .
-R 32AA1FA .rec
+R C0EA090E .rec
 R AA400072 bitmapFont.atlas
 R CA00CADF bitmapFont.png
 R 1527EFC7 buff.atlas
@@ -64,19 +64,19 @@ R 9F72A202 微信图片_20191127175348.png
 R 31DAB2CF 成就.jpg
 P 1F88547A 未达成.png
 D bitmapFont
-R 2C2964D6 customs_pass.fnt
+R 6286B0A0 customs_pass.fnt
 P AEB1AFC9 customs_pass.png
-R 200BFB99 equipment_Upgrade.fnt
+R B871826A equipment_Upgrade.fnt
 P AF1EE558 equipment_Upgrade.png
-R E9A52689 main_resources.fnt
+R 8CBE18BC main_resources.fnt
 R F498ACF8 main_resources.png
-R 90E496D1 settlement_number.fnt
+R 20B2C8B3 settlement_number.fnt
 R BBC14544 settlement_number.png
-R 978D7FE3 升级按钮.fnt
+R 8731AFD9 升级按钮.fnt
 P E4E6464C 升级按钮.png
-R BA40E18C 复活字体.fnt
+R B5FC8307 复活字体.fnt
 P CBD5F9DF 复活字体.png
-R DFBD601A 胜利关卡字体.fnt
+R 0DFB2C5F 胜利关卡字体.fnt
 P E60844AA 胜利关卡字体.png
 D buff
 P F9B89FEB CD遮罩.png
@@ -329,6 +329,8 @@ P 8067D3D1 plane_10.png
 R 376223DB plane_10.sk
 R 406E2A83 pp.png
 R 4F867ADD pp.sk
+P F6969C2B qianghua.png
+R 2208F0F5 qianghua.sk
 R 7C82E9DE qpbz.png
 R 4602AEB1 qpbz.sk
 R 576F5B1E rumaoyinxue.png
@@ -430,6 +432,11 @@ R 3D49EC4A ui_cuttingline.png
 R 34A347FD ui_skillselect.png
 R 635D78B2 ui_skillunselect.png
 R 5A6B2839 ui_tianjianghongyun.png
+D enemyBullet
+P 7E09A179 zhongjifeihou_b.png
+P 8B476707 zhongjihetun_b.png
+P 2F47333A zhongjiluobo_b.png
+P D5197FCB zhongjixiezi_b.png
 D equip
 P 4D2EE956 主武器.png
 P BF0B5576 主武器_机炮0.png
