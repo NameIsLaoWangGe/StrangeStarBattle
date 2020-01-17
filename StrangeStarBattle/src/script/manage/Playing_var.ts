@@ -56,7 +56,7 @@ export default class PlayingVar {
         });
         //现在的关卡
         // game.nowLevel = e.barrier.curBarrier || 1;
-        game.nowLevel = 10 || 1;
+        game.nowLevel = 50 || 1;
         game.mainWeapon = { fireLevel: e.mainWeapon.fireLvl, speedLevel: e.mainWeapon.shotSpeed, hpLevel: e.mainWeapon.hpLvl };
         game.secondWeapon = { selected: /*208 || */e.curSecondaryWeaponId };
         //签到相关

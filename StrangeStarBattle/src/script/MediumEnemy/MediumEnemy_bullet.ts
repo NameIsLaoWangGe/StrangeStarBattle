@@ -217,6 +217,7 @@ export default class bullet extends Laya.Script {
 
     /**中级海妖1-01*/
     zhongji_haiyao_01_01(): void {
+        this.self.rotation += 5;
         let angle = this.firstAngle;
         let basedSpeed;
         if (this.group === 0) {
@@ -257,6 +258,7 @@ export default class bullet extends Laya.Script {
 
     /**中级火鬼1-01*/
     zhongji_huogui_01_01(): void {
+        this.self.rotation += 5;
         let angle = this.firstAngle;
         let basedSpeed = this.firsSpeed;
         this.commonSpeedXYByAngle(angle, basedSpeed);
@@ -264,6 +266,7 @@ export default class bullet extends Laya.Script {
 
     /**中级火蘑菇1-01*/
     zhongji_huomogu_01_01(): void {
+        this.self.rotation += 5;
         let angle = this.firstAngle;
         let basedSpeed;
         if (this.timer >= 0 && this.timer < 1.5) {

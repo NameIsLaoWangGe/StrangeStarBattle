@@ -433,10 +433,16 @@ R 34A347FD ui_skillselect.png
 R 635D78B2 ui_skillunselect.png
 R 5A6B2839 ui_tianjianghongyun.png
 D enemyBullet
+P B0AFE36E zhongjibinghua_b.png
+P 38BEF45D zhongjibingqilin_b.png
 P 7E09A179 zhongjifeihou_b.png
+P 34AD0519 zhongjihaisha_b.png
+P 8E24CEF4 zhongjihaiyao_b.png
 P 8B476707 zhongjihetun_b.png
+P 6F76564D zhongjihuogui_b.png
+P B1569114 zhongjihuomogu_b.png
 P 2F47333A zhongjiluobo_b.png
-P D5197FCB zhongjixiezi_b.png
+P 7C693403 zhongjixiezi_b.png
 D equip
 P 4D2EE956 主武器.png
 P BF0B5576 主武器_机炮0.png

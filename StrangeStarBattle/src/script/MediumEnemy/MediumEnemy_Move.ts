@@ -298,6 +298,7 @@ export default class Boss_jinsenangua extends Laya.Script {
         bullet_Attack.vars_.propertyObj.fromNick = 'MediumEnemy_Move';
 
         this.bullteParent.addChild(bullet_Attack);
+        bullet_Attack.rotation = 0;
         return bullet_Attack;
     }
 
@@ -523,6 +524,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                     //创建
                     let zhongji_binghua_01_01 = this.initBullet();
                     zhongji_binghua_01_01.name = "zhongji_binghua_01_01";
+                    // 子弹样式替换
+                    let img = zhongji_binghua_01_01.getChildByName('img') as Laya.Image;
+                    img.skin = 'enemyBullet/zhongjibinghua_b.png';
+                    img.pivotX = img.width / 2;
+                    img.pivotY = img.height / 2;
                     // 修正位置
                     let bulletX = this.self.x + this.self.width * 1 / 3 + 50;
                     let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
@@ -539,7 +545,7 @@ export default class Boss_jinsenangua extends Laya.Script {
                     MediumEnemy_Bullet.moveOnOff = true;//运动开关
                     MediumEnemy_Bullet.bossName = this.owner.name; //boss名称
                     MediumEnemy_Bullet.firstAngle = r * 36;
-
+                    img.rotation = MediumEnemy_Bullet.firstAngle - 90;
                     // 恢复移动
                     if (MediumEnemy_Bullet.row === 14 && MediumEnemy_Bullet.line === 1) {
                         this.moveOnOff_Boss = true;
@@ -566,6 +572,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                         //创建
                         let zhongji_bingqilin_01_01 = this.initBullet();
                         zhongji_bingqilin_01_01.name = "zhongji_bingqilin_01_01";
+                        // 子弹样式替换
+                        let img = zhongji_bingqilin_01_01.getChildByName('img') as Laya.Image;
+                        img.skin = 'enemyBullet/zhongjibingqilin_b.png';
+                        img.pivotX = img.width / 2;
+                        img.pivotY = img.height / 2;
                         //修正位置
                         let bulletX = this.self.x + this.self.width * 1 / 3 + 50;
                         let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
@@ -582,6 +593,7 @@ export default class Boss_jinsenangua extends Laya.Script {
                         MediumEnemy_Bullet.moveOnOff = true;//运动开关
                         MediumEnemy_Bullet.bossName = this.owner.name; //boss名称
                         MediumEnemy_Bullet.firstAngle = r * 90 + g * 45;
+                        img.rotation = r * 90 + g * 45 - 90;
                         if (MediumEnemy_Bullet.group === 1 && MediumEnemy_Bullet.row === 3 && MediumEnemy_Bullet.line === 3) {
                             this.moveOnOff_Boss = true;
                         }
@@ -617,6 +629,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                         //创建
                         let zhongji_haiyao_01_01 = this.initBullet();
                         zhongji_haiyao_01_01.name = "zhongji_haiyao_01_01";
+                        // 子弹样式替换
+                        let img = zhongji_haiyao_01_01.getChildByName('img') as Laya.Image;
+                        img.skin = 'enemyBullet/zhongjihaiyao_b.png';
+                        img.pivotX = img.width / 2;
+                        img.pivotY = img.height / 2;
                         // 修正位置
                         let bulletX = this.self.x + this.self.width * 1 / 3 + 50;
                         let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
@@ -636,6 +653,7 @@ export default class Boss_jinsenangua extends Laya.Script {
                         } else {
                             MediumEnemy_Bullet.firstAngle = r * 90 + l * 15 + 45;
                         }
+                        img.rotation = MediumEnemy_Bullet.firstAngle - 90;
                         MediumEnemy_Bullet.bossName = this.owner.name; //boss名称
                         if (MediumEnemy_Bullet.group === 1 && MediumEnemy_Bullet.row === 3 && MediumEnemy_Bullet.line === 3) {
                             this.moveOnOff_Boss = true;
@@ -663,6 +681,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                 //创建
                 let zhongji_haisha_01_01 = this.initBullet();
                 zhongji_haisha_01_01.name = "zhongji_haisha_01_01";
+                // 子弹样式替换
+                let img = zhongji_haisha_01_01.getChildByName('img') as Laya.Image;
+                img.skin = 'enemyBullet/zhongjihaisha_b.png';
+                img.pivotX = img.width / 2;
+                img.pivotY = img.height / 2;
                 // 修正位置
                 let bulletX = this.self.x + this.self.width * 1 / 3 + 50;
                 let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
@@ -678,6 +701,7 @@ export default class Boss_jinsenangua extends Laya.Script {
                 MediumEnemy_Bullet.bossName = this.owner.name; //boss名称
                 //停留时间,换算成加了多少次0.1，也就是timer+=0.1，和移动脚本匹配
                 MediumEnemy_Bullet.standingTime = 15 - l * number * 0.1;
+                img.rotation = MediumEnemy_Bullet.firstAngle - 90;
                 if (MediumEnemy_Bullet.line === 39) {
                     this.moveOnOff_Boss = true;
                 }
@@ -701,6 +725,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                     //创建
                     let zhongji_huogui_01_01 = this.initBullet();
                     zhongji_huogui_01_01.name = "zhongji_huogui_01_01";
+                    // 子弹样式替换
+                    let img = zhongji_huogui_01_01.getChildByName('img') as Laya.Image;
+                    img.skin = 'enemyBullet/zhongjihuogui_b.png';
+                    img.pivotX = img.width / 2;
+                    img.pivotY = img.height / 2;
                     // 修正位置
                     let bulletX = this.self.x + this.self.width * 1 / 3 + 50;
                     let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
@@ -717,7 +746,7 @@ export default class Boss_jinsenangua extends Laya.Script {
                     MediumEnemy_Bullet.firsSpeed = Math.floor(Math.random() * 3) + 5;
                     MediumEnemy_Bullet.moveOnOff = true;//运动开关
                     MediumEnemy_Bullet.bossName = this.owner.name; //boss名称
-
+                    img.rotation = MediumEnemy_Bullet.firstAngle - 90;
                     if (MediumEnemy_Bullet.row === 4 && MediumEnemy_Bullet.line === 5) {
                         this.moveOnOff_Boss = true;
                     }
@@ -742,6 +771,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                     //创建
                     let zhongji_huomogu_01_01 = this.initBullet();
                     zhongji_huomogu_01_01.name = "zhongji_huomogu_01_01";
+                    // 子弹样式替换
+                    let img = zhongji_huomogu_01_01.getChildByName('img') as Laya.Image;
+                    img.skin = 'enemyBullet/zhongjihuomogu_b.png';
+                    img.pivotX = img.width / 2;
+                    img.pivotY = img.height / 2;
                     // 修正位置
                     let bulletX = this.self.x + this.self.width * 1 / 3 + 50;
                     let bulletY = this.self.y + this.self.height * 1 / 3 + 50;
@@ -759,6 +793,7 @@ export default class Boss_jinsenangua extends Laya.Script {
                     } else if (l >= 5 && l < 10) {
                         MediumEnemy_Bullet.firstAngle = 225 - (22.5 * (l - 5)) + r * 60;
                     }
+                    img.rotation = MediumEnemy_Bullet.firstAngle - 90;
                     MediumEnemy_Bullet.moveOnOff = true;//运动开关
                     MediumEnemy_Bullet.bossName = this.owner.name; //boss名称
                     if (MediumEnemy_Bullet.row === 5 && MediumEnemy_Bullet.line === 9) {
