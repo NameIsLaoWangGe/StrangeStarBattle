@@ -161,17 +161,23 @@ export default class Boss_jinsenangua extends Laya.Script {
             let bullet_attack01 = this.initBullet();
             // (this.bullteParent as Laya.Sprite).addChild(bullet_attack01);
             bullet_attack01.name = 'attack_01_Bullet_01';
+            // 子弹样式替换
+            let img = bullet_attack01.getChildByName('img') as Laya.Image;
+            img.skin = 'enemyBullet/boss_nanguawangzi_b_01.png';
+            img.pivotX = img.width / 2;
+            img.pivotY = img.height / 2;
 
             bullet_attack01.pos(this.self.x + this.self.width * 1 / 3, this.self.y + this.self.height * 1 / 3);
 
-            // 先判断是否有这个脚本
-            let nanGuaWangZi_Bullet = (bullet_attack01 as Laya.Sprite).getComponent(nanGuaWangZi_bullet);
-            if (!nanGuaWangZi_Bullet) {
-                (bullet_attack01 as Laya.Sprite).addComponent(nanGuaWangZi_bullet);
+            //添加运动脚本，并且给予一些属性
+            if (!bullet_attack01['nanGuaWangZi_bullet']) {
+                bullet_attack01.addComponent(nanGuaWangZi_bullet);
             }
+            let nanGuaWangZi_Bullet = bullet_attack01['nanGuaWangZi_bullet'];
             nanGuaWangZi_Bullet = (bullet_attack01 as Laya.Sprite).getComponent(nanGuaWangZi_bullet);
-
             nanGuaWangZi_Bullet.line = l;//列
+            nanGuaWangZi_Bullet.dirRotation = Math.floor(Math.random() * 2) === 1 ? 'left' : 'right';
+            img.rotation = 0;
         }
     }
 
@@ -187,6 +193,11 @@ export default class Boss_jinsenangua extends Laya.Script {
                     }
                     let bullet_attack01 = this.initBullet();
                     bullet_attack01.name = 'attack_02_Bullet_01';
+                    // 子弹样式替换
+                    let img = bullet_attack01.getChildByName('img') as Laya.Image;
+                    img.skin = 'enemyBullet/boss_nanguawangzi_b_02.png';
+                    img.pivotX = img.width / 2;
+                    img.pivotY = img.height / 2;
                     // 位置需要修正
                     let bulletX = this.self.x + this.self.width * 1 / 3;
                     let bulletY = this.self.y + this.self.height * 1 / 3;
@@ -219,7 +230,7 @@ export default class Boss_jinsenangua extends Laya.Script {
                         (bullet_attack01 as Laya.Sprite).addComponent(nanGuaWangZi_bullet);
                     }
                     nanGuaWangZi_Bullet = (bullet_attack01 as Laya.Sprite).getComponent(nanGuaWangZi_bullet);
-
+                    img.rotation = 0;
                     nanGuaWangZi_Bullet.row = r;//组
                 })
                 this.attack_Delayed += 10;
@@ -252,18 +263,29 @@ export default class Boss_jinsenangua extends Laya.Script {
                 for (let l = 0; l < 20; l++) {
                     let bullet_attack01 = this.initBullet();
                     bullet_attack01.name = 'skill_01_Bullet_01';
+                    // 子弹样式替换
+                    let img = bullet_attack01.getChildByName('img') as Laya.Image;
+                    img.skin = 'enemyBullet/boss_nanguawangzi_b_03.png';
+                    img.pivotX = img.width / 2;
+                    img.pivotY = img.height / 2;
+
                     // 位置需要修正；
                     let bulletX = this.self.x + this.self.width * 1 / 3;
                     let bulletY = this.self.y + this.self.height * 1 / 3;
                     bullet_attack01.pos(bulletX, bulletY);
 
-                    // 先判断是否有了这个脚本
-                    let nanGuaWangZi_Bullet = (bullet_attack01 as Laya.Sprite).getComponent(nanGuaWangZi_bullet);
-                    if (!nanGuaWangZi_Bullet) {
-                        (bullet_attack01 as Laya.Sprite).addComponent(nanGuaWangZi_bullet);
+                    //添加运动脚本，并且给予一些属性
+                    if (!bullet_attack01['nanGuaWangZi_bullet']) {
+                        bullet_attack01.addComponent(nanGuaWangZi_bullet);
                     }
-                    nanGuaWangZi_Bullet = (bullet_attack01 as Laya.Sprite).getComponent(nanGuaWangZi_bullet);
-
+                    let nanGuaWangZi_Bullet = bullet_attack01['nanGuaWangZi_bullet'];
+                    if (r % 2 !== 0) {
+                        bullet_attack01['nanGuaWangZi_bullet'].firstAngle = l * 18;
+                        img.rotation = bullet_attack01['nanGuaWangZi_bullet'].firstAngle - 90;
+                    } else {
+                        bullet_attack01['nanGuaWangZi_bullet'].firstAngle = l * 18 + 9;
+                        img.rotation = bullet_attack01['nanGuaWangZi_bullet'].firstAngle - 90;
+                    }
                     nanGuaWangZi_Bullet.line = l;//列
                     nanGuaWangZi_Bullet.row = r;//行
                 }

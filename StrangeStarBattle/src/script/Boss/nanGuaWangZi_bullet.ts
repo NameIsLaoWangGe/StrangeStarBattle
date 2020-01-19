@@ -6,7 +6,8 @@ export default class bullet extends Laya.Script {
     private group: number;//分组,高于list和row
     private row: number;//行，相当于列
     private line: number;//列
-    // private moveOnOff: boolean;//移动开关
+    private dirRotation: string;//旋转方向
+    private firstAngle: number//初始方向
     constructor() { super(); }
     onEnable(): void {
         this.self = this.owner as Laya.Sprite;
@@ -46,6 +47,11 @@ export default class bullet extends Laya.Script {
     private accelerated_01_01: number = 0.06;//加速度
     attack_01_01(): void {
         let angle = 22.5 + this.line * 9;
+        if (this.dirRotation === 'left') {
+            this.self.rotation += 5;
+        } else {
+            this.self.rotation -= 5;
+        }
         if (this.line % 3 === 0) {
             this.self.x += tools.speedXYByAngle(angle, 4 + this.accelerated_01_01).x;
             this.self.y += tools.speedXYByAngle(angle, 4 + this.accelerated_01_01).y;
@@ -78,17 +84,9 @@ export default class bullet extends Laya.Script {
     // boss大招子弹类型1
     private skill_accelerated_01_01: number = 0.06;//加速度
     skill_01_01(): void {
-        let angle;
         let baseSpeed = 4;
-        if (this.row % 2 !== 0) {
-            angle = this.line * 18;
-            this.self.x += tools.speedXYByAngle(angle, baseSpeed + this.skill_accelerated_01_01).x;
-            this.self.y += tools.speedXYByAngle(angle, baseSpeed + this.skill_accelerated_01_01).y;
-        } else {
-            angle = this.line * 18 + 9;
-            this.self.x += tools.speedXYByAngle(angle, baseSpeed + this.skill_accelerated_01_01).x;
-            this.self.y += tools.speedXYByAngle(angle, baseSpeed + this.skill_accelerated_01_01).y;
-        }
+        this.self.x += tools.speedXYByAngle(this.firstAngle, baseSpeed + this.skill_accelerated_01_01).x;
+        this.self.y += tools.speedXYByAngle(this.firstAngle, baseSpeed + this.skill_accelerated_01_01).y;
         this.skill_accelerated_01_01 += 0.05;
     }
 
