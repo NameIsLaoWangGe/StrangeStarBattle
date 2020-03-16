@@ -1,1 +1,0 @@
-{"type":"Image","props":{"y":0,"x":0,"skin":"commonPic/金币图标.png","presetID":1,"isPresetRoot":true},"compId":26,"child":[{"type":"Script","props":{"presetID":2,"runtime":"script/role/GoldDrop.ts"},"compId":27}],"loadList":["commonPic/金币图标.png"],"loadList3D":[]}

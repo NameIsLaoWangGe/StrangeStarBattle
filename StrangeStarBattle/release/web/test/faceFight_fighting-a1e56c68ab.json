@@ -1,1 +1,0 @@
-{"type":"Scene","props":{"width":750,"height":1334},"compId":2,"child":[{"type":"Sprite","props":{"y":0,"x":0,"texture":"faceFight_main/BG.png"},"compId":3},{"type":"Sprite","props":{"y":447,"x":228,"texture":"faceFight_main/关卡模式按钮.png"},"compId":4}],"loadList":["faceFight_main/BG.png","faceFight_main/关卡模式按钮.png"],"loadList3D":[]}

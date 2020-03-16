@@ -1,1 +1,0 @@
-{"type":"SkeletonPlayer","props":{"y":0,"x":0,"url":"dragonbones/qianghua.sk","presetID":1,"isPresetRoot":true,"runtime":"laya.ani.bone.Skeleton"},"compId":369,"child":[{"type":"Script","props":{"presetID":2,"runtime":"script/scene/UpdateItemEffectControl.ts"},"compId":370}],"loadList":["dragonbones/qianghua.sk"],"loadList3D":[]}

@@ -1,1 +1,0 @@
-{"type":"View","props":{"width":750,"height":1334},"compId":2,"child":[{"type":"Sprite","props":{"var":"blackSprite","texture":"commonPic/黑色遮罩.png","mouseEnabled":false},"compId":3},{"type":"Sprite","props":{"y":585.5,"x":293.5,"var":"loadIcon","texture":"commonPic/loding.png"},"compId":4}],"loadList":["commonPic/黑色遮罩.png","commonPic/loding.png"],"loadList3D":[]}

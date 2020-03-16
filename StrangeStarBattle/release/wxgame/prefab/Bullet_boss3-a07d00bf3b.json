@@ -1,1 +1,0 @@
-{"type":"Sprite","props":{"y":0,"x":0,"texture":"face/BOSS子弹_01.png","presetID":1,"name":"Bullet_boss3","isPresetRoot":true},"compId":17,"child":[{"type":"Script","props":{"presetID":2,"runtime":"script/playing/Bullet_boss.ts"},"compId":24}],"loadList":["face/BOSS子弹_01.png"],"loadList3D":[]}
