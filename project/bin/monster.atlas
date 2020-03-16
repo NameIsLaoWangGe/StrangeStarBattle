@@ -1,0 +1,433 @@
+{
+    "frames": {
+        "中级_冰淇淋.png": {
+            "frame": {
+                "h": 174,
+                "idx": 0,
+                "w": 152,
+                "x": 612,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 174,
+                "w": 152
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "中级_冰花.png": {
+            "frame": {
+                "h": 166,
+                "idx": 0,
+                "w": 159,
+                "x": 419,
+                "y": 173
+            },
+            "sourceSize": {
+                "h": 166,
+                "w": 159
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "中级_河豚.png": {
+            "frame": {
+                "h": 151,
+                "idx": 0,
+                "w": 243,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 151,
+                "w": 243
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "中级_海妖.png": {
+            "frame": {
+                "h": 188,
+                "idx": 0,
+                "w": 169,
+                "x": 0,
+                "y": 473
+            },
+            "sourceSize": {
+                "h": 188,
+                "w": 169
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "中级_海鲨.png": {
+            "frame": {
+                "h": 142,
+                "idx": 0,
+                "w": 242,
+                "x": 0,
+                "y": 152
+            },
+            "sourceSize": {
+                "h": 142,
+                "w": 242
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "中级_火蘑菇.png": {
+            "frame": {
+                "h": 167,
+                "idx": 0,
+                "w": 150,
+                "x": 190,
+                "y": 315
+            },
+            "sourceSize": {
+                "h": 167,
+                "w": 150
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "中级_火鬼.png": {
+            "frame": {
+                "h": 156,
+                "idx": 0,
+                "w": 196,
+                "x": 244,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 156,
+                "w": 196
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "中级_萝卜.png": {
+            "frame": {
+                "h": 177,
+                "idx": 0,
+                "w": 189,
+                "x": 0,
+                "y": 295
+            },
+            "sourceSize": {
+                "h": 177,
+                "w": 189
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "中级_蝎子.png": {
+            "frame": {
+                "h": 157,
+                "idx": 0,
+                "w": 175,
+                "x": 243,
+                "y": 157
+            },
+            "sourceSize": {
+                "h": 157,
+                "w": 175
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "中级_飞猴.png": {
+            "frame": {
+                "h": 172,
+                "idx": 0,
+                "w": 170,
+                "x": 441,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 172,
+                "w": 170
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_冰块.png": {
+            "frame": {
+                "h": 106,
+                "idx": 0,
+                "w": 142,
+                "x": 0,
+                "y": 662
+            },
+            "sourceSize": {
+                "h": 106,
+                "w": 142
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_冰球.png": {
+            "frame": {
+                "h": 109,
+                "idx": 0,
+                "w": 109,
+                "x": 429,
+                "y": 563
+            },
+            "sourceSize": {
+                "h": 109,
+                "w": 109
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_冰眼.png": {
+            "frame": {
+                "h": 115,
+                "idx": 0,
+                "w": 133,
+                "x": 170,
+                "y": 634
+            },
+            "sourceSize": {
+                "h": 115,
+                "w": 133
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_小恶魔1.png": {
+            "frame": {
+                "h": 91,
+                "idx": 0,
+                "w": 104,
+                "x": 645,
+                "y": 568
+            },
+            "sourceSize": {
+                "h": 93,
+                "w": 104
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_小恶魔2.png": {
+            "frame": {
+                "h": 93,
+                "idx": 0,
+                "w": 113,
+                "x": 429,
+                "y": 673
+            },
+            "sourceSize": {
+                "h": 93,
+                "w": 113
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_小恶魔3.png": {
+            "frame": {
+                "h": 100,
+                "idx": 0,
+                "w": 105,
+                "x": 539,
+                "y": 568
+            },
+            "sourceSize": {
+                "h": 100,
+                "w": 105
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_尖刺.png": {
+            "frame": {
+                "h": 126,
+                "idx": 0,
+                "w": 140,
+                "x": 341,
+                "y": 340
+            },
+            "sourceSize": {
+                "h": 126,
+                "w": 140
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_海星.png": {
+            "frame": {
+                "h": 127,
+                "idx": 0,
+                "w": 122,
+                "x": 623,
+                "y": 331
+            },
+            "sourceSize": {
+                "h": 127,
+                "w": 122
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_火烛.png": {
+            "frame": {
+                "h": 160,
+                "idx": 0,
+                "w": 96,
+                "x": 324,
+                "y": 483
+            },
+            "sourceSize": {
+                "h": 160,
+                "w": 96
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_火虫.png": {
+            "frame": {
+                "h": 121,
+                "idx": 0,
+                "w": 124,
+                "x": 304,
+                "y": 644
+            },
+            "sourceSize": {
+                "h": 121,
+                "w": 124
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_火蜘蛛.png": {
+            "frame": {
+                "h": 98,
+                "idx": 0,
+                "w": 142,
+                "x": 482,
+                "y": 464
+            },
+            "sourceSize": {
+                "h": 98,
+                "w": 142
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_章鱼.png": {
+            "frame": {
+                "h": 108,
+                "idx": 0,
+                "w": 120,
+                "x": 625,
+                "y": 459
+            },
+            "sourceSize": {
+                "h": 108,
+                "w": 120
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_螃蟹.png": {
+            "frame": {
+                "h": 150,
+                "idx": 0,
+                "w": 153,
+                "x": 170,
+                "y": 483
+            },
+            "sourceSize": {
+                "h": 150,
+                "w": 153
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_西瓜.png": {
+            "frame": {
+                "h": 123,
+                "idx": 0,
+                "w": 140,
+                "x": 482,
+                "y": 340
+            },
+            "sourceSize": {
+                "h": 123,
+                "w": 140
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "初级_飞树.png": {
+            "frame": {
+                "h": 155,
+                "idx": 0,
+                "w": 163,
+                "x": 579,
+                "y": 175
+            },
+            "sourceSize": {
+                "h": 155,
+                "w": 163
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "monster.png",
+        "prefix": "monster/"
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "%.png": {
+            "frame": {
+                "h": 45,
+                "idx": 0,
+                "w": 42,
+                "x": 290,
+                "y": 281
+            },
+            "sourceSize": {
+                "h": 46,
+                "w": 45
+            },
+            "spriteSourceSize": {
+                "x": 2,
+                "y": 0
+            }
+        },
+        "开始游戏.png": {
+            "frame": {
+                "h": 51,
+                "idx": 0,
+                "w": 289,
+                "x": 0,
+                "y": 281
+            },
+            "sourceSize": {
+                "h": 54,
+                "w": 292
+            },
+            "spriteSourceSize": {
+                "x": 1,
+                "y": 1
+            }
+        },
+        "标题.png": {
+            "frame": {
+                "h": 234,
+                "idx": 0,
+                "w": 278,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 234,
+                "w": 278
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "进度条数字.png": {
+            "frame": {
+                "h": 45,
+                "idx": 0,
+                "w": 488,
+                "x": 0,
+                "y": 235
+            },
+            "sourceSize": {
+                "h": 45,
+                "w": 495
+            },
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "loading.png",
+        "prefix": "loading/"
+    }
+}

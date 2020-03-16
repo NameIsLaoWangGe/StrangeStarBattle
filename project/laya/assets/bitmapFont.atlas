@@ -1,0 +1,127 @@
+{
+    "frames": {
+        "customs_pass.png": {
+            "frame": {
+                "h": 30,
+                "idx": 0,
+                "w": 241,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 256,
+                "w": 256
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "equipment_Upgrade.png": {
+            "frame": {
+                "h": 26,
+                "idx": 0,
+                "w": 182,
+                "x": 242,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 256,
+                "w": 256
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "main_resources.png": {
+            "frame": {
+                "h": 64,
+                "idx": 0,
+                "w": 238,
+                "x": 242,
+                "y": 27
+            },
+            "sourceSize": {
+                "h": 256,
+                "w": 256
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "settlement_number.png": {
+            "frame": {
+                "h": 144,
+                "idx": 0,
+                "w": 254,
+                "x": 0,
+                "y": 92
+            },
+            "sourceSize": {
+                "h": 256,
+                "w": 256
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "升级按钮.png": {
+            "frame": {
+                "h": 32,
+                "idx": 0,
+                "w": 230,
+                "x": 0,
+                "y": 31
+            },
+            "sourceSize": {
+                "h": 256,
+                "w": 256
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "复活字体.png": {
+            "frame": {
+                "h": 64,
+                "idx": 0,
+                "w": 242,
+                "x": 255,
+                "y": 92
+            },
+            "sourceSize": {
+                "h": 256,
+                "w": 256
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "胜利关卡字体.png": {
+            "frame": {
+                "h": 64,
+                "idx": 0,
+                "w": 242,
+                "x": 255,
+                "y": 157
+            },
+            "sourceSize": {
+                "h": 256,
+                "w": 256
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "bitmapFont.png",
+        "prefix": "bitmapFont/"
+    }
+}

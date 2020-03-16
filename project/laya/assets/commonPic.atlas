@@ -1,0 +1,212 @@
+{
+    "frames": {
+        "daojukuang_zi.png": {
+            "frame": {
+                "h": 120,
+                "idx": 0,
+                "w": 120,
+                "x": 164,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 120,
+                "w": 120
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "fenshu_julishuzi.png": {
+            "frame": {
+                "h": 35,
+                "idx": 0,
+                "w": 443,
+                "x": 0,
+                "y": 265
+            },
+            "sourceSize": {
+                "h": 35,
+                "w": 455
+            },
+            "spriteSourceSize": {
+                "x": 3,
+                "y": 0
+            }
+        },
+        "loding.png": {
+            "frame": {
+                "h": 163,
+                "idx": 0,
+                "w": 163,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 163,
+                "w": 163
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "shuzi.png": {
+            "frame": {
+                "h": 16,
+                "idx": 0,
+                "w": 173,
+                "x": 164,
+                "y": 121
+            },
+            "sourceSize": {
+                "h": 16,
+                "w": 176
+            },
+            "spriteSourceSize": {
+                "x": 1,
+                "y": 0
+            }
+        },
+        "tips_信息底条.png": {
+            "frame": {
+                "h": 62,
+                "idx": 0,
+                "w": 382,
+                "x": 0,
+                "y": 164
+            },
+            "sourceSize": {
+                "h": 62,
+                "w": 382
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "zheheitiao.png": {
+            "frame": {
+                "h": 25,
+                "idx": 0,
+                "w": 83,
+                "x": 164,
+                "y": 138
+            },
+            "sourceSize": {
+                "h": 25,
+                "w": 83
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "体力减少字体.png": {
+            "frame": {
+                "h": 37,
+                "idx": 0,
+                "w": 502,
+                "x": 0,
+                "y": 227
+            },
+            "sourceSize": {
+                "h": 41,
+                "w": 507
+            },
+            "spriteSourceSize": {
+                "x": 3,
+                "y": 2
+            }
+        },
+        "体力图标.png": {
+            "frame": {
+                "h": 56,
+                "idx": 0,
+                "w": 48,
+                "x": 285,
+                "y": 62
+            },
+            "sourceSize": {
+                "h": 56,
+                "w": 55
+            },
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 0
+            }
+        },
+        "关闭按钮.png": {
+            "frame": {
+                "h": 105,
+                "idx": 0,
+                "w": 98,
+                "x": 383,
+                "y": 117
+            },
+            "sourceSize": {
+                "h": 105,
+                "w": 98
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "金币图标.png": {
+            "frame": {
+                "h": 61,
+                "idx": 0,
+                "w": 58,
+                "x": 285,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 61,
+                "w": 58
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "钻石图标.png": {
+            "frame": {
+                "h": 59,
+                "idx": 0,
+                "w": 65,
+                "x": 444,
+                "y": 265
+            },
+            "sourceSize": {
+                "h": 59,
+                "w": 65
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "钻石大图标.png": {
+            "frame": {
+                "h": 116,
+                "idx": 0,
+                "w": 128,
+                "x": 383,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 116,
+                "w": 128
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "commonPic.png",
+        "prefix": "commonPic/"
+    }
+}
