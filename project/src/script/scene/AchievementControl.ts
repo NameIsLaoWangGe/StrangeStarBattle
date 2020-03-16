@@ -106,7 +106,7 @@ export default class AchievementControl extends Laya.Script {
 
         this.adaptive();
     }
-    
+
     /**适配策略*/
     adaptive() {
         let background = this.owner.getChildByName('background') as Laya.Sprite;
@@ -134,14 +134,14 @@ export default class AchievementControl extends Laya.Script {
     }
 
     /**1.tap上面的红点提示，
-     *2.并且把可以领取的奖励Id也是最小的方最上面*/
+     *2.并且把可以领取的奖励Id也是最小的放最上面*/
     tapRedDotRrompt(): void {
         // 刷新数据后才能得到点击后的新数据
         this.achievementBtn.getComponent(AchievementButton).onEnable();
         // “可领取未领取”的id数组
-        let reachButtonArr = this.achievementBtn.getComponent(AchievementButton).reachButtonArr;
-        for (let i = 0; i < reachButtonArr.length; i++) {
-            if (reachButtonArr[i].length !== 0) {
+        let canReach_B_Arr = this.achievementBtn.getComponent(AchievementButton).canReach_B_Arr;
+        for (let i = 0; i < canReach_B_Arr.length; i++) {
+            if (canReach_B_Arr[i].length !== 0) {
                 this.tap._children[i]._children[0].visible = true;
             } else {
                 this.tap._children[i]._children[0].visible = false;
@@ -149,12 +149,16 @@ export default class AchievementControl extends Laya.Script {
         }
     }
 
-    /**设置id最小并且可以领取的成就顶置显示*/
+    /**list中设置id最小并且可以领取的成就顶置显示
+     * 如果没有可以领取的奖励，那么把当前正在进行的成就放在第一个位置
+    */
     getStick() {
         // 刷新数据后才能得到点击后的新数据
         this.achievementBtn.getComponent(AchievementButton).onEnable();
         // “可领取未领取”的id数组
-        let reachButtonArr = this.achievementBtn.getComponent(AchievementButton).reachButtonArr;
+        let canReach_B_Arr = this.achievementBtn.getComponent(AchievementButton).canReach_B_Arr;
+        // 未达成的数组
+        let notReachArr = this.achievementBtn.getComponent(AchievementButton).notReachArr;
         // 数据表里面的不同类型数据节点位置,对应的是id-1
         let number0 = this.dataTypeArray[0].length;
         let number1 = this.dataTypeArray[1].length;
@@ -162,24 +166,30 @@ export default class AchievementControl extends Laya.Script {
         let number3 = this.dataTypeArray[3].length;
 
         let tapIndex = this.tap.selectedIndex;
+        let tweenTime = 0;
         if (tapIndex === 0) {
-            if (reachButtonArr[0].length !== 0) {
-                this.list.tweenTo(reachButtonArr[0][0] - 1, 100);
-                this.topID = reachButtonArr[0][0] - 1;
+            if (canReach_B_Arr[0].length !== 0) {
+                this.list.tweenTo(canReach_B_Arr[0][0] - 1, tweenTime);
+            } else {
+                this.list.tweenTo(notReachArr[0][0] - 1, tweenTime);
             }
         } else if (tapIndex === 1) {
-            if (reachButtonArr[1].length !== 0) {
-                this.list.tweenTo(reachButtonArr[1][0] - number0 - 1, 100);
+            if (canReach_B_Arr[1].length !== 0) {
+                this.list.tweenTo(canReach_B_Arr[1][0] - number0 - 1, tweenTime);
+            } else {
+                this.list.tweenTo(notReachArr[1][0] - number0 - 1, tweenTime);
             }
         } else if (tapIndex === 2) {
-            if (reachButtonArr[2].length !== 0) {
-                this.topID = reachButtonArr[2][0] - number0 - number1 - 1;
-                this.list.tweenTo(reachButtonArr[2][0] - number0 - number1 - 1, 100);
+            if (canReach_B_Arr[2].length !== 0) {
+                this.list.tweenTo(canReach_B_Arr[2][0] - number0 - number1 - 1, tweenTime);
+            } else {
+                this.list.tweenTo(notReachArr[2][0] - number0 - number1 - 1, tweenTime);
             }
         } else if (tapIndex === 3) {
-            if (reachButtonArr[3].length !== 0) {
-                this.topID = reachButtonArr[3][0] - number0 - number1 - number2 - 1;
-                this.list.tweenTo(reachButtonArr[3][0] - number0 - number1 - number2 - 1, 100);
+            if (canReach_B_Arr[3].length !== 0) {
+                this.list.tweenTo(canReach_B_Arr[3][0] - number0 - number1 - number2 - 1, tweenTime);
+            } else {
+                this.list.tweenTo(notReachArr[3][0] - number0 - number1 - number2 - 1, tweenTime);
             }
         }
     }
@@ -190,7 +200,7 @@ export default class AchievementControl extends Laya.Script {
         // 刷新数据后才能得到点击后的新数据
         this.achievementBtn.getComponent(AchievementButton).onEnable();
         // “可领取未领取”的id数组
-        let reachButtonArr = this.achievementBtn.getComponent(AchievementButton).reachButtonArr;
+        let canReach_B_Arr = this.achievementBtn.getComponent(AchievementButton).canReach_B_Arr;
         // "未达成"的id数组
         let notReachArr = this.achievementBtn.getComponent(AchievementButton).notReachArr;
         //数据表
@@ -202,18 +212,21 @@ export default class AchievementControl extends Laya.Script {
         // “可领取未领取”
         // 把传进来的成就分别在四个组中对比,因为他是唯一的，所以只能在一个组里面找到
         // 当找到了“可领取未领取”的这个成就后，就会给这个tap页添加红点提示
-        for (let i = 0; i < reachButtonArr.length; i++) {
-            for (let j = 0; j < reachButtonArr[i].length; j++) {
-                if (reachButtonArr[i][j] === id) {
+        for (let i = 0; i < canReach_B_Arr.length; i++) {
+            for (let j = 0; j < canReach_B_Arr[i].length; j++) {
+                if (canReach_B_Arr[i][j] === id) {
                     getState = 'reachButton';
                 }
             }
         }
+
         //“未达成”
         if (getState === null) {
-            for (let n = 0; n < notReachArr.length; n++) {
-                if (notReachArr[n] === id) {
-                    getState = 'notReach';
+            for (let k = 0; k < notReachArr.length; k++) {
+                for (let l = 0; l < notReachArr[k].length; l++) {
+                    if (notReachArr[k][l] === id) {
+                        getState = 'notReach';
+                    }
                 }
             }
         }
@@ -290,7 +303,6 @@ export default class AchievementControl extends Laya.Script {
     /**box信息对应list赋值信息*/
     updateItem(cell: Laya.Box, index: number): void {
         cell.name = ('item' + index).toString();
-        // cell.y
         //描述
         let describeLabel = cell.getChildByName('describeLabel') as Laya.Label;
         describeLabel.text = this.list.array[index].describe;

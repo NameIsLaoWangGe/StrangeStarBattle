@@ -19,9 +19,9 @@ export default class ButtonTouchEffect extends Laya.Script {
     /**数据表*/
     private indexData: any;
     /**除去已经领取的奖励的成就后，还可以领取却没有领取奖励的id数组*/
-    private reachButtonArr: any;
+    private canReach_B_Arr: any;
     /**未达成成就的id数组*/
-    private notReachArr: Array<number> = [];
+    private notReachArr: any;
     constructor() { super() }
     onEnable() {
         this.eventRegistration();
@@ -36,31 +36,36 @@ export default class ButtonTouchEffect extends Laya.Script {
         this.canReceiveAndeRedDot();
     }
 
-    /**achieve对比数据表,返回一个成就达成的数组，数组里面是数据表里面的id
-     * 并且把没有达成的成就id也放入了this.nodeReachArr中;
+    /**achieve对比数据表,根据类型，返回一个成就达成的数组，数组里面是数据表里面的id
      * @param type 类型,和tap页数据表上面的类型一致1,2,3,4
-     * @param value 成就达成的总值 */
-    contrastTable(type: any, value: number): Array<number> {
-        let reachArray = [];
+     * @param notOrCan 计算未达成的还是达成的
+     * @param value 成就达成的值，达到这个成就就会push进去reachArray，没有则push进this.notReachArr
+     *  */
+    contrastTable(type: any, notOrCan: string, value: number): Array<number> {
+        let array = [];
         for (const key in this.indexData) {
             if (this.indexData.hasOwnProperty(key)) {
                 const element = this.indexData[key];
                 if (element.type === type) {
-                    if (value >= element.value) {
-                        reachArray.push(element.id);
-                    } else {
-                        this.notReachArr.push(element.id);
+                    if (notOrCan === "reach") {
+                        if (value >= element.value) {
+                            array.push(element.id);
+                        }
+                    } else if (notOrCan === "notReach") {
+                        if (value < element.value) {
+                            array.push(element.id);
+                        }
                     }
                 }
             }
         }
-        return reachArray;
+        return array;
     }
 
     /**对比成就奖励已经被领过的信息,返回一个可以领取但是还没有领取的id数组
-     * @param type 类型
-     * @param array 这个类型下的可以领取的id数组
-    */
+    * @param type 类型
+    * @param array 这个类型下的可以领取的id数组
+   */
     contrastPlayerAchieve(type, array: Array<number>): Array<number> {
         for (const key in this.playerAchieve[type]) {
             if (this.playerAchieve[type].hasOwnProperty(key)) {
@@ -79,21 +84,36 @@ export default class ButtonTouchEffect extends Laya.Script {
      * 并且设置红点提示
     */
     canReceiveAndeRedDot(): void {
-        this.reachButtonArr = [];
-        // 不同类型下达成成就的id和未达成的成就id
-        let arr1 = this.contrastTable(1, this.achieve.battleTopNum);
-        let arr2 = this.contrastTable(2, this.achieve.killTopNum);
-        let arr3 = this.contrastTable(3, this.achieve.endlessTopScore);
-        let arr4 = this.contrastTable(4, this.achieve.unlockTopNum);
-        //不同类型下剩余可以领取奖励的id
+        this.canReach_B_Arr = [];
+        // 不同类型下达成成就的id
+        let arr1 = this.contrastTable(1, 'reach', this.achieve.battleTopNum);
+        let arr2 = this.contrastTable(2, 'reach', this.achieve.killTopNum);
+        let arr3 = this.contrastTable(3, 'reach', this.achieve.endlessTopScore);
+        let arr4 = this.contrastTable(4, 'reach', this.achieve.unlockTopNum);
+        //不同类型下达成后还有可以领取奖励的id
         let reachArray1 = this.contrastPlayerAchieve(1, arr1);
         let reachArray2 = this.contrastPlayerAchieve(2, arr2);
         let reachArray3 = this.contrastPlayerAchieve(3, arr3);
         let reachArray4 = this.contrastPlayerAchieve(4, arr4);
-        this.reachButtonArr.push(reachArray1);
-        this.reachButtonArr.push(reachArray2);
-        this.reachButtonArr.push(reachArray3);
-        this.reachButtonArr.push(reachArray4);
+        // 把可以领却还没有领的id push进同一个数组
+        this.canReach_B_Arr.push(reachArray1);
+        this.canReach_B_Arr.push(reachArray2);
+        this.canReach_B_Arr.push(reachArray3);
+        this.canReach_B_Arr.push(reachArray4);
+
+        // 不同类型下，没有达成的成就id
+        this.notReachArr = [];
+        // 不同类型下达成成就的id
+        let notArr1 = this.contrastTable(1, 'notReach', this.achieve.battleTopNum);
+        let notArr2 = this.contrastTable(2, 'notReach', this.achieve.killTopNum);
+        let notArr3 = this.contrastTable(3, 'notReach', this.achieve.endlessTopScore);
+        let notArr4 = this.contrastTable(4, 'notReach', this.achieve.unlockTopNum);
+        this.notReachArr.push(notArr1);
+        this.notReachArr.push(notArr2);
+        this.notReachArr.push(notArr3);
+        this.notReachArr.push(notArr4);
+
+        // 设置红点提示
         if (reachArray1.length === 0 && reachArray2.length === 0 && reachArray3.length === 0 && reachArray4.length === 0) {
             this.redDot.visible = false;
         } else {
